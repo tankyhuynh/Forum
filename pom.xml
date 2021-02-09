@@ -21,6 +21,7 @@
 		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
 		<spring.data>1.11.5.RELEASE</spring.data>
+		
 	</properties>
 
 

@@ -1,8 +1,10 @@
 package com.ltk.forum.model;
 
-import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,10 +33,7 @@ public class CommentModel {
 //	Bai Viet ID
 	@ManyToOne
 	@JoinColumn(name = "bai_viet_id", nullable = false)
-	private PostModel baiVietID;
-	
-//	Nguoi Dung ID;
-	private UserModel nguoiDungId;
+	private PostModel baiVietCommentID;
 
 	
 //	User ID
@@ -43,7 +42,16 @@ public class CommentModel {
 	private UserModel userId;
 	
 //	Lịch sử chỉnh sửa
+	@ElementCollection
+    @CollectionTable(name = "list_history_comment", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "list_history_comment")
 	private List<String> lichSuChinhSua;
+	
+//	Bình luận con 
+	@ElementCollection
+    @CollectionTable(name = "list_subcomments", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "list_subcomments")
+	private List<CommentModel> danhSachBinhLuanCon;
 	
 	
 	

@@ -3,6 +3,9 @@ package com.ltk.forum.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,9 +46,15 @@ public class PostModel {
 	
 //	Sau này chỉnh sửa cần tìm Bài viết gốc để add vô lịch sử chỉnh sửa
 //	Lịch sử chỉnh sửa của bài viết con sẽ ko chứa gì trong lịch sử chỉnh sửa
+	@ElementCollection
+    @CollectionTable(name = "list_history_posts", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "list_history_posts")
 	private List<String> lichSuChinhSua;
 	
-	@OneToMany(mappedBy = "baiVietID")
+	@OneToMany(mappedBy = "baiVietReportID")
+	private List<ReportModel> danhSachBaoCao;
+	
+	@OneToMany(mappedBy = "baiVietCommentID")
 	private List<CommentModel> danhSachBinhLuan;
 	
 	

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "type_of_models")
+@Table(name = "type_of_reports")
 public class TypeOfReportModel {
 
 	@Id

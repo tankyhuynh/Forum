@@ -26,11 +26,10 @@ public class ReportModel {
 	private int id;
 	private Timestamp thoiGian;
 	
-	private UserModel nguoiDungId;
-	
-//	The Loai Bao Cao 
-	
 //	Bai Viet
+	@ManyToOne
+	@JoinColumn(name = "bai_viet_id", nullable = false)
+	private PostModel baiVietReportID;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)

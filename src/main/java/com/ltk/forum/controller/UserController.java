@@ -36,7 +36,7 @@ public class UserController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Update ").append(request.getContextPath());
+		response.getWriter().append("Update ").append(request.getContextPath());
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		try {
