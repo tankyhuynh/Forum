@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
 encoding//database/database.txt=UTF-8
+encoding//src/main/java/com/ltk/forum/model/CommentModel.java=UTF-8
+encoding//src/main/java/com/ltk/forum/model/PostModel.java=UTF-8
+encoding//src/main/java/com/ltk/forum/services/CommentService.java=UTF-8
