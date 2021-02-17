@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ltk.forum.model.UserModel;
 
-@Repository
+
 public interface UserRepo extends JpaRepository<UserModel, Integer> {
 
 }

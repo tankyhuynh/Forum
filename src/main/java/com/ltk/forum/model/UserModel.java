@@ -34,7 +34,7 @@ public class UserModel {
 	
 //	Vai tro manytoone
 	@ManyToOne
-	@JoinColumn(name = "vai_tro_id", nullable = false)
+	@JoinColumn(name = "role_id", nullable = false)
 	private RoleModel vaiTroId;
 	
 	@OneToMany(mappedBy = "userId")

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ltk.forum.model.StatusModel;
 
-@Repository
+
 public interface StatusRepo extends JpaRepository<StatusModel, Integer> {
 
 }

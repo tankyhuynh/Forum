@@ -32,7 +32,7 @@ public class PostModel {
 
 //	Trang Thai
 	@ManyToOne
-	@JoinColumn(name = "trang_thai_id", nullable = false)
+	@JoinColumn(name = "status_id", nullable = false)
 	private StatusModel trangThaiId;
 	
 	private Timestamp thoiGian;

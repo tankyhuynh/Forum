@@ -44,7 +44,7 @@ public class UserController extends HttpServlet {
 			
 			response.getWriter().append("List Users: ");
 			for (UserModel userModel : listUsers) {
-				response.getWriter().append( userModel.getHoTen() );
+//				response.getWriter().append( userModel.getHoTen() );
 			}
 		} catch (Exception e) {
 			System.out.println("Null");

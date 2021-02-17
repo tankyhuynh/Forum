@@ -32,7 +32,7 @@ public class CommentModel {
 	
 //	Bai Viet ID
 	@ManyToOne
-	@JoinColumn(name = "bai_viet_id", nullable = false)
+	@JoinColumn(name = "post_id", nullable = false)
 	private PostModel baiVietCommentID;
 
 	

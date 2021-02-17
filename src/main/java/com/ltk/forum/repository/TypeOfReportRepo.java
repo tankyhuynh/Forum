@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ltk.forum.model.TypeOfReportModel;
 
-@Repository
+
 public interface TypeOfReportRepo extends JpaRepository<TypeOfReportModel, Integer> {
 
 }

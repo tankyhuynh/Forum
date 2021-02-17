@@ -28,7 +28,7 @@ public class ReportModel {
 	
 //	Bai Viet
 	@ManyToOne
-	@JoinColumn(name = "bai_viet_id", nullable = false)
+	@JoinColumn(name = "post_id", nullable = false)
 	private PostModel baiVietReportID;
 	
 	@ManyToOne

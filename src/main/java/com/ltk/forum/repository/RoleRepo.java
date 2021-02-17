@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ltk.forum.model.RoleModel;
 
-@Repository
+
 public interface RoleRepo extends JpaRepository<RoleModel, Integer> {
 
 }
