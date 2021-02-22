@@ -3,13 +3,13 @@
     <persistence-unit name="persistence-data">
     
         <class>com.ltk.forum.model.RoleModel</class>
-        <class>com.ltk.forum.model.CommentModel</class>
-        <class>com.ltk.forum.model.PostModel</class>
-        <class>com.ltk.forum.model.ReportModel</class>
-        <class>com.ltk.forum.model.StatusModel</class>
-        <class>com.ltk.forum.model.TypeOfPostModel</class>
-        <class>com.ltk.forum.model.TypeOfReportModel</class>
         <class>com.ltk.forum.model.UserModel</class>
-        
+        <class>com.ltk.forum.model.TypeOfPostModel</class>
+        <class>com.ltk.forum.model.PostModel</class>
+        <class>com.ltk.forum.model.StatusModel</class>
+        <class>com.ltk.forum.model.CommentModel</class>
+        <class>com.ltk.forum.model.TypeOfReportModel</class>
+        <class>com.ltk.forum.model.ReportModel</class>
+
     </persistence-unit>
 </persistence>

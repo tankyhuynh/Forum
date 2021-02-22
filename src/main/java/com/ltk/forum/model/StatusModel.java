@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,7 +26,10 @@ public class StatusModel {
 	private int id;
 	private String tenTrangThai;
 	
-	@OneToMany(mappedBy = "trangThaiId")
+	@ManyToMany(mappedBy = "post_status")
 	private List<PostModel> danhSachBaiViet;
+	
+	@ManyToMany(mappedBy = "comment_status")
+	private List<CommentModel> comments;
 	
 }

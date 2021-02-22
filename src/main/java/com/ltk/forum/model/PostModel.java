@@ -3,14 +3,18 @@ package com.ltk.forum.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -29,11 +33,6 @@ public class PostModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-//	Trang Thai
-	@ManyToOne
-	@JoinColumn(name = "status_id", nullable = false)
-	private StatusModel trangThaiId;
 	
 	private Timestamp thoiGian;
 	private String tieuDe;
@@ -56,6 +55,13 @@ public class PostModel {
 	
 	@OneToMany(mappedBy = "baiVietCommentID")
 	private List<CommentModel> danhSachBinhLuan;
+	
+//	Trang Thai
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "posts_status", 
+				joinColumns = @JoinColumn(name = "post_id"),
+				inverseJoinColumns = @JoinColumn(name = "status_id"))
+	private List<StatusModel> post_status;
 	
 	
 	
