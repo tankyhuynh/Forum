@@ -1,6 +1,7 @@
 package com.ltk.forum.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -34,9 +35,9 @@ public class PostModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private Timestamp thoiGian;
-	private String tieuDe;
-	private String noiDung;
+	private Timestamp time;
+	private String title;
+	private String content;
 
 //	The Loai
 	@ManyToOne
@@ -45,23 +46,25 @@ public class PostModel {
 	
 //	Sau này chỉnh sửa cần tìm Bài viết gốc để add vô lịch sử chỉnh sửa
 //	Lịch sử chỉnh sửa của bài viết con sẽ ko chứa gì trong lịch sử chỉnh sửa
-	@ElementCollection
-    @CollectionTable(name = "list_history_posts", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "list_history_posts")
-	private List<String> lichSuChinhSua;
+	@ManyToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="history_post_id")
+	private PostModel postModelModify;
+
+	@OneToMany(mappedBy="postModelModify")
+	private List<CommentModel> modifyHistory = new ArrayList<CommentModel>();
 	
-	@OneToMany(mappedBy = "baiVietReportID")
-	private List<ReportModel> danhSachBaoCao;
+	@OneToMany(mappedBy = "reportID")
+	private List<ReportModel> reportList;
 	
-	@OneToMany(mappedBy = "baiVietCommentID")
-	private List<CommentModel> danhSachBinhLuan;
+	@OneToMany(mappedBy = "postId")
+	private List<CommentModel> commentList;
 	
 //	Trang Thai
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "posts_status", 
 				joinColumns = @JoinColumn(name = "post_id"),
 				inverseJoinColumns = @JoinColumn(name = "status_id"))
-	private List<StatusModel> post_status;
+	private List<StatusModel> postStatus;
 	
 	
 	

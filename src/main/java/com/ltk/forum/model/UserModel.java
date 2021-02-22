@@ -26,22 +26,22 @@ public class UserModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String hoTen;
-	private String taiKhoan;
-	private String matKhau;
+	private String fullname;
+	private String username;
+	private String password;
+	private String gender;
 	private String email;
-	private String soDienThoai;
 	
 //	Vai tro manytoone
 	@ManyToOne
 	@JoinColumn(name = "role_id", nullable = false)
-	private RoleModel vaiTroId;
+	private RoleModel roleId;
 	
 	@OneToMany(mappedBy = "userId")
-	private List<ReportModel> danhSachBaoCao;
+	private List<ReportModel> reportList;
 	
 	@OneToMany(mappedBy = "userId")
-	private List<CommentModel> danhSachBinhLuan;
+	private List<CommentModel> commentList;
 	
 	
 }

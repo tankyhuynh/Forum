@@ -1,5 +1,6 @@
 package com.ltk.forum.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -32,12 +34,12 @@ public class CommentModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private String noiDung;
+	private String content;
 	
 //	Bai Viet ID
 	@ManyToOne
 	@JoinColumn(name = "post_id", nullable = false)
-	private PostModel baiVietCommentID;
+	private PostModel postId;
 
 	
 //	User ID
@@ -46,22 +48,26 @@ public class CommentModel {
 	private UserModel userId;
 	
 //	Lịch sử chỉnh sửa
-	@ElementCollection
-    @CollectionTable(name = "list_history_comment", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "list_history_comment")
-	private List<String> lichSuChinhSua;
+	@ManyToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="history_commnent_id")
+	private CommentModel commentModelModify;
+
+	@OneToMany(mappedBy="commentModelModify")
+	private List<CommentModel> modifyHistory = new ArrayList<CommentModel>();
 	
 //	Bình luận con 
-	@ElementCollection
-    @CollectionTable(name = "list_subcomments", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "list_subcomments")
-	private List<String> danhSachBinhLuanCon;
+	@ManyToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="subcommnent_id")
+	private CommentModel commentModelSubcommnet;
+
+	@OneToMany(mappedBy="commentModelSubcommnet")
+	private List<CommentModel> subcommentIds = new ArrayList<CommentModel>();
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "comment_status", 
 				joinColumns = @JoinColumn(name = "comment_id"),
 				inverseJoinColumns = @JoinColumn(name = "status_id"))
-	private List<StatusModel> comment_status;
+	private List<StatusModel> commenStatus;
 	
 	
 	

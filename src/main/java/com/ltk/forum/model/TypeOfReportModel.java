@@ -23,11 +23,11 @@ public class TypeOfReportModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String maTheLoai;
-	private String tenTheLoai;
+	private String code;
+	private String name;
 	
 	@OneToMany(mappedBy = "typeOfReport")
-	private List<ReportModel> danhSachBaoCao;
+	private List<ReportModel> reportList;
 	
 	
 }

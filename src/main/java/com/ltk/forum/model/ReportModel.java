@@ -24,12 +24,12 @@ public class ReportModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private Timestamp thoiGian;
+	private Timestamp time;
 	
 //	Bai Viet
 	@ManyToOne
 	@JoinColumn(name = "post_id", nullable = false)
-	private PostModel baiVietReportID;
+	private PostModel ReportId;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)

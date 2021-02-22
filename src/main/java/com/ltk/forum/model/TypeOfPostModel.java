@@ -23,12 +23,10 @@ public class TypeOfPostModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String maTheLoai;
-	private String tenTheLoai;
+	private String code;
+	private String name;
 	
 	@OneToMany(mappedBy = "typeOfPost")
-	private List<PostModel> danhSachBaiViet;
-	
-//	Vai tro manytoone
+	private List<PostModel> postList;
 	
 }

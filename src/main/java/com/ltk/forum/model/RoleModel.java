@@ -23,10 +23,10 @@ public class RoleModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String maVaiTro;
-	private String tenVaiTro;
+	private String code;
+	private String name;
 	
-	@OneToMany(mappedBy = "vaiTroId")
+	@OneToMany(mappedBy = "roleId")
 	private List<UserModel> danhSachNguoiDung;
 	
 }
