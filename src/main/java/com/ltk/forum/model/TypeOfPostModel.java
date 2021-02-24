@@ -17,16 +17,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "type_of_posts")
+@Table(name = "type_of_post")
 public class TypeOfPostModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String code;
-	private String name;
+	private String typeCode;
+	private String typeName;
 	
-	@OneToMany(mappedBy = "typeOfPost")
+	@OneToMany(mappedBy = "typeOfPostId")
 	private List<PostModel> postList;
 	
 }

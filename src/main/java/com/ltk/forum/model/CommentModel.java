@@ -33,42 +33,35 @@ public class CommentModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
 	private String content;
 	
-//	Bai Viet ID
+
 	@ManyToOne
 	@JoinColumn(name = "post_id", nullable = false)
 	private PostModel postId;
 
-	
-//	User ID
+
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
 	private UserModel userId;
 	
 //	Lịch sử chỉnh sửa
 	@ManyToOne(cascade={CascadeType.ALL})
-	@JoinColumn(name="history_commnent_id")
-	private CommentModel commentModelModify;
+	@JoinColumn(name="history_of_commnent_id")
+	private CommentModel historyOfCommentId;
 
-	@OneToMany(mappedBy="commentModelModify")
-	private List<CommentModel> modifyHistory = new ArrayList<CommentModel>();
+	@OneToMany(mappedBy="historyOfCommentId")
+	private List<CommentModel> historyOfCommentList;
 	
-//	Bình luận con 
+//	Lịch sử chỉnh sửa
 	@ManyToOne(cascade={CascadeType.ALL})
-	@JoinColumn(name="subcommnent_id")
-	private CommentModel commentModelSubcommnet;
+	@JoinColumn(name="child_of_commnent_id")
+	private CommentModel childOfCommentId;
 
-	@OneToMany(mappedBy="commentModelSubcommnet")
-	private List<CommentModel> subcommentIds = new ArrayList<CommentModel>();
+	@OneToMany(mappedBy="childOfCommentId")
+	private List<CommentModel> childOfCommentList;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "comment_status", 
-				joinColumns = @JoinColumn(name = "comment_id"),
-				inverseJoinColumns = @JoinColumn(name = "status_id"))
-	private List<StatusModel> commenStatus;
-	
-	
+	@OneToMany(mappedBy = "commentId")
+	private List<CommentDetailModel> commentDetailList;
 	
 }

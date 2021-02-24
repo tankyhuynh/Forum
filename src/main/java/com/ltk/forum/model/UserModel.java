@@ -19,26 +19,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class UserModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	private String fullname;
+	private String fullName;
 	private String username;
 	private String password;
 	private String gender;
 	private String email;
 	
-//	Vai tro manytoone
 	@ManyToOne
 	@JoinColumn(name = "role_id", nullable = false)
 	private RoleModel roleId;
 	
 	@OneToMany(mappedBy = "userId")
 	private List<ReportModel> reportList;
+	
+	@OneToMany(mappedBy = "userId")
+	private List<PostModel> postList;
 	
 	@OneToMany(mappedBy = "userId")
 	private List<CommentModel> commentList;

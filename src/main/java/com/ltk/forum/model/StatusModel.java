@@ -24,13 +24,14 @@ public class StatusModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String code;
-	private String name;
+	private String statusCode;
+	private String statusName;
 	
-	@ManyToMany(mappedBy = "post_status")
-	private List<PostModel> postList;
 	
-	@ManyToMany(mappedBy = "comment_status")
-	private List<CommentModel> commentList;
+	@OneToMany(mappedBy = "statusId")
+	private List<PostDetailModel> postDetailList;
+	
+	@OneToMany(mappedBy = "statusId")
+	private List<CommentDetailModel> commentDetailList;
 	
 }

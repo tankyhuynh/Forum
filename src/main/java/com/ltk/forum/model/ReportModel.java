@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "reports")
+@Table(name = "report")
 public class ReportModel {
 
 	@Id
@@ -26,10 +26,10 @@ public class ReportModel {
 	private int id;
 	private Timestamp time;
 	
-//	Bai Viet
+
 	@ManyToOne
 	@JoinColumn(name = "post_id", nullable = false)
-	private PostModel ReportId;
+	private PostModel postId;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
@@ -37,6 +37,6 @@ public class ReportModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "type_of_report_id", nullable = false)
-	private TypeOfReportModel typeOfReport;
+	private TypeOfReportModel typeOfReportId;
 	
 }

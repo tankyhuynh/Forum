@@ -17,16 +17,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "type_of_reports")
+@Table(name = "type_of_report")
 public class TypeOfReportModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String code;
-	private String name;
+	private String typeCode;
+	private String typeName;
 	
-	@OneToMany(mappedBy = "typeOfReport")
+	@OneToMany(mappedBy = "typeOfReportId")
 	private List<ReportModel> reportList;
 	
 	

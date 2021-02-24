@@ -53,7 +53,7 @@ public class JPAConfig {
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/askus_db");
 		dataSource.setUsername("root");
-		dataSource.setPassword("root");//doi lai theo pass
+		dataSource.setPassword("root");
 		return dataSource;
 	}
 	
