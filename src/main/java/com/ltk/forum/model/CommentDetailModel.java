@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,13 +31,18 @@ public class CommentDetailModel {
 	
 		private Timestamp time;
 
+		
+		@Id
+	    int id;
+
 		@ManyToOne
 		@JoinColumn(name = "status_id", nullable = false)
 		private StatusModel statusId;
 		
+		
 		@ManyToOne
 		@JoinColumn(name = "comment_id", nullable = false)
-		private CommentModel commentId;
+		private PostModel commentId;
 		
 	
 }
