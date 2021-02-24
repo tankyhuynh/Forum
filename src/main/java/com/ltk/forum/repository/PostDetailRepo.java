@@ -7,13 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.ltk.forum.model.Post;
+import com.ltk.forum.model.PostDetail;
+import com.ltk.forum.model.Status;
 
 @Repository
-public interface PostRepo extends JpaRepository<Post, Integer> {
+public interface PostDetailRepo extends JpaRepository<PostDetail, Integer> {
 
 //	@Query(" SELECT a FROM post as a where a.history_of_post_id is null ")
-	List<Post> findAllByHistoryOfPostIdIsNull();
-	
-	Post findOneById(Long id);
+//	List<PostDetail> findAllByStatusIdNotEqual(Status statusId);
+//	
+//	PostDetail findOneById(Long id);
 	
 }
