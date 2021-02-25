@@ -1,68 +1,54 @@
 package com.ltk.forum.model;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "posts")
-public class PostModel {
-
+@Table(name = "post")
+public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
+	
+	@Column(name = "title")
 	private String title;
+	
+	@Column(name = "content")
 	private String content;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
-	private UserModel userId;
+	private User userId;
 
 
 	@ManyToOne
 	@JoinColumn(name = "type_of_post_id", nullable = false)
-	private TypeOfPostModel typeOfPostId;
+	private TypeOfPost typeOfPostId;
 	
 
-	@ManyToOne(cascade={CascadeType.ALL})
+	@ManyToOne
 	@JoinColumn(name="history_of_post_id")
-	private PostModel historyOfPostId;
+	private Post historyOfPostId;
 	
 	@OneToMany(mappedBy="historyOfPostId")
-	private List<PostModel> historyOfPostList;
+	private List<Post> historyOfPostList;
 	
 	@OneToMany(mappedBy = "postId")
-	private List<ReportModel> reportList;
+	private List<Report> reportList;
 	
 	@OneToMany(mappedBy = "postId")
-	private List<CommentModel> commentList;
+	private List<Comment> commentList;
 	
 	@OneToMany(mappedBy = "postId")
-	private List<PostDetailModel> postDetailList;
-	
-		
+	private List<PostDetail> postDetailList;
 	
 }

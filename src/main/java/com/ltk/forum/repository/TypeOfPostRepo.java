@@ -1,11 +1,10 @@
 package com.ltk.forum.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-import com.ltk.forum.model.TypeOfPostModel;
+import com.ltk.forum.model.TypeOfPost;
 
 
-public interface TypeOfPostRepo extends JpaRepository<TypeOfPostModel, Integer>{
+public interface TypeOfPostRepo extends JpaRepository<TypeOfPost, Integer>{
 
 }

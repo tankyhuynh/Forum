@@ -2,6 +2,7 @@ package com.ltk.forum.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,24 +10,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "role")
-public class RoleModel {
-
+@Table(name = "type_of_report")
+public class TypeOfReport {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String roleCode;
-	private String roleName;
+	private Long id;
 	
-	@OneToMany(mappedBy = "roleId")
-	private List<UserModel> userList;
+	@Column(name = "type_code")
+	private String typeCode;
 	
+	@Column(name = "type_name")
+	private String typeName;
+	
+	@OneToMany(mappedBy = "typeOfReportId")
+	private List<Report> reportList;
 }

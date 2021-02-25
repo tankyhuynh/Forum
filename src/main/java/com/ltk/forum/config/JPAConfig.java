@@ -60,9 +60,7 @@ public class JPAConfig {
 	Properties additionalProperties() {
 		Properties properties = new Properties();
 		//create-drop tao database tu entity chi lam dau de tao data
-		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-		
-		
+		//properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		//properties.setProperty("hibernate.hbm2ddl.auto", "none");
 		return properties;
 	}

@@ -2,6 +2,7 @@ package com.ltk.forum.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,33 +11,27 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "report")
-public class ReportModel {
-
+public class Report {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
+	
+	@Column(name = "time")
 	private Timestamp time;
 	
-
 	@ManyToOne
 	@JoinColumn(name = "post_id", nullable = false)
-	private PostModel postId;
+	private Post postId;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
-	private UserModel userId;
+	private User userId;
 	
 	@ManyToOne
 	@JoinColumn(name = "type_of_report_id", nullable = false)
-	private TypeOfReportModel typeOfReportId;
+	private TypeOfReport typeOfReportId;
 	
 }

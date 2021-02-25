@@ -1,11 +1,10 @@
 package com.ltk.forum.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-import com.ltk.forum.model.StatusModel;
+import com.ltk.forum.model.Status;
 
 
-public interface StatusRepo extends JpaRepository<StatusModel, Integer> {
+public interface StatusRepo extends JpaRepository<Status, Integer> {
 
 }

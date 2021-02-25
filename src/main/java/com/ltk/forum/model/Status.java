@@ -2,36 +2,31 @@ package com.ltk.forum.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "status")
-public class StatusModel {
-
+public class Status {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
+	
+	@Column(name = "status_code")
 	private String statusCode;
+	
+	@Column(name = "status_name")
 	private String statusName;
 	
 	
 	@OneToMany(mappedBy = "statusId")
-	private List<PostDetailModel> postDetailList;
+	private List<PostDetail> postDetailList;
 	
 	@OneToMany(mappedBy = "statusId")
-	private List<CommentDetailModel> commentDetailList;
-	
+	private List<CommentDetail> commentDetailList;
 }
