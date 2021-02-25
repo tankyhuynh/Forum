@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ltk.forum.model.Post;
-import com.ltk.forum.model.PostDetail;
 import com.ltk.forum.services.PostService;
 
 @Controller
@@ -28,22 +27,22 @@ public class PostController {
 	
 	
 	public ModelAndView getAllByRootPostWithStatusIsDX() {
-		List<Post> nullPosts = postService.getAllByNullHistory();
-	
-		//Bài viết gốc với trạng thái "Đã xóa"
-		System.out.println("Post Details: ");
-		for (Post post : nullPosts) {
-			boolean check = false;
-			for (PostDetail child : post.getPostDetailList()) {
-				if (child.getStatusId().getStatusCode().equals("DX")) {
-					check = true;
-				}
-			}
-			if (check) {
-				continue;
-			}
-			else System.out.println(post.getId()+ " " + post.getTitle());
-		}
+//		List<Post> nullPosts = postService.getAllByNullHistory();
+//	
+//		//Bài viết gốc với trạng thái "Đã xóa"
+//		System.out.println("Post Details: ");
+//		for (Post post : nullPosts) {
+//			boolean check = false;
+//			for (PostDetail child : post.getPostDetailList()) {
+//				if (child.getStatusId().getStatusCode().equals("DX")) {
+//					check = true;
+//				}
+//			}
+//			if (check) {
+//				continue;
+//			}
+//			else System.out.println(post.getId()+ " " + post.getTitle());
+//		}
 		ModelAndView mav = new ModelAndView("post");
 		return mav; 
 	}

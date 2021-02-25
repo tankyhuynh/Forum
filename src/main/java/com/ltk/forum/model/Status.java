@@ -29,8 +29,8 @@ public class Status {
 	
 	
 	@OneToMany(mappedBy = "statusId")
-	private List<PostDetail> postDetailList;
+	private List<Post> postList;
 	
 	@OneToMany(mappedBy = "statusId")
-	private List<CommentDetail> commentDetailList;
+	private List<Comment> commentList;
 }

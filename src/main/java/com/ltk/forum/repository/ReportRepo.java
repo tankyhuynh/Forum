@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.ltk.forum.model.Post;
-import com.ltk.forum.model.PostDetail;
 import com.ltk.forum.model.Report;
 import com.ltk.forum.model.TypeOfReport;
 import com.ltk.forum.model.User;

@@ -9,7 +9,5 @@
         <class>com.ltk.forum.model.Comment</class>
         <class>com.ltk.forum.model.TypeOfReport</class>
         <class>com.ltk.forum.model.Report</class>
-        <class>com.ltk.forum.model.PostDetail</class>
-        <class>com.ltk.forum.model.CommentDetail</class>
     </persistence-unit>
 </persistence>

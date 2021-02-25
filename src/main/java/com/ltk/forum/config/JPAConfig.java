@@ -53,13 +53,13 @@ public class JPAConfig {
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/askus_db");
 		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		dataSource.setPassword("root");
 		return dataSource;
 	}
 	
 	Properties additionalProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "none");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		
 		properties.setProperty("hibernate.show-sql", "true");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");

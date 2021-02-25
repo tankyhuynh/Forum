@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ltk.forum.model.Post;
-import com.ltk.forum.model.PostDetail;
 import com.ltk.forum.model.User;
-import com.ltk.forum.services.PostDetailService;
 import com.ltk.forum.services.PostService;
 import com.ltk.forum.services.UserService;
 
@@ -23,8 +21,7 @@ public class UserController {
 	@Autowired
 	private PostService postService;
 	
-	@Autowired
-	private PostDetailService postDetailService;
+
 	
 	// nhan url
 	@RequestMapping(value = "/home", method = RequestMethod.GET)

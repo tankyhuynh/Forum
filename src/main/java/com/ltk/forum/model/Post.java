@@ -1,5 +1,6 @@
 package com.ltk.forum.model;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -29,11 +30,13 @@ public class Post {
 	@Column(name = "content", columnDefinition ="TEXT" , nullable = false)
 	private String content;
 	
+	@Column(name = "time", nullable = false, columnDefinition = "TIMESTAMP")
+	private Timestamp time;
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
 	private User userId;
-
-
+	
 	@ManyToOne
 	@JoinColumn(name = "type_of_post_id", nullable = false)
 	private TypeOfPost typeOfPostId;
@@ -52,7 +55,8 @@ public class Post {
 	@OneToMany(mappedBy = "postId")
 	private List<Comment> commentList;
 	
-	@OneToMany(mappedBy = "postId", fetch = FetchType.EAGER)
-	private List<PostDetail> postDetailList;
+	@ManyToOne
+	@JoinColumn(name = "status_id", nullable = false)
+	private Status statusId;
 	
 }
