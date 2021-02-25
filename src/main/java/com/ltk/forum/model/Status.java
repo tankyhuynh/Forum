@@ -10,8 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "status")
+@Data
 public class Status {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
