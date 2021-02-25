@@ -22,28 +22,19 @@ INSERT INTO `askus_db`.`user` (`full_name`, `username`, `password`, `email`, `ge
 INSERT INTO `askus_db`.`user` (`full_name`, `username`, `password`, `email`, `gender`, `role_id`) VALUES ('Nguyễn Anh Thư', 'nathu', 'nathu', 'nathu@gmail.com', 1, '2');
 INSERT INTO `askus_db`.`user` (`full_name`, `username`, `password`, `email`, `gender`, `role_id`) VALUES ('Nguyễn Bảo Ngọc', 'nbngoc', 'nbngoc', 'nbngoc@gmail.com', 1, '2');
 
-INSERT INTO `askus_db`.`post` (`user_id`, `title`, `content`, `type_of_post_id`) VALUES ('4', 'Làm cách nào để cài lại Windows 10', 'Máy tính tôi bị nhiễm Virus tôi muốn cài lại Win nhưng không muốn mất dữ liệu', '2');
-INSERT INTO `askus_db`.`post` (`user_id`, `title`, `content`, `type_of_post_id`, `history_of_post_id`) VALUES ('4', 'Làm cách nào để cài lại Windows 10', 'Máy tính tôi bị nhiễm Virus tôi muốn cài lại Win nhưng không muốn mất dữ liệu', '2','1');
+INSERT INTO `askus_db`.`post` (`user_id`, `title`, `content`, `type_of_post_id`, `status_id`) VALUES ('4', 'Làm cách nào để cài lại Windows 10', 'Máy tính tôi bị nhiễm Virus tôi muốn cài lại Win nhưng không muốn mất dữ liệu', '2', '1');
+INSERT INTO `askus_db`.`post` (`user_id`, `title`, `content`, `type_of_post_id`, `history_of_post_id`, `status_id`) VALUES ('4', 'Làm cách nào để cài lại Windows 10', 'Máy tính tôi bị nhiễm Virus tôi muốn cài lại Win nhưng không muốn mất dữ liệu', '2','1', '1');
 
-INSERT INTO `askus_db`.`post` (`user_id`, `title`, `content`, `type_of_post_id`) VALUES ('5', 'Tôi muốn khôi phục lại điện thoại Samsung S20', 'Điện thoại của tôi quá lag nên cần phải khôi phục lại xin nhờ giúp đỡ', '1');
-INSERT INTO `askus_db`.`post` (`user_id`, `title`, `content`, `type_of_post_id`,`history_of_post_id`) VALUES ('5', 'Tôi muốn khôi phục lại điện thoại Samsung S20', 'Điện thoại của tôi quá lag nên cần phải khôi phục lại xin nhờ giúp đỡ', '1','3');
+INSERT INTO `askus_db`.`post` (`user_id`, `title`, `content`, `type_of_post_id`, `time`, `status_id`) VALUES ('5', 'Tôi muốn khôi phục lại điện thoại Samsung S20', 'Điện thoại của tôi quá lag nên cần phải khôi phục lại xin nhờ giúp đỡ', '1', '2021-02-22 18:55:00', '1');
+INSERT INTO `askus_db`.`post` (`user_id`, `title`, `content`, `type_of_post_id`,`history_of_post_id`, `time`, `status_id`) VALUES ('5', 'Tôi muốn khôi phục lại điện thoại Samsung S20', 'Điện thoại của tôi quá lag nên cần phải khôi phục lại xin nhờ giúp đỡ', '1','3', '2021-02-22 18:55:00', '1');
 
-INSERT INTO `askus_db`.`post_detail` (`post_id`, `status_id`, `time`) VALUES ('1', '1', '2021-02-22 18:55:00');
-INSERT INTO `askus_db`.`post_detail` (`post_id`, `status_id`, `time`) VALUES ('2', '1', '2021-02-22 18:55:00');
 
-INSERT INTO `askus_db`.`post_detail` (`post_id`, `status_id`, `time`) VALUES ('3', '1', '2021-02-22 18:56:10');
-INSERT INTO `askus_db`.`post_detail` (`post_id`, `status_id`, `time`) VALUES ('4', '1', '2021-02-22 18:56:10');
+INSERT INTO `askus_db`.`comment` (`content`, `post_id`, `user_id`, `status_id`) VALUES ('Lên Youtube xem', '1', '6', '1');
+INSERT INTO `askus_db`.`comment` (`content`, `post_id`, `user_id`, `history_of_comment_id`, `status_id`) VALUES ('Lên Youtube xem', '1', '6', '1', '1');
+INSERT INTO `askus_db`.`comment` (`content`, `post_id`, `user_id`, `history_of_comment_id`, `status_id`) VALUES ('Thanks bạn', '1', '4', '1', '1');
 
-INSERT INTO `askus_db`.`comment` (`content`, `post_id`, `user_id`) VALUES ('Lên Youtube xem', '1', '6');
-INSERT INTO `askus_db`.`comment` (`content`, `post_id`, `user_id`, `history_of_comment_id`) VALUES ('Lên Youtube xem', '1', '6', '1');
-INSERT INTO `askus_db`.`comment` (`content`, `post_id`, `user_id`, `history_of_comment_id`) VALUES ('Thanks bạn', '1', '4', '1');
+INSERT INTO `askus_db`.`comment` (`content`, `post_id`, `user_id`, `child_of_comment_id`, `history_of_comment_id`, `time`, `status_id`) VALUES ('Thanks bạn', '1', '4', '1', '3', '2021-02-22 18:59:00', '1');
 
-INSERT INTO `askus_db`.`comment` (`content`, `post_id`, `user_id`, `child_of_comment_id`, `history_of_comment_id`) VALUES ('Thanks bạn', '1', '4', '1', '3');
-
-INSERT INTO `askus_db`.`comment_detail` (`comment_id`, `status_id`, `time`) VALUES ('1', '1', '2021-02-22 18:59:00');
-INSERT INTO `askus_db`.`comment_detail` (`comment_id`, `status_id`, `time`) VALUES ('2', '1', '2021-02-22 18:59:00');
-INSERT INTO `askus_db`.`comment_detail` (`comment_id`, `status_id`, `time`) VALUES ('3', '1', '2021-02-22 19:59:00');
-INSERT INTO `askus_db`.`comment_detail` (`comment_id`, `status_id`, `time`) VALUES ('4', '1', '2021-02-22 19:59:00');
 
 
 
