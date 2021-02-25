@@ -40,14 +40,14 @@ public class Comment {
 	
 
 	@ManyToOne
-	@JoinColumn(name="history_of_commnent_id")
+	@JoinColumn(name="history_of_comment_id")
 	private Comment historyOfCommentId;
 
 	@OneToMany(mappedBy="historyOfCommentId")
 	private List<Comment> historyOfCommentList;
 	
 	@ManyToOne
-	@JoinColumn(name="child_of_commnent_id")
+	@JoinColumn(name="child_of_comment_id")
 	private Comment childOfCommentId;
 
 	@OneToMany(mappedBy="childOfCommentId")
