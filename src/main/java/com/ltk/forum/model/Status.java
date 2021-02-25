@@ -18,12 +18,13 @@ import lombok.Data;
 public class Status {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", columnDefinition = "TINYINT")
 	private Long id;
 	
-	@Column(name = "status_code")
+	@Column(name = "status_code", length = 10, nullable = false)
 	private String statusCode;
 	
-	@Column(name = "status_name")
+	@Column(name = "status_name", length = 20, nullable = false)
 	private String statusName;
 	
 	

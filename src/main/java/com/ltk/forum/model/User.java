@@ -22,19 +22,19 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "full_name")
+	@Column(name = "full_name", length = 30, nullable = false)
 	private String fullName;
 	
-	@Column(name = "username")
+	@Column(name = "username", length = 200, nullable = false)
 	private String username;
 	
-	@Column(name = "password")
+	@Column(name = "password", length = 200, nullable = false)
 	private String password;
 	
-	@Column(name = "gender")
-	private String gender;
+	@Column(name = "gender", nullable = false)
+	private Boolean gender;
 	
-	@Column(name = "email")
+	@Column(name = "email", length = 30, nullable = false)
 	private String email;
 	
 	@ManyToOne

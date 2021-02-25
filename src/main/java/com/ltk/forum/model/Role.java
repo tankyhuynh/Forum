@@ -19,10 +19,11 @@ import lombok.Data;
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", columnDefinition = "TINYINT")
 	private Long id;
-	@Column(name = "role_code")
+	@Column(name = "role_code",length = 20, nullable = false)
 	private String roleCode;
-	@Column(name = "role_name")
+	@Column(name = "role_name",length = 45, nullable = false)
 	private String roleName;
 	
 	@OneToMany(mappedBy = "roleId")

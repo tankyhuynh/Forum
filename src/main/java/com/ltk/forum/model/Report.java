@@ -23,7 +23,7 @@ public class Report {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "time")
+	@Column(name = "time",columnDefinition = "TIMESTAMP", nullable = false)
 	private Timestamp time;
 	
 	@ManyToOne

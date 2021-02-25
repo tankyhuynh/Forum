@@ -18,12 +18,13 @@ import lombok.Data;
 public class TypeOfReport {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", columnDefinition = "TINYINT")
 	private Long id;
 	
-	@Column(name = "type_code")
+	@Column(name = "type_code", length = 20, nullable = false )
 	private String typeCode;
 	
-	@Column(name = "type_name")
+	@Column(name = "type_name", length = 45, nullable = false)
 	private String typeName;
 	
 	@OneToMany(mappedBy = "typeOfReportId")
