@@ -11,7 +11,7 @@ import com.ltk.forum.model.TypeOfReport;
 import com.ltk.forum.model.User;
 
 
-public interface ReportRepo extends JpaRepository<Report, Integer> {
+public interface ReportRepo extends JpaRepository<Report, Long> {
 
 	Report findOneById(Long id);
 	Report findOneByTime(Timestamp time);

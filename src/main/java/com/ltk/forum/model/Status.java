@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,9 +29,9 @@ public class Status {
 	private String statusName;
 	
 	
-	@OneToMany(mappedBy = "statusId")
+	@OneToMany(mappedBy = "statusId", fetch = FetchType.LAZY)
 	private List<Post> postList;
 	
-	@OneToMany(mappedBy = "statusId")
+	@OneToMany(mappedBy = "statusId", fetch = FetchType.LAZY)
 	private List<Comment> commentList;
 }

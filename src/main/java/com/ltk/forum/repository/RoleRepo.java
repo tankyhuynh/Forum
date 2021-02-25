@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.ltk.forum.model.Role;
 
 
-public interface RoleRepo extends JpaRepository<Role, Integer> {
+public interface RoleRepo extends JpaRepository<Role, Long> {
 
 	Role findById(Long id);
 	Role findOneByRoleCode(String roleCode);

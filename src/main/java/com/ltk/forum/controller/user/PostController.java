@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,10 +20,17 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 
+	@GetMapping
+	@Transactional(readOnly = true)
 	public ModelAndView getAllByNullHistory() {
-		postService.getAllByNullHistory();
+//		postService.getAllByNullHistory();
 		
-		ModelAndView mav = new ModelAndView("post");
+//		System.out.println("List posts: ");
+//		List<Post> posts = postService.getAll();
+
+		ModelAndView mav = new ModelAndView("frontend/test");
+//		mav.addObject("banList", posts);
+		
 		return mav; 
 	}
 	

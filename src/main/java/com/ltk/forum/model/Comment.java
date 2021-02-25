@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,14 +49,14 @@ public class Comment {
 	@JoinColumn(name="history_of_comment_id")
 	private Comment historyOfCommentId;
 
-	@OneToMany(mappedBy="historyOfCommentId")
+	@OneToMany(mappedBy="historyOfCommentId", fetch = FetchType.LAZY)
 	private List<Comment> historyOfCommentList;
 	
 	@ManyToOne
 	@JoinColumn(name="child_of_comment_id")
 	private Comment childOfCommentId;
 
-	@OneToMany(mappedBy="childOfCommentId")
+	@OneToMany(mappedBy="childOfCommentId", fetch = FetchType.LAZY)
 	private List<Comment> childOfCommentList;
 	
 

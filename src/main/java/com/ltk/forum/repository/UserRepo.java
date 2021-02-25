@@ -9,7 +9,7 @@ import com.ltk.forum.model.TypeOfReport;
 import com.ltk.forum.model.User;
 
 
-public interface UserRepo extends JpaRepository<User, Integer> {
+public interface UserRepo extends JpaRepository<User, Long> {
 
 	User findOneById(Long id);
 	User findOneByUsername(String username);

@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
@@ -49,10 +51,12 @@ public class Post {
 	@OneToMany(mappedBy="historyOfPostId")
 	private List<Post> historyOfPostList;
 	
-	@OneToMany(mappedBy = "postId")
+	@OneToMany(mappedBy = "postId", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Report> reportList;
 	
-	@OneToMany(mappedBy = "postId")
+	@OneToMany(mappedBy = "postId", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Comment> commentList;
 	
 	@ManyToOne

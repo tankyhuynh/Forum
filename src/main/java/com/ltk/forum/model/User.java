@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,11 +13,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "user")
+@Transactional(readOnly = true)
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +38,7 @@ public class User {
 	@Column(name = "gender", nullable = false)
 	private Boolean gender;
 	
-	@Column(name = "email", length = 30, nullable = false)
+	@Column(name = "email", length = 50, nullable = false)
 	private String email;
 	
 	@ManyToOne
