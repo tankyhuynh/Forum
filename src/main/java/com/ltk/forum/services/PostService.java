@@ -22,7 +22,7 @@ public class PostService {
 		return postRepo.findAll();
 	}
 	
-	public List<Post> getAllByHistory() {
+	public List<Post> getAllByNullHistory() {
 		
 		return postRepo.findAllByHistoryOfPostIdIsNull();
 	}

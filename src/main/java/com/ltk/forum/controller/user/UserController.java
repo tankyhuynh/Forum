@@ -29,28 +29,7 @@ public class UserController {
 	// nhan url
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage() {	
-		
-		List<Post> nullPosts = postService.getAllByHistory();
-	
-		
-		//Bài viết gốc với trạng thái "Đã xóa"
-		System.out.println("Post Details: ");
-		for (Post post : nullPosts) {
-			boolean check = false;
-			for (PostDetail child : post.getPostDetailList()) {
-				if (child.getStatusId().getStatusCode().equals("DX")) {
-					check = true;
-				}
-				
-			}
-			
-			if (check) {
-				continue;
-			}
-			else System.out.println(post.getId()+ " " + post.getTitle());
-		}
-		
-		
+
 		ModelAndView mav = new ModelAndView("frontend/index");
 		return mav;
 	}

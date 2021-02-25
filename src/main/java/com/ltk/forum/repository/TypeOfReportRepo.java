@@ -7,4 +7,8 @@ import com.ltk.forum.model.TypeOfReport;
 
 public interface TypeOfReportRepo extends JpaRepository<TypeOfReport, Integer> {
 
+	TypeOfReport findOneById(Long id);
+	TypeOfReport findOneByTypeCode(String typeCode);
+	TypeOfReport findOneByTypeName(String typeName);
+	
 }

@@ -7,4 +7,8 @@ import com.ltk.forum.model.Role;
 
 public interface RoleRepo extends JpaRepository<Role, Integer> {
 
+	Role findById(Long id);
+	Role findOneByRoleCode(String roleCode);
+	Role findOneByRoleName(String roleName);
+	
 }

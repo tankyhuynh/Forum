@@ -7,13 +7,21 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.ltk.forum.model.Post;
+import com.ltk.forum.model.TypeOfPost;
+import com.ltk.forum.model.User;
 
 @Repository
 public interface PostRepo extends JpaRepository<Post, Integer> {
 
-//	@Query(" SELECT a FROM post as a where a.history_of_post_id is null ")
+	Post findOneById(Long id);
+	Post findOneByTitle(String title);
+	Post findOneByContent(String content);
+	Post findOneByUserId(User userId);
+	Post findOneByTypeOfPostId(TypeOfPost typeOfPostId);
+	Post findOneByHistoryOfPostId(Post historyOfPostId);
+	
 	List<Post> findAllByHistoryOfPostIdIsNull();
 	
-	Post findOneById(Long id);
+
 	
 }
