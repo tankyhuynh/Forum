@@ -61,7 +61,7 @@ public class ReportService {
 	}
 	
 	public void delete(Long id) {
-		reportRepo.delete(id);
+		reportRepo.deleteById(id);
 	}
 	
 	public void deleteAll() {

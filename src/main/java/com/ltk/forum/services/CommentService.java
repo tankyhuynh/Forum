@@ -5,12 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-
 import org.springframework.stereotype.Service;
 
 import com.ltk.forum.model.Comment;
 import com.ltk.forum.model.Post;
-import com.ltk.forum.model.Status;
 import com.ltk.forum.model.User;
 import com.ltk.forum.repository.CommentRepo;
 
@@ -56,7 +54,7 @@ public class CommentService {
 	}
 	
 	public void delete(Long id) {
-		commentRepo.delete(id);
+		commentRepo.deleteById(id);
 	}
 	
 	public void deleteAll() {

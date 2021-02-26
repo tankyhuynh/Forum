@@ -63,7 +63,7 @@ public class UserService {
 	}
 	
 	public void delete(Long id) {
-		userRepo.delete(id);
+		userRepo.deleteById(id);
 	}
 	
 	public void deleteAll() {

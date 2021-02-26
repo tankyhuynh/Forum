@@ -14,14 +14,14 @@
 		<jsp.api.version>2.0</jsp.api.version>
 		<commons.digester.version>2.1</commons.digester.version>
 		<sitemesh.version>2.4.2</sitemesh.version>
-		<springframework.version>4.3.13.RELEASE</springframework.version>
+		<springframework.version>5.2.6.RELEASE</springframework.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<mysql.driver.version>8.0.22</mysql.driver.version>
 		<weld-servlet.version>1.1.0.Final</weld-servlet.version>
 		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
-		<spring.data>1.11.5.RELEASE</spring.data>
+		<spring.data>2.4.0</spring.data>
 
 	</properties>
 

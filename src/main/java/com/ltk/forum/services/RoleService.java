@@ -50,7 +50,7 @@ public class RoleService {
 	}
 	
 	public void delete(Long id) {
-		roleRepo.delete(id);
+		roleRepo.deleteById(id);
 	}
 	
 	public void deleteAll() {

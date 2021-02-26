@@ -46,7 +46,7 @@ public class StatusService {
 	}
 	
 	public void delete(Long id) {
-		statusRepo.delete(id);
+		statusRepo.deleteById(id);
 	}
 	
 	public void deleteAll() {

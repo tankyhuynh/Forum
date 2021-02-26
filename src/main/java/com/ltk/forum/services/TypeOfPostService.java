@@ -46,7 +46,7 @@ public class TypeOfPostService {
 	}
 	
 	public void delete(Long id) {
-		typeOfPostRepo.delete(id);
+		typeOfPostRepo.deleteById(id);
 	}
 	
 	public void deleteAll() {
