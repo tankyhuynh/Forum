@@ -28,7 +28,7 @@ public class PostController {
 		System.out.println("List posts: ");
 		List<Post> posts = postService.getAll();
 		
-		System.out.println(posts.get(0).getContent());
+//		System.out.println(posts.get(0).getContent());
 
 		ModelAndView mav = new ModelAndView("frontend/test");
 		mav.addObject("postList", posts);

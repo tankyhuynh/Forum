@@ -2,6 +2,8 @@ package com.ltk.forum.model;
 
 import java.sql.Timestamp;
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -30,33 +34,35 @@ public class Comment {
 	@Column(name = "time", nullable = false, columnDefinition = "TIMESTAMP")
 	private Timestamp time;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", nullable = false)
 	private User userId;
 	
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "post_id", nullable = false)
 	private Post postId;
 
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "status_id", nullable = false)
 	private Status statusId;
 	
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="history_of_comment_id")
 	private Comment historyOfCommentId;
 
-	@OneToMany(mappedBy="historyOfCommentId")
+	@OneToMany(mappedBy="historyOfCommentId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Comment> historyOfCommentList;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="child_of_comment_id")
 	private Comment childOfCommentId;
 
-	@OneToMany(mappedBy="childOfCommentId")
+	@OneToMany(mappedBy="childOfCommentId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Comment> childOfCommentList;
 	
 

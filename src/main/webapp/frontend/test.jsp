@@ -18,51 +18,52 @@
 		<section>
             <div class="container" style="width: 70%">
             
-            <h1> ${postList.size()}</h1>
-           
-
-                <c:forEach var="post" items="${postList}">
-                    <!-- <div class="border shadow-sm m-1 bg-white rounded"
-							style="background-color: white; height: 130px; width: 140px;">
-							<div>
-								<h4>${ban.getMaBan()}</h4>
-							</div>
-							<div>
-								<p>${ban.getTrangThai()}</p>
-							</div>
-							<div>
-								<a href="/quanlycafe/main?idBan=${ban.getMaBan()}"
-									class="btn btn-primary">Äáº·t bÃ n</a>
-							</div>
-						</div> -->
-						
-
-                    <div class="shadow-lg p-3 mb-5 bg-white rounded m-5">
-                        <div>
-                            <div class="row">
-                                <div class="col">
-                                    <h4>${post.getTitle()}</h4>
-                                </div>
-                                <div class="col" style="text-align: right;">
-                                    <span style="font-size: 30px; font-weight: bold; margin-top: 0px;">...</span>
-                                </div>
-                            </div>
-
-                            <span style="color: darkgray;"></span>
-                    
-                             
-                        </div>
-                        <div>
-                            <h6 style="color: rgb(38, 56, 224);"></h6>
-                        </div>
-                        <div>
-                            <p>
-                            	
-                            </p>
-                        </div>
-                    </div>
-
-                </c:forEach>
+				<c:if test="${not empty postList}">
+	                <c:forEach var="post" items="${postList}">
+	                    <!-- <div class="border shadow-sm m-1 bg-white rounded"
+								style="background-color: white; height: 130px; width: 140px;">
+								<div>
+									<h4>${ban.getMaBan()}</h4>
+								</div>
+								<div>
+									<p>${ban.getTrangThai()}</p>
+								</div>
+								<div>
+									<a href="/quanlycafe/main?idBan=${ban.getMaBan()}"
+										class="btn btn-primary">Äáº·t bÃ n</a>
+								</div>
+							</div> -->
+							
+	
+	                    <div class="shadow-lg p-3 mb-5 bg-white rounded m-5">
+	                        <div>
+	                            <div class="row">
+	                                <div class="col">
+	                                    <h4>${post.title}</h4>
+	                                </div>
+	                                <div class="col" style="text-align: right;">
+	                                    <span style="font-size: 30px; font-weight: bold; margin-top: 0px;">...</span>
+	                                </div>
+	                            </div>
+	
+	                            <span style="color: darkgray;">${ post.time }</span>
+	                    
+	                             
+	                        </div>
+	                        <div>
+	                            <h6 style="color: rgb(38, 56, 224);">${ post.content }</h6>
+	                        </div>
+	                        <div>
+	                            <p>
+	                            	
+	                            </p>
+	                        </div>
+	                    </div>
+	                    
+	                </c:forEach>
+	           
+	           </c:if>
+                
             </div>
             </section>
 

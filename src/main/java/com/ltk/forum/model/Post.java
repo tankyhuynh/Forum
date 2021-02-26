@@ -3,6 +3,7 @@ package com.ltk.forum.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -34,29 +36,31 @@ public class Post {
 	@Column(name = "time", nullable = false, columnDefinition = "TIMESTAMP")
 	private Timestamp time;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", nullable = false)
 	private User userId;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "type_of_post_id", nullable = false)
 	private TypeOfPost typeOfPostId;
 	
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="history_of_post_id")
 	private Post historyOfPostId;
 	
-	@OneToMany(mappedBy="historyOfPostId")
+	@OneToMany(mappedBy="historyOfPostId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Post> historyOfPostList;
 	
-	@OneToMany(mappedBy = "postId")
+	@OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Report> reportList;
 	
-	@OneToMany(mappedBy = "postId")
+	@OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Comment> commentList;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "status_id", nullable = false)
 	private Status statusId;
 	
