@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+
 import org.springframework.stereotype.Service;
 
 import com.ltk.forum.model.Comment;
@@ -26,7 +28,6 @@ public class CommentService {
 		return commentRepo.findOneById(id);
 	}
 	
-	//*
 	public Comment getOneByUserId(User userId) {
 		return commentRepo.findOneByUserId(userId);
 	}

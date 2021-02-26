@@ -3,6 +3,7 @@ package com.ltk.forum.services;
 import java.sql.Timestamp;
 import java.util.List;import org.jboss.logging.annotations.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ltk.forum.model.Comment;
@@ -17,9 +18,6 @@ public class PostService {
 
 	@Autowired
 	private PostRepo postRepo;
-	
-	@Autowired
-	private StatusRepo statusRepo;
 	
 	public List<Post> getAll() {
 		return postRepo.findAll();

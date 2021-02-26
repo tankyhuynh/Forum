@@ -15,11 +15,11 @@ public interface ReportRepo extends JpaRepository<Report, Long> {
 
 	Report findOneById(Long id);
 	Report findOneByTime(Timestamp time);
-	List<Report> findAllByTimeBetween(Timestamp startTime, Timestamp endTime);
 	
 	Report findOneByPostId(Post postId);
 	Report findOneByUserId(User userId);
-	Report findOneByTypeOfReportId(TypeOfReport typeOfReportId);
 	
+	List<Report> findAllByTypeOfReportId(TypeOfReport typeOfReportId);
+	List<Report> findAllByTimeBetween(Timestamp startTime, Timestamp endTime);
 	
 }

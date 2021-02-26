@@ -66,10 +66,6 @@ public class JPAConfig {
 		
 		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		
-		
-		
-		
-		//properties.setProperty("hibernate.hbm2ddl.auto", "none");
 		return properties;
 	}
 }

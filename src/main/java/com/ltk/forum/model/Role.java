@@ -16,13 +16,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 
 @Entity
 @Table(name = "role")
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Transactional(readOnly = true)
 public class Role {
 	@Id
