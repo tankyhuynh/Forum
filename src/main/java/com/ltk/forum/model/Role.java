@@ -17,11 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.Getter;
 
 
 @Entity
 @Table(name = "role")
-@Data
+@Getter
 @Transactional(readOnly = true)
 public class Role {
 	@Id

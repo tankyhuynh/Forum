@@ -49,14 +49,14 @@ public class Comment {
 	@JoinColumn(name="history_of_comment_id")
 	private Comment historyOfCommentId;
 
-	@OneToMany(mappedBy="historyOfCommentId", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="historyOfCommentId")
 	private List<Comment> historyOfCommentList;
 	
 	@ManyToOne
 	@JoinColumn(name="child_of_comment_id")
 	private Comment childOfCommentId;
 
-	@OneToMany(mappedBy="childOfCommentId", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="childOfCommentId")
 	private List<Comment> childOfCommentList;
 	
 

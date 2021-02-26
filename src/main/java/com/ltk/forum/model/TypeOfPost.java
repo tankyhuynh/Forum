@@ -29,6 +29,6 @@ public class TypeOfPost {
 	@Column(name = "type_name", length = 45, nullable = false)
 	private String typeName;
 	
-	@OneToMany(mappedBy = "typeOfPostId", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "typeOfPostId")
 	private List<Post> postList;
 }

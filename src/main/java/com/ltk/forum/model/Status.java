@@ -29,9 +29,9 @@ public class Status {
 	private String statusName;
 	
 	
-	@OneToMany(mappedBy = "statusId", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "statusId")
 	private List<Post> postList;
 	
-	@OneToMany(mappedBy = "statusId", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "statusId")
 	private List<Comment> commentList;
 }

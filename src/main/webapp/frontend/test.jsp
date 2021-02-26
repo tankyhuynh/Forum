@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!DOCTYPE html>
     <html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
     <head>
         <meta charset="UTF-8">
@@ -15,9 +16,12 @@
             <!-- End Header -->
 
 		<section>
-            <div class="container">
+            <div class="container" style="width: 70%">
+            
+            <h1> ${postList.size()}</h1>
+           
 
-                <c:forEach var="ban" items="${banList}">
+                <c:forEach var="post" items="${postList}">
                     <!-- <div class="border shadow-sm m-1 bg-white rounded"
 							style="background-color: white; height: 130px; width: 140px;">
 							<div>
@@ -33,27 +37,27 @@
 						</div> -->
 						
 
-                    <div class="shadow-lg p-3 mb-5 bg-white rounded m-5" style=" width: 600px;">
+                    <div class="shadow-lg p-3 mb-5 bg-white rounded m-5">
                         <div>
                             <div class="row">
                                 <div class="col">
-                                    <h4>${ ban.id }</h4>
+                                    <h4>${post.getTitle()}</h4>
                                 </div>
                                 <div class="col" style="text-align: right;">
                                     <span style="font-size: 30px; font-weight: bold; margin-top: 0px;">...</span>
                                 </div>
                             </div>
 
-                            <span style="color: darkgray;">${ ban.time }</span>
+                            <span style="color: darkgray;"></span>
                     
                              
                         </div>
                         <div>
-                            <h6 style="color: rgb(38, 56, 224);">${ ban.title }</h6>
+                            <h6 style="color: rgb(38, 56, 224);"></h6>
                         </div>
                         <div>
                             <p>
-                            	${ ban.content }
+                            	
                             </p>
                         </div>
                     </div>

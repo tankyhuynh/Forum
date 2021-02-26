@@ -21,15 +21,17 @@ public class PostController {
 	private PostService postService;
 
 	@GetMapping
-	@Transactional(readOnly = true)
+	//@Transactional(readOnly = true)
 	public ModelAndView getAllByNullHistory() {
 //		postService.getAllByNullHistory();
 		
-//		System.out.println("List posts: ");
-//		List<Post> posts = postService.getAll();
+		System.out.println("List posts: ");
+		List<Post> posts = postService.getAll();
+		
+		System.out.println(posts.get(0).getContent());
 
 		ModelAndView mav = new ModelAndView("frontend/test");
-//		mav.addObject("banList", posts);
+		mav.addObject("postList", posts);
 		
 		return mav; 
 	}

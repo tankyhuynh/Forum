@@ -28,6 +28,6 @@ public class TypeOfReport {
 	@Column(name = "type_name", length = 45, nullable = false)
 	private String typeName;
 	
-	@OneToMany(mappedBy = "typeOfReportId", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "typeOfReportId")
 	private List<Report> reportList;
 }
