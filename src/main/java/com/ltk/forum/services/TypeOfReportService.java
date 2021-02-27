@@ -3,6 +3,7 @@ package com.ltk.forum.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ltk.forum.model.TypeOfReport;
@@ -16,6 +17,13 @@ public class TypeOfReportService {
 	
 	public List<TypeOfReport> getAll() {
 		return typeOfReportRepo.findAll();
+	}
+	
+	public List<TypeOfReport> getAllSortBy(String fieldName, String typeOfSort) {
+		typeOfSort = typeOfSort.toLowerCase();
+		
+		return (typeOfSort.equals("asc")) ? typeOfReportRepo.findAll(Sort.by(Sort.Direction.ASC, fieldName)) : typeOfReportRepo.findAll(Sort.by(Sort.Direction.DESC, fieldName));
+	
 	}
 	
 	public TypeOfReport getOneById(Long id) {

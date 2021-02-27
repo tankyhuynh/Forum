@@ -23,6 +23,13 @@ public class PostService {
 		return postRepo.findAll();
 	}
 	
+	public List<Post> getAllSortBy(String fieldName, String typeOfSort) {
+		typeOfSort = typeOfSort.toLowerCase();
+		
+		return (typeOfSort.equals("asc")) ? postRepo.findAll(Sort.by(Sort.Direction.ASC, fieldName)) : postRepo.findAll(Sort.by(Sort.Direction.DESC, fieldName));
+		
+	}
+	
 	public List<Post> getAllByNullHistory() {
 		
 		return postRepo.findAllByHistoryOfPostIdIsNull();

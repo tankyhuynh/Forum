@@ -3,6 +3,7 @@ package com.ltk.forum.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ltk.forum.model.Status;
@@ -16,6 +17,13 @@ public class StatusService {
 	
 	public List<Status> getAll() {
 		return statusRepo.findAll();
+	}
+	
+	public List<Status> getAllSortBy(String fieldName, String typeOfSort) {
+		typeOfSort = typeOfSort.toLowerCase();
+		
+		return (typeOfSort.equals("asc")) ? statusRepo.findAll(Sort.by(Sort.Direction.ASC, fieldName)) : statusRepo.findAll(Sort.by(Sort.Direction.DESC, fieldName));
+	
 	}
 	
 	public Status getOneById(Long id) {

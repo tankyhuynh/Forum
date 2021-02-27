@@ -26,7 +26,7 @@ public class PostController {
 //		postService.getAllByNullHistory();
 		
 		System.out.println("List posts: ");
-		List<Post> posts = postService.getAll();
+		List<Post> posts = postService.getAllSortBy("time", "desc");
 		
 //		System.out.println(posts.get(0).getContent());
 

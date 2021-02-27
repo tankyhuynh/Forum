@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ltk.forum.model.Post;
@@ -21,6 +22,12 @@ public class ReportService {
 	
 	public List<Report> getAll() {
 		return reportRepo.findAll();
+	}
+	
+	public List<Report> getAllSortBy(String fieldName, String typeOfSort) {
+		typeOfSort = typeOfSort.toLowerCase();
+		
+		return (typeOfSort.equals("asc")) ? reportRepo.findAll(Sort.by(Sort.Direction.ASC, fieldName)) : reportRepo.findAll(Sort.by(Sort.Direction.DESC, fieldName));
 	}
 	
 	public Report getOneById(Long id) {

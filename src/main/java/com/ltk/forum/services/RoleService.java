@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ltk.forum.model.Report;
@@ -20,6 +21,13 @@ public class RoleService {
 	
 	public List<Role> getAll() {
 		return roleRepo.findAll();
+	}
+	
+	public List<Role> getAllSortBy(String fieldName, String typeOfSort) {
+		typeOfSort = typeOfSort.toLowerCase();
+		
+		return (typeOfSort.equals("asc")) ? roleRepo.findAll(Sort.by(Sort.Direction.ASC, fieldName)) : roleRepo.findAll(Sort.by(Sort.Direction.DESC, fieldName));
+	
 	}
 	
 	public Role getOneById(Long id) {

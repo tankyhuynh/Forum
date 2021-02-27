@@ -22,6 +22,13 @@ public class CommentService {
 		return commentRepo.findAll();
 	}
 	
+	public List<Comment> getAllSortBy(String fieldName, String typeOfSort) {
+		typeOfSort = typeOfSort.toLowerCase();
+		
+		return (typeOfSort.equals("asc")) ? commentRepo.findAll(Sort.by(Sort.Direction.ASC, fieldName)) : commentRepo.findAll(Sort.by(Sort.Direction.DESC, fieldName));
+		
+	}
+	
 	public Comment getOneById(Long id) {
 		return commentRepo.findOneById(id);
 	}
