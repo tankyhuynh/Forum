@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <%@ include file="../frontend/layout/style.jsp"%>
@@ -20,11 +19,10 @@
 			<div class="row">
 				<div
 					class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-					<h1 data-aos="fade-up">Grow your business with Vesperr</h1>
-					<h2 data-aos="fade-up" data-aos-delay="400">We are team of
-						talanted designers making websites with Bootstrap</h2>
+					<h1 data-aos="fade-up">Chung tay góp sức giúp đỡ và phát triển</h1>
+					<h2 data-aos="fade-up" data-aos-delay="400">Chúng tui sẽ giúp đỡ và giải đáp những thăc mắc của bạn nhanh chóng và chính xác</h2>
 					<div data-aos="fade-up" data-aos-delay="800">
-						<a href="#about" class="btn-get-started scrollto">Get Started</a>
+						<a href="#about" class="btn-get-started scrollto">Bắt Đầu</a>
 					</div>
 				</div>
 				<div class="col-lg-6 order-1 order-lg-2 hero-img"
@@ -87,7 +85,7 @@
 			<div class="container">
 
 				<div class="section-title" data-aos="fade-up">
-					<h2>About Us</h2>
+					<h2>Giới Thiệu</h2>
 				</div>
 
 				<div class="row content">
@@ -126,7 +124,7 @@
 			<div class="container">
 
 				<div class="section-title" data-aos="fade-up">
-					<h2>Team</h2>
+					<h2>Nhóm</h2>
 					<p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
 				</div>
 
@@ -144,8 +142,8 @@
 								</div>
 							</div>
 							<div class="member-info">
-								<h4>Walter White</h4>
-								<span>Chief Executive Officer</span>
+								<h4>Đoàn Hoàng Tính</h4>
+								<span>Nhóm trưởng</span>
 							</div>
 						</div>
 					</div>
@@ -162,8 +160,8 @@
 								</div>
 							</div>
 							<div class="member-info">
-								<h4>Sarah Jhonson</h4>
-								<span>Product Manager</span>
+								<h4>Huỳnh Tấn Kỷ</h4>
+								<span>Thành viên</span>
 							</div>
 						</div>
 					</div>
@@ -180,26 +178,8 @@
 								</div>
 							</div>
 							<div class="member-info">
-								<h4>William Anderson</h4>
-								<span>CTO</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-						<div class="member" data-aos="fade-up" data-aos-delay="400">
-							<div class="member-img">
-								<img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-								<div class="social">
-									<a href=""><i class="icofont-twitter"></i></a> <a href=""><i
-										class="icofont-facebook"></i></a> <a href=""><i
-										class="icofont-instagram"></i></a> <a href=""><i
-										class="icofont-linkedin"></i></a>
-								</div>
-							</div>
-							<div class="member-info">
-								<h4>Amanda Jepson</h4>
-								<span>Accountant</span>
+								<h4>Hà Tấn Lộc</h4>
+								<span>Thành Viên</span>
 							</div>
 						</div>
 					</div>
@@ -211,103 +191,12 @@
 		<!-- End Team Section -->
 
 
-		<!-- ======= F.A.Q Section ======= -->
-		<section id="faq" class="faq">
-			<div class="container">
-
-				<div class="section-title" data-aos="fade-up">
-					<h2>Frequently Asked Questions</h2>
-				</div>
-
-				<div class="row faq-item d-flex align-items-stretch"
-					data-aos="fade-up" data-aos-delay="100">
-					<div class="col-lg-5">
-						<i class="ri-question-line"></i>
-						<h4>Non consectetur a erat nam at lectus urna duis?</h4>
-					</div>
-					<div class="col-lg-7">
-						<p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna
-							id volutpat lacus laoreet non curabitur gravida. Venenatis lectus
-							magna fringilla urna porttitor rhoncus dolor purus non.</p>
-					</div>
-				</div>
-				<!-- End F.A.Q Item-->
-
-				<div class="row faq-item d-flex align-items-stretch"
-					data-aos="fade-up" data-aos-delay="200">
-					<div class="col-lg-5">
-						<i class="ri-question-line"></i>
-						<h4>Feugiat scelerisque varius morbi enim nunc faucibus a
-							pellentesque?</h4>
-					</div>
-					<div class="col-lg-7">
-						<p>Dolor sit amet consectetur adipiscing elit pellentesque
-							habitant morbi. Id interdum velit laoreet id donec ultrices.
-							Fringilla phasellus faucibus scelerisque eleifend donec pretium.
-							Est pellentesque elit ullamcorper dignissim.</p>
-					</div>
-				</div>
-				<!-- End F.A.Q Item-->
-
-				<div class="row faq-item d-flex align-items-stretch"
-					data-aos="fade-up" data-aos-delay="300">
-					<div class="col-lg-5">
-						<i class="ri-question-line"></i>
-						<h4>Dolor sit amet consectetur adipiscing elit pellentesque
-							habitant morbi?</h4>
-					</div>
-					<div class="col-lg-7">
-						<p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices
-							sagittis orci. Faucibus pulvinar elementum integer enim. Sem
-							nulla pharetra diam sit amet nisl suscipit. Rutrum tellus
-							pellentesque eu tincidunt. Lectus urna duis convallis convallis
-							tellus.</p>
-					</div>
-				</div>
-				<!-- End F.A.Q Item-->
-
-				<div class="row faq-item d-flex align-items-stretch"
-					data-aos="fade-up" data-aos-delay="400">
-					<div class="col-lg-5">
-						<i class="ri-question-line"></i>
-						<h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in
-							nulla?</h4>
-					</div>
-					<div class="col-lg-7">
-						<p>Aperiam itaque sit optio et deleniti eos nihil quidem
-							cumque. Voluptas dolorum accusantium sunt sit enim. Provident
-							consequuntur quam aut reiciendis qui rerum dolorem sit odio.
-							Repellat assumenda soluta sunt pariatur error doloribus fuga.</p>
-					</div>
-				</div>
-				<!-- End F.A.Q Item-->
-
-				<div class="row faq-item d-flex align-items-stretch"
-					data-aos="fade-up" data-aos-delay="500">
-					<div class="col-lg-5">
-						<i class="ri-question-line"></i>
-						<h4>Tempus quam pellentesque nec nam aliquam sem et tortor
-							consequat?</h4>
-					</div>
-					<div class="col-lg-7">
-						<p>Molestie a iaculis at erat pellentesque adipiscing commodo.
-							Dignissim suspendisse in est ante in. Nunc vel risus commodo
-							viverra maecenas accumsan. Sit amet nisl suscipit adipiscing
-							bibendum est. Purus gravida quis blandit turpis cursus in</p>
-					</div>
-				</div>
-				<!-- End F.A.Q Item-->
-
-			</div>
-		</section>
-		<!-- End F.A.Q Section -->
-
 		<!-- ======= Contact Section ======= -->
 		<section id="contact" class="contact">
 			<div class="container">
 
 				<div class="section-title" data-aos="fade-up">
-					<h2>Contact Us</h2>
+					<h2>Liên Hệ</h2>
 				</div>
 
 				<div class="row">
@@ -357,36 +246,36 @@
 							class="php-email-form">
 							<div class="form-group">
 								<input type="text" name="name" class="form-control" id="name"
-									placeholder="Your Name" data-rule="minlen:4"
-									data-msg="Please enter at least 4 chars" />
+									placeholder="Họ Tên" data-rule="minlen:4"
+									data-msg="Ít nhất 4 ký tự" />
 								<div class="validate"></div>
 							</div>
 							<div class="form-group">
 								<input type="email" class="form-control" name="email" id="email"
-									placeholder="Your Email" data-rule="email"
-									data-msg="Please enter a valid email" />
+									placeholder="Email" data-rule="email"
+									data-msg="email không hợp lệ" />
 								<div class="validate"></div>
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" name="subject"
-									id="subject" placeholder="Subject" data-rule="minlen:4"
-									data-msg="Please enter at least 8 chars of subject" />
+									id="subject" placeholder="Tiêu đề" data-rule="minlen:8"
+									data-msg="Ít nhất 8 ký tự" />
 								<div class="validate"></div>
 							</div>
 							<div class="form-group">
 								<textarea class="form-control" name="message" rows="5"
-									data-rule="required" data-msg="Please write something for us"
-									placeholder="Message"></textarea>
+									data-rule="required" data-msg="Nhập nội dung..."
+									placeholder="Nội dung"></textarea>
 								<div class="validate"></div>
 							</div>
 							<div class="mb-3">
 								<div class="loading">Loading</div>
 								<div class="error-message"></div>
-								<div class="sent-message">Your message has been sent.
-									Thank you!</div>
+								<div class="sent-message">Tin nhắn đang được gửi.
+									Cám ơn bạn!</div>
 							</div>
 							<div class="text-center">
-								<button type="submit">Send Message</button>
+								<button type="submit">Gửi</button>
 							</div>
 						</form>
 					</div>
