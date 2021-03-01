@@ -24,7 +24,7 @@ public class UserController {
 
 	
 	// nhan url
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {	
 
 		ModelAndView mav = new ModelAndView("frontend/index");
@@ -32,5 +32,19 @@ public class UserController {
 	}
 	
 
+	// nhan url
+	@RequestMapping(value = "/dang-ky", method = RequestMethod.GET)
+	public ModelAndView registerPage() {	
+
+		ModelAndView mav = new ModelAndView("frontend/pages/signup");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
+	public ModelAndView loginPage() {	
+
+		ModelAndView mav = new ModelAndView("frontend/pages/signin");
+		return mav;
+	}
 }
 

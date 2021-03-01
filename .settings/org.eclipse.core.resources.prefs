@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//src/main/java/com/ltk/forum/controller/user/PostController.java=UTF-8
 encoding//src/main/java/com/ltk/forum/controller/user/UserController.java=UTF-8
 encoding//src/main/java/com/ltk/forum/services/CommentService.java=UTF-8
-encoding//src/main/webapp/frontend/test.jsp=UTF-8
+encoding//src/main/webapp/frontend/layout/partials/header.jsp=UTF-8
+encoding//src/main/webapp/frontend/post.jsp=UTF-8
