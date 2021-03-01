@@ -9,15 +9,12 @@
         <title>Document</title>
         <%@ include file="../frontend/layout/style.jsp" %>
     </head>
-
     <body>
         <!-- ======= Header ======= -->
         <%@ include file="../frontend/layout/partials/header.jsp" %>
             <!-- End Header -->
-
 		<section>
             <div class="container" style="width: 70%">
-            
 				<c:if test="${not empty postList}">
 	                <c:forEach var="post" items="${postList}">
 	                    <!-- <div class="border shadow-sm m-1 bg-white rounded"

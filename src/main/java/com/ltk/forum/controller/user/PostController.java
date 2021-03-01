@@ -30,7 +30,7 @@ public class PostController {
 		
 //		System.out.println(posts.get(0).getContent());
 
-		ModelAndView mav = new ModelAndView("frontend/test");
+		ModelAndView mav = new ModelAndView("frontend/pages/post");
 		mav.addObject("postList", posts);
 		
 		return mav; 
