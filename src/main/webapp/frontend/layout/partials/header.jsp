@@ -19,7 +19,7 @@
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="bai-viet">Bài viết</a></li>
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="gioi-thieu">Giới thiệu</a></li>
+							aria-current="page" href='<c:url value = "/bai-viet"/>'>Giới thiệu</a></li>
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="lien-he">Liên hệ</a></li>
 					</ul>

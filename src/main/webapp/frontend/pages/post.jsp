@@ -18,7 +18,6 @@
 		<div class="container mt-4">
 			<div class="row">
 				<div class="col-md-2">
-					<!-- <a href="frontend/pages/postdetail.jsp">Goto</a> -->
 					<div>
 						<div style="margin-bottom: 10px;">
 							<span>DANH MỤC THỂ LOẠI</span>
@@ -37,27 +36,31 @@
 				<div class="col-md-8">
 					<c:if test="${not empty postList}">
 						<c:forEach var="post" items="${postList}">
-							<div class=" shadow-sm p-3 bg-white rounded mb-3">
-								<div>
-									<div class="row">
-										<div class="col">
-											<p>${post.title}
-											<p>
-										</div>
-										<div class="col" style="text-align: right;">
-											<span
-												style="font-size: 30px; font-weight: bold; margin-top: 0px;">...</span>
-										</div>
+							<c:if test="${not empty post.historyOfPostId}">
+								<a href="bai-viet/${ post.id }">
+										<div class=" shadow-sm p-3 bg-white rounded mb-3">
+											<div>
+												<div class="row">
+													<div class="col">
+														<p>${post.title}
+														<p>
+													</div>
+													<div class="col" style="text-align: right;">
+														<span
+															style="font-size: 30px; font-weight: bold; margin-top: 0px;">...</span>
+													</div>
+												</div>
+												<span style="color: darkgray;">${ post.time }</span>
+											</div>
+											<div>
+												<h6 style="color: rgb(38, 56, 224);">${ post.content }</h6>
+											</div>
+											<div>
+												<p></p>
+											</div>
 									</div>
-									<span style="color: darkgray;">${ post.time }</span>
-								</div>
-								<div>
-									<h6 style="color: rgb(38, 56, 224);">${ post.content }</h6>
-								</div>
-								<div>
-									<p></p>
-								</div>
-							</div>
+								</a>
+							</c:if>
 						</c:forEach>
 					</c:if>
 				</div>
