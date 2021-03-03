@@ -9,15 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ltk.forum.model.Post;
+import com.ltk.forum.model.TypeOfPost;
 import com.ltk.forum.services.PostService;
+import com.ltk.forum.services.TypeOfPostService;
 
 @Controller
-@RequestMapping("/post")
+@RequestMapping("/bai-viet")
 public class PostController {
 
 	
 	@Autowired
 	private PostService postService;
+	@Autowired
+	private TypeOfPostService typeOfPostService; 
 
 	@GetMapping
 	//@Transactional(readOnly = true)
@@ -26,12 +30,13 @@ public class PostController {
 		
 		System.out.println("List posts: ");
 		List<Post> posts = postService.getAllSortBy("time", "desc");
+		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();
 		
 //		System.out.println(posts.get(0).getContent());
 
 		ModelAndView mav = new ModelAndView("frontend/pages/post");
 		mav.addObject("postList", posts);
-		
+		mav.addObject("typeOfPostList",typeOfPost);
 		return mav; 
 	}
 	

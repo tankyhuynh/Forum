@@ -17,7 +17,7 @@ file="../../frontend/layout/style.jsp" %>
 	<!-- End Header -->
 	<section>
 		<div class="container mt-4" style="width: 80%">
-			<div class="p-3 border shadow-sm bg-white rounded">
+			<div class="p-3  shadow-sm bg-white rounded">
 				<div style="">
 					<div>
 						<h4 style="color: rgb(38, 56, 224);">Lorem Ipsum is simply
