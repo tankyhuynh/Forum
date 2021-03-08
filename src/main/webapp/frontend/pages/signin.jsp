@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link rel="stylesheet" href="/Forum/assets/shared/css/style.css">
+<link rel="stylesheet" href="<c:url value='/assets/shared/css/style.css' />">
 </head>
 <body>
 	<div class="main">
@@ -16,10 +18,11 @@
 				<div class="signin-content">
 					<div class="signin-image">
 						<figure>
-							<img src="/Forum/assets/shared/img/signin-image.jpg"
+							<img src="<c:url value='/assets/shared/img/signin-image.jpg' />"
 								alt="sing up image">
+								 
 						</figure>
-						<a href="#" class="signup-image-link">Tạo tài khoản mới</a>
+						<a href="<c:url value='/dang-ky' />" class="signup-image-link">Tạo tài khoản mới</a>
 					</div>
 
 					<div class="signin-form">

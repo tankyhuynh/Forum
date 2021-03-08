@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <header id="header" class="fixed-top d-flex align-items-center"
 	style="padding-top: 5px; padding-bottom: 5px; background-color: white;">
 	<div class="container">
@@ -17,13 +20,13 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/Forum/trang-chu">Trang chủ</a></li>
+							aria-current="page" href="<c:url value='/trang-chu' />">Trang chủ</a></li>
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/Forum/bai-viet">Bài viết</a></li>
+							aria-current="page" href="<c:url value='/bai-viet' />">Bài viết</a></li>
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/Forum/gioi-thieu">Giới thiệu</a></li>
+							aria-current="page" href="<c:url value='/gioi-thieu' /> ">Giới thiệu</a></li>
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/Forum/lien-he">Liên hệ</a></li>
+							aria-current="page" href="<c:url value='/lien-he' />">Liên hệ</a></li>
 					</ul>
 					<form class="d-flex" style="margin-right: 10px;">
 						<input class="form-control me-2" type="search"
@@ -31,7 +34,7 @@
 						<button class="btn btn-outline-dark" type="submit">Tìm</button>
 					</form>
 					<a class="nav-link active" style="padding-left: 0px; color: black;"
-						aria-current="page" href="dang-nhap">Đăng nhập</a>
+						aria-current="page" href="<c:url value='/dang-nhap' /> ">Đăng nhập</a>
 				</div>
 			</div>
 		</nav>
