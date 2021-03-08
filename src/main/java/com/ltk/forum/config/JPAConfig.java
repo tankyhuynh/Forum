@@ -1,6 +1,7 @@
 package com.ltk.forum.config;
 
 
+import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +22,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = {"com.ltk.forum.repository"}) //de bat tinh nang repository
 @EnableTransactionManagement //de bat tinh nang transaction
 public class JPAConfig {
+	
+	@Bean(initMethod="start",destroyMethod="stop")
+	 public org.h2.tools.Server h2WebConsonleServer () throws Exception {
+	   return org.h2.tools.Server.createWebServer("-web","-webAllowOthers","-webDaemon","-webPort", "9000");
+	 }
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -50,21 +56,21 @@ public class JPAConfig {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/askus_db");
-		dataSource.setUsername("root");
+		dataSource.setDriverClassName("org.h2.Driver");
+		dataSource.setUrl("jdbc:h2:~/test");
+		dataSource.setUsername("sa");
 		dataSource.setPassword("");
 		return dataSource;
 	}
 	
 	Properties additionalProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "none");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create");
 		
 		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		
-		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
+//		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		
 		return properties;
 	}
