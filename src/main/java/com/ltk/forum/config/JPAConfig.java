@@ -63,9 +63,9 @@ public class JPAConfig {
 		
 		try {
 			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-			dataSource.setUrl("jdbc:mysql://bb37f06c527d39:3a032d29@us-cdbr-east-03.cleardb.com/heroku_748a2f4e576a857?reconnect=true");
-			dataSource.setUsername("b33bfd24e8bb59");
-			dataSource.setPassword("3a032d29");
+			dataSource.setUrl("jdbc:mysql://b042458a1d5f49:065b1ac0@us-cdbr-east-03.cleardb.com/heroku_729599d8be8e937?reconnect=true");
+			dataSource.setUsername("b042458a1d5f49");
+			dataSource.setPassword("065b1ac0");
 		} catch (Exception e) {
 			System.out.println("loi r");
 		}
