@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -31,9 +34,11 @@ public class Comment {
 	@Column(name = "content", nullable = false, columnDefinition = "TEXT")
 	private String content;
 	
+	@CreatedDate
 	@Column(name = "time", nullable = false, columnDefinition = "TIMESTAMP")
 	private Timestamp time;
 	
+	@CreatedBy
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", nullable = false)
 	private User userId;

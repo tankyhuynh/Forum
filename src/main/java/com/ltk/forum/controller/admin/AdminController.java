@@ -10,7 +10,7 @@ public class AdminController {
 
 
 	// nhan url
-	@RequestMapping(value = "/admin-home", method = RequestMethod.GET)
+	@RequestMapping(value = "/quan-tri-trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {	
 		ModelAndView mav = new ModelAndView("backend/index");
 		return mav;

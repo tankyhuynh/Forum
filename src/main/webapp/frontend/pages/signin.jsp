@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,16 +27,16 @@
 
 					<div class="signin-form">
 						<h2 class="form-title">Đăng nhập</h2>
-						<form method="POST" class="register-form" id="login-form">
+						<form action="j_spring_security_check" method="POST" class="register-form" id="login-form">
 							<div class="form-group">
 								<label for="your_name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="your_name" id="your_name"
+									type="text" name="j_username" id="your_name"
 									placeholder="Tên tài khoản" />
 							</div>
 							<div class="form-group">
 								<label for="your_pass"><i class="zmdi zmdi-lock"></i></label> <input
-									type="password" name="your_pass" id="your_pass"
+									type="password" name="j_password" id="your_pass"
 									placeholder="Mật khẩu" />
 							</div>
 							<div class="form-group">

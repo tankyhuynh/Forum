@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+
 import lombok.Data;
 
 @Entity
@@ -24,6 +27,7 @@ public class Report {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@CreatedDate
 	@Column(name = "time",columnDefinition = "TIMESTAMP", nullable = false)
 	private Timestamp time;
 	
@@ -31,6 +35,7 @@ public class Report {
 	@JoinColumn(name = "post_id", nullable = false)
 	private Post postId;
 	
+	@CreatedBy
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", nullable = false)
 	private User userId;

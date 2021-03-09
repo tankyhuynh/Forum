@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.ltk.forum.model.Role;
-import com.ltk.forum.model.TypeOfReport;
 import com.ltk.forum.model.User;
 
 
@@ -19,6 +18,7 @@ public interface UserRepo extends JpaRepository<User, Long> {
 	List<User> findAllByFullName(String fullName);
 	List<User> findAllByGender(String gender);
 	List<User> findAllByRoleId(Role roleId);
+
 	
 	
 }
