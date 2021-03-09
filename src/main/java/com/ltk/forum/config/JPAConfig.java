@@ -23,11 +23,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement //de bat tinh nang transaction
 public class JPAConfig {
 	
-//	@Bean(initMethod="start",destroyMethod="stop")
-//	 public org.h2.tools.Server h2WebConsonleServer () throws Exception {
-//	   return org.h2.tools.Server.createWebServer("-web","-webAllowOthers","-webDaemon","-webPort", "9000");
-//	 }
-	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -56,10 +51,6 @@ public class JPAConfig {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//		dataSource.setDriverClassName("org.h2.Driver");
-//		dataSource.setUrl("jdbc:h2:~/test");
-//		dataSource.setUsername("sa");
-//		dataSource.setPassword("");
 		
 		try {
 			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
@@ -76,14 +67,9 @@ public class JPAConfig {
 	Properties additionalProperties() {
 		Properties properties = new Properties();
 		
-//		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-		
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
-		
+		properties.setProperty("hibernate.hbm2ddl.auto", "none");
 		properties.setProperty("hibernate.show_sql", "true");
-		
-		
 		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		
 		return properties;
