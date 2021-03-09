@@ -33,7 +33,12 @@ public class PostController {
 	@GetMapping
 	public ModelAndView getAllByNullHistory() {
 		System.out.println("List posts: ");
-		List<Post> posts = postService.getAllSortBy("time", "desc");
+		
+		List<Post> posts = postService.getAll();
+		for (Post post : posts) {
+			System.out.println(post.getId() + post.getTitle() + post.getTime());
+		}
+		
 		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();
 		ModelAndView mav = new ModelAndView("frontend/pages/post");
 		mav.addObject("postList", posts);

@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+  
 
 <head>
 <meta charset="UTF-8">
@@ -35,7 +38,7 @@
 
 			<h5 style="color: red">Tạo bài viết của bạn</h5>
 			<hr>
-			<form action="<c:url value='/tao-bai-viet' />" method="POST">
+			<form:form action="<c:url value='/tao-bai-viet' />" method="POST" modelAttribute="post">
 				<div class="row mb-3">
 					<label for="txtTitle" class="col-sm-2 col-form-label">Tiêu
 						đề bài viết</label>
@@ -72,7 +75,7 @@
 
 				</div>
 				<button type="submit" class="btn btn-primary">Tạo bài viết</button>
-			</form>
+			</form:form>
 		</div>
 	</section>
 
