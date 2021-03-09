@@ -37,8 +37,8 @@
 				<div><a href="<c:url value='/bai-viet/tao-bai-viet' />" class="btn btn-primary mb-3 ">Tạo bài viết</a></div>
 					<c:if test="${not empty postList}">
 						<c:forEach var="post" items="${postList}">
-							<c:if test="${not empty post.historyOfPostId}">
-								<a href="<c:url value='/bai-viet/tao-bai-viet/${ post.id }' />">
+							<c:if test="${empty post.historyOfPostId}">
+								<a href="<c:url value='/bai-viet/${ post.id }' />">
 										<div class=" shadow-sm p-3 bg-white rounded mb-3">
 											<div>
 												<div class="row">
