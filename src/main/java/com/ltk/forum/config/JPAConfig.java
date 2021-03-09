@@ -56,21 +56,31 @@ public class JPAConfig {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:~/test");
-		dataSource.setUsername("sa");
-		dataSource.setPassword("");
+//		dataSource.setDriverClassName("org.h2.Driver");
+//		dataSource.setUrl("jdbc:h2:~/test");
+//		dataSource.setUsername("sa");
+//		dataSource.setPassword("");
+		
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/askus_db");
+		dataSource.setUsername("root");
+		dataSource.setPassword("root");
+		
 		return dataSource;
 	}
 	
 	Properties additionalProperties() {
 		Properties properties = new Properties();
+		
+//		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+		
 		properties.setProperty("hibernate.hbm2ddl.auto", "create");
 		
 		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		
-//		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
+		
+		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		
 		return properties;
 	}
