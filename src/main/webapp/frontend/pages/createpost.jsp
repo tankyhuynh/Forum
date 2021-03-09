@@ -12,6 +12,8 @@
 
 <%@ include file="../../frontend/layout/style.jsp"%>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.js"></script>
 <link href="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.snow.css"
 	rel="stylesheet">
