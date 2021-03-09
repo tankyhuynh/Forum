@@ -23,10 +23,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement //de bat tinh nang transaction
 public class JPAConfig {
 	
-	@Bean(initMethod="start",destroyMethod="stop")
-	 public org.h2.tools.Server h2WebConsonleServer () throws Exception {
-	   return org.h2.tools.Server.createWebServer("-web","-webAllowOthers","-webDaemon","-webPort", "9000");
-	 }
+//	@Bean(initMethod="start",destroyMethod="stop")
+//	 public org.h2.tools.Server h2WebConsonleServer () throws Exception {
+//	   return org.h2.tools.Server.createWebServer("-web","-webAllowOthers","-webDaemon","-webPort", "9000");
+//	 }
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
