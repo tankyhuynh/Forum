@@ -61,10 +61,14 @@ public class JPAConfig {
 //		dataSource.setUsername("sa");
 //		dataSource.setPassword("");
 		
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/askus_db");
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		try {
+			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+			dataSource.setUrl("mysql://bb37f06c527d39:3a032d29@us-cdbr-east-03.cleardb.com/heroku_748a2f4e576a857?reconnect=true");
+			dataSource.setUsername("b33bfd24e8bb59");
+			dataSource.setPassword("3a032d29");
+		} catch (Exception e) {
+			System.out.println("loi r");
+		}
 		
 		return dataSource;
 	}
