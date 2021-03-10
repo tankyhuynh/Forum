@@ -10,7 +10,7 @@
     <http auto-config="false" use-expressions="true" disable-url-rewriting="true">
     	
     	<!-- de phan quyen cho nguoi dung nao co the vao trang quan tri -->
-    	<intercept-url pattern="/quan-tri-trang-chu" access="hasAnyRole('AD')" /> 
+    	<intercept-url pattern="/quan-tri" access="hasAnyRole('AD')" /> 
     	
     	<access-denied-handler error-page="/accessDenied" />
     	

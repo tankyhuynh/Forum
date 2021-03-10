@@ -41,7 +41,7 @@ private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 		String url = "";
 		List<String> roles = SecurityUtils.getAuthorities();
 		if (isAdmin(roles)) {
-			url = "/quan-tri-trang-chu";
+			url = "/quan-tri";
 		}else  {
 			url ="/trang-chu";
 		}
