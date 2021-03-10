@@ -53,7 +53,7 @@
 					<div class="signup-image">
 						<img src="<c:url value='/assets/shared/img/signin-image.jpg'/>"
 								alt="sing up image">
-						<a href="#" class="signup-image-link">Tôi đã là thành viên</a>
+						<a href="<c:url value='/dang-nhap'/>" class="signup-image-link">Tôi đã là thành viên</a>
 					</div>
 				</div>
 			</div>
