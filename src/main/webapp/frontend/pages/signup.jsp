@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link rel="stylesheet" href="/Forum/assets/shared/css/style.css">
+<title>${ title }</title>
+
+<link rel="stylesheet" href="<c:url value='/assets/shared/css/style.css'/>">
 </head>
 <body>
 	<div class="main">
@@ -48,7 +49,7 @@
 						</form>
 					</div>
 					<div class="signup-image">
-						<img src="/Forum/assets/shared/img/signin-image.jpg"
+						<img src="<c:url value='/assets/shared/img/signin-image.jpg'/>"
 								alt="sing up image">
 						<a href="#" class="signup-image-link">Tôi đã là thành viên</a>
 					</div>

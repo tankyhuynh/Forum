@@ -12,14 +12,14 @@ public class HomeController {
 	@RequestMapping(value = "/gioi-thieu", method = RequestMethod.GET)
 	public ModelAndView returnIntroPage() {
 		ModelAndView mav = new ModelAndView("frontend/pages/introduction");
-		
+		mav.addObject("title", "Giới thiệu");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/lien-he", method = RequestMethod.GET)
 	public ModelAndView returnContactPage() {
 		ModelAndView mav = new ModelAndView("frontend/pages/contact");
-		
+		mav.addObject("title", "Liên hệ");
 		return mav;
 	}
 	

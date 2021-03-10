@@ -32,22 +32,21 @@ public class PostController {
 
 	@GetMapping
 	public ModelAndView getAllByNullHistory() {
-		System.out.println("List posts: ");
 		List<Post> posts = postService.getAllSortBy("time", "desc");
-		
-		for (Post post : posts) {
-			System.out.println(post.getId() + " " + post.getTitle() + " " + post.getTime());
-		}
-		
 		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();
+		
 		ModelAndView mav = new ModelAndView("frontend/pages/post");
 		mav.addObject("postList", posts);
 		mav.addObject("typeOfPostList", typeOfPost);
+		
+		mav.addObject("title", "Bài viết");
 		return mav;
 	}
 
 	public ModelAndView getAllByRootPostWithStatusIsDX() {
 		ModelAndView mav = new ModelAndView("post");
+		
+		mav.addObject("title", "Bài viết");
 		return mav;
 	}
 	
@@ -55,6 +54,8 @@ public class PostController {
 	public ModelAndView createPost() {
 		System.out.println("aaaa");
 		ModelAndView mav = new ModelAndView("/frontend/pages/createpost");
+		
+		mav.addObject("title", "Tạo bài viết");
 		return mav;
 	}
 	
@@ -75,6 +76,8 @@ public class PostController {
 		System.out.println(post.getContent());
 		ModelAndView mav = new ModelAndView("/frontend/pages/postdetail");
 		mav.addObject("post", post);
+		
+		mav.addObject("title", "Chi tiết bài viết");
 		return mav;
 	}
 	
