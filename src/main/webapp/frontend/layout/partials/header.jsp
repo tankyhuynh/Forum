@@ -40,7 +40,7 @@
 					</form>
 
 					<security:authorize access="isAnonymous()">
-						<li class="nav-item"><a class="nav-link" href="<c:url value='/dang-nhap' /> ">Đăng Nhập</a></li>
+						<a class="nav-link" href="<c:url value='/dang-nhap' /> ">Đăng Nhập</a>
 					</security:authorize> 
 
 					<security:authorize access="isAuthenticated()">

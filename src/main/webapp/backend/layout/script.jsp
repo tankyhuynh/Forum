@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
- <!-- Vendor JS Files -->
+<%--  <!-- Vendor JS Files -->
   
   <script src="<c:url value='/assets/vendor/jquery/jquery.min.js'/>"></script>
   
@@ -23,4 +23,23 @@
   <script src="<c:url value='/assets/vendor/aos/aos.js'/>"></script>
   
   <!-- Template Main JS File -->
-  <script src="<c:url value='/assets/frontend/js/main.js'/>"></script>
+  <script src="<c:url value='/assets/frontend/js/main.js'/>"></script> --%>
+  
+      <!-- Bootstrap core JavaScript-->
+    <script src="<c:url value='/assets/vendor/jquery/jquery.min.js'/>"></script>
+   
+    <script src="<c:url value='/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
+ 
+    <!-- Core plugin JavaScript-->
+    <script src="<c:url value='/assets/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="<c:url value='/assets/backend/js/sb-admin-2.min.js'/>"></script>
+
+    <!-- Page level plugins -->
+    <script src="<c:url value='/assets/vendor/chart.js/Chart.min.js'/>"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="<c:url value='/assets/backend/js/demo/chart-area-demo.js'/>"></script>
+    
+    <script src="<c:url value='/assets/backend/js/demo/chart-pie-demo.js'/>"></script>

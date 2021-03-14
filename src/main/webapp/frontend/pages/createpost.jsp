@@ -34,7 +34,9 @@
 <body>
 	<%@ include file="../../frontend/layout/partials/header.jsp"%>
 	<section>
-		<div class="container mt-4" style="width: 60%">
+		<div class="container mt-4" style="width: 60%; 
+    padding-bottom: 90px;
+		">
 
 			<h5 style="color: red">Tạo bài viết của bạn</h5>
 			<hr>
@@ -65,24 +67,19 @@
 				<div class="row mb-3">
 					<label for="typeOfPost" class="col-sm-2 col-form-label">Nội
 						dung bài viết</label>
-
-					<! - store rich text div ->
-					<div id="editor" class="showContent">
+						<div class="col-sm-10">
+						<div id="editor" class="showContent">
 					
 					</div>
 					<input type="file" onchange="updateImg(this.files[0])" id="imgData"
 						style="display: none;">
-
+						<button type="submit" class="btn btn-primary mt-3">Tạo bài viết</button>
+					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Tạo bài viết</button>
+				
 			</form:form>
 		</div>
 	</section>
-
-
-
-
-
 <script>
 var quill;
 $(function() {

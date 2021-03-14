@@ -40,64 +40,24 @@
 					<div class="container">
 						<div
 							class="d-sm-flex align-items-center justify-content-between mb-4">
-							<h1 class="h3 mb-0 text-gray-800">Sửa người dùng</h1>
+							<h1 class="h3 mb-0 text-gray-800">Sửa Thể Loại</h1>
 						</div>
 						<form action="#" method="post"
 							style="width: 100%; margin-left: auto; margin-right: auto;">
 							<div style="padding: 20px;">
 								<div class="mb-3">
-									<label for="txtMaBan" class="form-label">Họ Tên</label> <input
+									<label for="txtMaBan" class="form-label">Mã Tóm Tắt</label> <input
 										type="text" class="form-control" id="txtMaBan" name="txtMaBan">
 								</div>
 								<div class="mb-3">
-									<label for="txtSoLuongCho" class="form-label">Tài Khoản
+									<label for="txtSoLuongCho" class="form-label">Tên Thể Loại
 									</label> <input type="text" class="form-control" id="txtSoLuongCho"
 										name="txtSoLuongCho">
-								</div>
-																<div class="mb-3">
-									<label for="txtViTri" class="form-label">Mật Khẩu</label> <input
-										type="text" class="form-control" id="txtViTri" name="txtViTri">
-								</div>
-
-								<div class="mb-3">
-									<label for="txtTrangThai" class="form-label">Email</label> <input
-										type="text" class="form-control" id="txtTrangThai"
-										name="txtTrangThai">
-								</div>
-
-								<div class="mb-3">
-									<label for="txtTrangThai" class="form-label">Vai Trò</label> <select
-										class="form-select form-control"
-										aria-label="Default select example">
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
-									</select>
-								</div>
-								<div class="mb-3">
-									<label for="txtTrangThai" class="form-label">Giới Tính</label>
-									<div>
-										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio"
-												name="inlineRadioOptions" id="inlineRadio1" value="option1">
-											<label class="form-check-label" for="inlineRadio1">Nam</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio"
-												name="inlineRadioOptions" id="inlineRadio2" value="option2">
-											<label class="form-check-label" for="inlineRadio2">Nữ</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio"
-												name="inlineRadioOptions" id="inlineRadio2" value="option2">
-											<label class="form-check-label" for="inlineRadio2">Khác</label>
-										</div>
-									</div>
-								</div>
+								</div>															
 								<div>
 									<button class="btn btn-primary" style="width: 100%;"
 										type="submit" id="btnThemBan" name="btnThemBan">Sửa
-										Người Dùng</button>
+										Thể Loại</button>
 								</div>
 							</div>
 						</form>
