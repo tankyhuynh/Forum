@@ -20,27 +20,43 @@ file="../../frontend/layout/style.jsp" %>
 			<div class="p-3  shadow-sm bg-white rounded">
 				<div style="">
 					<div>
-						<h4 style="color: rgb(38, 56, 224);">${ post.title }</h4>
+					<h5>${ post.userId.fullName }</h5>
+						
 					</div>
 					<div>
 						<div class="row">
 							<div class="col">
-								<h6>${ post.userId.fullName }</h6>
+								<h5 style="color: rgb(38, 56, 224);">${ post.title }</h5>
 							</div>
-							<span style="color: darkgray;">${ post.time }</span>
+							<span style="color: darkgray; font-size: 13px">${ post.time }</span>
 						</div>
 					</div>
 					<hr>
 					<div>
 						<p>${ post.content }</p>
 					</div>
-
-					<h5>${ post.commentList.size() } Câu trả lời</h5>
+<hr>
+					<div>${ post.commentList.size()} Câu trả lời </div>
 					
 					<c:forEach var="comment" items="${post.commentList}">
-						<c:if test="${empty comment.historyOfCommentId}">
-						
+					
+					<div style="padding-left: 50px; padding-right: 50px;">
+								<c:if test="${empty comment.historyOfCommentId }">
 								<div style="padding-left: 50px; padding-right: 50px;">
+								<div>${ comment.id }</div>
+								<div>
+									<h6 style="color:red">${ comment.userId.fullName }</h6>
+									<span style="color: darkgray;">${ comment.time }</span>
+									<div>${ comment.content }</div>
+									<span style="color: #de5c9d;">Trả lời</span>
+								</div>
+								</div>
+							
+						</c:if>
+							
+					
+						<c:if test="${not empty comment.childOfCommentId and not empty comment.historyOfCommentId}">
+								<div style="padding-left: 100px; padding-right: 50px;">
 								<div>${ comment.id }</div>
 								<div>
 									<h6 style="color:red">${ comment.userId.fullName }</h6>
@@ -53,7 +69,7 @@ file="../../frontend/layout/style.jsp" %>
 						</c:if>
 					</c:forEach>
 					<div class="mt-3">
-						<h5>Trả lời của bạn</h5>
+						<h6>Trả lời của bạn</h6>
 						<textarea style="height: 100px; width: 100%"></textarea>
 						<button class="btn"
 							style="background-color: #fd7e14; color: white;">Đăng

@@ -34,7 +34,7 @@
 <body>
 	<%@ include file="../../frontend/layout/partials/header.jsp"%>
 	<section>
-		<div class="container mt-4" style="width: 60%; 
+		<div class="container mt-4" style="width: 90%; 
     padding-bottom: 90px;
 		">
 
@@ -68,11 +68,11 @@
 					<label for="typeOfPost" class="col-sm-2 col-form-label">Nội
 						dung bài viết</label>
 						<div class="col-sm-10">
-						<div id="editor" class="showContent">
-					
-					</div>
-					<input type="file" onchange="updateImg(this.files[0])" id="imgData"
-						style="display: none;">
+						<textarea rows="7" class="form-control"></textarea>
+						<!-- <div id="editor" class="showContent">
+						</div> -->
+							<input type="file" onchange="updateImg(this.files[0])" id="imgData"
+							style="display: none;">
 						<button type="submit" class="btn btn-primary mt-3">Tạo bài viết</button>
 					</div>
 				</div>
@@ -153,8 +153,6 @@ $(function() {
     };
 </script>
 	<%@ include file="../../frontend/layout/partials/footer.jsp"%>
-
-
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 	<%@ include file="../../frontend/layout/script.jsp"%>
 </body>

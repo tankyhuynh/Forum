@@ -38,29 +38,33 @@
 					<c:if test="${not empty postList}">
 						<c:forEach var="post" items="${postList}">
 							<c:if test="${empty post.historyOfPostId}">
-								<a href="<c:url value='/bai-viet/${ post.id }' />">
+								
 										<div class=" shadow-sm p-3 bg-white rounded mb-3">
 											<div>
 												<div class="row">
 													<div class="col">
-														<p>${post.title}
-														<p>
+													<a href="<c:url value='/bai-viet/${ post.id }'/>">	
+														<span style="color: black;font-size: 20px">${post.title}</span>
+														</a>
 													</div>
+													
 													<div class="col" style="text-align: right;">
 														<span
-															style="font-size: 30px; font-weight: bold; margin-top: 0px;">...</span>
+															style="font-size: 20px; font-weight: bold; margin-top: 0px;">...</span>
 													</div>
 												</div>
-												<span style="color: darkgray;">${ post.time }</span>
+												<span style="color: darkgray;font-size: 10px">${ post.time }</span>
+												<hr style="color: silver;">
+												
 											</div>
 											<div>
-												<h6 style="color: rgb(38, 56, 224);">${ post.content }</h6>
+												<p style="color: black; font-size: 16px">${ post.content }</p>
 											</div>
 											<div>
 												<p></p>
 											</div>
 									</div>
-								</a>
+								
 							</c:if>
 						</c:forEach>
 					</c:if>

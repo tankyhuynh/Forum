@@ -19,7 +19,8 @@
         </param-value>
 	</context-param>
 
-	<!-- Declare Spring Security Filter khai bao trc sitemesh vi phan quyen lam truoc apply giao dien -->
+	<!-- Declare Spring Security Filter khai bao trc sitemesh vi phan quyen 
+		lam truoc apply giao dien -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -32,18 +33,30 @@
 		<dispatcher>ERROR</dispatcher>
 	</filter-mapping>
 
+	<!-- UTF-8 -->
+	<filter>
+		<filter-name>encoding-filter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
 
-	<!-- 
-    <filter>
-        <filter-name>sitemesh</filter-name>
-        <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>sitemesh</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-    </filter-mapping> -->
+	<filter-mapping>
+		<filter-name>encoding-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- END -->
+
+
+	<!-- <filter> <filter-name>sitemesh</filter-name> <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>sitemesh</filter-name> <url-pattern>/*</url-pattern> 
+		<dispatcher>REQUEST</dispatcher> <dispatcher>FORWARD</dispatcher> </filter-mapping> -->
 
 	<!-- Spring MVC -->
 	<servlet>
@@ -82,7 +95,7 @@
 	</servlet-mapping>
 
 
-	
+
 
 
 	<session-config>

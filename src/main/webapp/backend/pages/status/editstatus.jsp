@@ -40,23 +40,23 @@
 					<div class="container">
 						<div
 							class="d-sm-flex align-items-center justify-content-between mb-4">
-							<h1 class="h3 mb-0 text-gray-800">Sửa Trạng thái</h1>
+							<h1 class="h3 mb-0 text-gray-800">Sửa Trạng Thái</h1>
 						</div>
-						<form action="#" method="post"
+						<form action="<c:url value='/quan-tri/sua-trang-thai/${status.id}'/>" method="post"
 							style="width: 100%; margin-left: auto; margin-right: auto;">
 							<div style="padding: 20px;">
 								<div class="mb-3">
-									<label for="txtMaBan" class="form-label">Mã Tóm Tắt</label> <input
-										type="text" class="form-control" id="txtMaBan" name="txtMaBan">
+									<label for="statusCode" class="form-label">Mã Tóm Tắt</label> <input
+										type="text" class="form-control" id="statusCode" name="statusCode" value="${status.statusCode}">
 								</div>
 								<div class="mb-3">
-									<label for="txtSoLuongCho" class="form-label">Tên Trạng Thái
-									</label> <input type="text" class="form-control" id="txtSoLuongCho"
-										name="txtSoLuongCho">
+									<label for="statusName" class="form-label">Tên Trạng Thái
+									</label> <input type="text" class="form-control" id="statusName" value="${status.statusName}"
+										name="statusName">
 								</div>															
 								<div>
 									<button class="btn btn-primary" style="width: 100%;"
-										type="submit" id="btnThemBan" name="btnThemBan">Sửa
+										type="submit" id="btnAddStatus">Sửa
 										Trạng Thái</button>
 								</div>
 							</div>

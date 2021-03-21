@@ -30,4 +30,4 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<c:url value='/assets/backend/css/sb-admin-2.min.css'/>" rel="stylesheet">
+    <link href="<c:url value='/assets/backend/css/sb-admin-2-min.css'/>" rel="stylesheet">

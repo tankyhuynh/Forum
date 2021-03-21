@@ -13,13 +13,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.ltk.forum.model.Post;
 import com.ltk.forum.model.TypeOfPost;
+import com.ltk.forum.model.User;
 import com.ltk.forum.services.PostService;
 import com.ltk.forum.services.TypeOfPostService;
+import com.ltk.forum.services.UserService;
 
 @Controller
 @RequestMapping("/bai-viet")
@@ -33,30 +39,35 @@ public class PostController {
 	@GetMapping
 	public ModelAndView getAllByNullHistory() {
 		List<Post> posts = postService.getAllSortBy("time", "desc");
-		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();
-		
+		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();	
 		ModelAndView mav = new ModelAndView("frontend/pages/post");
 		mav.addObject("postList", posts);
 		mav.addObject("typeOfPostList", typeOfPost);
-		
 		mav.addObject("title", "Bài viết");
 		return mav;
 	}
 
 	public ModelAndView getAllByRootPostWithStatusIsDX() {
 		ModelAndView mav = new ModelAndView("post");
-		
 		mav.addObject("title", "Bài viết");
 		return mav;
 	}
 	
 	@GetMapping("/tao-bai-viet")
 	public ModelAndView createPost() {
-		System.out.println("aaaa");
 		ModelAndView mav = new ModelAndView("/frontend/pages/createpost");
-		
 		mav.addObject("title", "Tạo bài viết");
 		return mav;
+	}
+	@Autowired
+	PostService us;
+	
+	@GetMapping("/api-bai-viet")
+	@ResponseBody
+	public List<Post> api() throws JsonProcessingException {
+		Long id = 16L;
+		
+		return us.getAllByNullHistory();
 	}
 	
 //	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)

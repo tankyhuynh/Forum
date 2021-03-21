@@ -24,9 +24,6 @@ public class UserController {
 	@Autowired
 	private PostService postService;
 	
-
-	
-	// nhan url
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {	
 

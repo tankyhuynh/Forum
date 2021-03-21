@@ -42,61 +42,59 @@
 							class="d-sm-flex align-items-center justify-content-between mb-4">
 							<h1 class="h3 mb-0 text-gray-800">Thêm người dùng</h1>
 						</div>
-						<form action="#" method="post"
+						<form action="<c:url value='/quan-tri/them-nguoi-dung'/>" method="post"
 							style="width: 100%; margin-left: auto; margin-right: auto;">
 							<div style="padding: 20px;">
 								<div class="mb-3">
-									<label for="txtMaBan" class="form-label">Họ Tên</label> <input
-										type="text" class="form-control" id="txtMaBan" name="txtMaBan">
+									<label for="fullName" class="form-label">Họ Tên</label> <input
+										type="text" class="form-control" id="fullName" name="fullName">
 								</div>
 								<div class="mb-3">
-									<label for="txtSoLuongCho" class="form-label">Tài Khoản
-									</label> <input type="text" class="form-control" id="txtSoLuongCho"
-										name="txtSoLuongCho">
+									<label for="username" class="form-label">Tài Khoản
+									</label> <input type="text" class="form-control" id="username"
+										name="username">
 								</div>
 																<div class="mb-3">
-									<label for="txtViTri" class="form-label">Mật Khẩu</label> <input
-										type="text" class="form-control" id="txtViTri" name="txtViTri">
+									<label for="password" class="form-label">Mật Khẩu</label> <input
+										type="text" class="form-control" id="password" name="password">
 								</div>
 
 								<div class="mb-3">
-									<label for="txtTrangThai" class="form-label">Email</label> <input
-										type="text" class="form-control" id="txtTrangThai"
-										name="txtTrangThai">
+									<label for="email" class="form-label">Email</label> <input
+										type="text" class="form-control" id="email"
+										name="email">
 								</div>
 
 								<div class="mb-3">
-									<label for="txtTrangThai" class="form-label">Vai Trò</label> <select
+									<label for="role" class="form-label">Vai Trò</label>
+									 <select
 										class="form-select form-control"
-										aria-label="Default select example">
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										aria-label="Default select example"
+										name="roleId"
+										id="roleId">
+										<c:forEach var="role" items="${roleList}">
+										<option value="${role.id}">${role.roleName}</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="mb-3">
-									<label for="txtTrangThai" class="form-label">Giới Tính</label>
+									<label for="gender" class="form-label">Giới Tính</label>
 									<div>
 										<div class="form-check form-check-inline">
 											<input class="form-check-input" type="radio"
-												name="inlineRadioOptions" id="inlineRadio1" value="option1">
-											<label class="form-check-label" for="inlineRadio1">Nam</label>
+												name="gender" id="gender1" value="0">
+											<label class="form-check-label" for="gender1">Nam</label>
 										</div>
 										<div class="form-check form-check-inline">
 											<input class="form-check-input" type="radio"
-												name="inlineRadioOptions" id="inlineRadio2" value="option2">
-											<label class="form-check-label" for="inlineRadio2">Nữ</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio"
-												name="inlineRadioOptions" id="inlineRadio2" value="option2">
-											<label class="form-check-label" for="inlineRadio2">Khác</label>
+												name="gender" id="gender2" value="1">
+											<label class="form-check-label" for="gender2">Nữ</label>
 										</div>
 									</div>
 								</div>
 								<div>
 									<button class="btn btn-primary" style="width: 100%;"
-										type="submit" id="btnThemBan" name="btnThemBan">Thêm
+										type="submit" id="btnAddUser">Thêm
 										Người Dùng</button>
 								</div>
 							</div>

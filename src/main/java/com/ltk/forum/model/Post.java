@@ -55,6 +55,7 @@ public class Post {
 	private Post historyOfPostId;
 	
 	@OneToMany(mappedBy="historyOfPostId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore // them vao
 	private List<Post> historyOfPostList;
 	
 	@OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -43,40 +43,38 @@
 							class="d-sm-flex align-items-center justify-content-between mb-4">
 							<h1 class="h3 mb-0 text-gray-800">Trang chủ Thể loại báo cáo</h1>
 						</div>
-						<a href="#"
+						<a href="<c:url value='/quan-tri/them-the-loai-bao-cao'/>"
 							class="btn btn-success mb-3">Thêm thể loại</a>
-						<div class="table-responsive-md container">
+						<div class="table-responsive container">
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th>Mã Vai Trò</th>
+										<th>Mã Báo Cáo</th>
 										<th>Mã Tóm Tắt</th>
 										<th>Tên Vai Trò</th>
+										<th>Hành Động</th>
 									</tr>
 								</thead>
-								<%-- <tbody>
-									<c:forEach var="item" items="${model}">
+								<tbody>
+									<c:forEach var="typeOfReport" items="${typeOfReportList}">
 										<tr>
-											<td>${}</td>
-											<td>${}</td>
-											<td>${}</td>
-											<td>${}</td>
-											<td>${}</td>
-											<td>${}</td>
+											<td>${typeOfReport.id}</td>
+											<td>${typeOfReport.typeCode}</td>
+											<td>${typeOfReport.typeName}</td>
 											<td class="d-flex">
-												<div style="padding-right: 20px;">
-													<a class="btn btn-warning"
-														href="id=${}">Chỉnh
+												<div style="padding-right: 10px">
+													<a style="width: 100px" class="btn btn-warning"
+														href="<c:url value='/quan-tri/sua-the-loai-bao-cao/${typeOfReport.id}'/>">Chỉnh
 														sửa</a>
 												</div>
 												<div>
-													<a class="btn btn-danger"
-														href="id=${}">Xóa</a>
+													<a style="width: 100px" class="btn btn-danger"
+														href="<c:url value='/quan-tri/xoa-the-loai-bao-cao/${typeOfReport.id}'/>">Xóa</a>
 												</div>
 											</td>
 										</tr>
 									</c:forEach>
-								</tbody> --%>
+								</tbody>
 							</table>
 						</div>
 					</div>

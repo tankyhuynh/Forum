@@ -42,21 +42,21 @@
 							class="d-sm-flex align-items-center justify-content-between mb-4">
 							<h1 class="h3 mb-0 text-gray-800">Thêm vai trò</h1>
 						</div>
-						<form action="#" method="post"
+						<form action="<c:url value='/quan-tri/them-vai-tro'/>" method="post"
 							style="width: 100%; margin-left: auto; margin-right: auto;">
 							<div style="padding: 20px;">
 								<div class="mb-3">
-									<label for="txtMaBan" class="form-label">Mã Tóm Tắt</label> <input
-										type="text" class="form-control" id="txtMaBan" name="txtMaBan">
+									<label for="roleCode" class="form-label">Mã Tóm Tắt</label> <input
+										type="text" class="form-control" id="roleCode" name="roleCode">
 								</div>
 								<div class="mb-3">
-									<label for="txtSoLuongCho" class="form-label">Tên Vai Trò
-									</label> <input type="text" class="form-control" id="txtSoLuongCho"
-										name="txtSoLuongCho">
+									<label for="roleName" class="form-label">Tên Vai Trò
+									</label> <input type="text" class="form-control" id="roleName"
+										name="roleName">
 								</div>															
 								<div>
 									<button class="btn btn-primary" style="width: 100%;"
-										type="submit" id="btnThemBan" name="btnThemBan">Thêm
+										type="submit" id="btnAddRole">Thêm
 										Vai Trò</button>
 								</div>
 							</div>

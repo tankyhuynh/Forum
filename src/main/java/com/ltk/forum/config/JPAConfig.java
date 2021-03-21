@@ -56,6 +56,9 @@ public class JPAConfig {
 			dataSource.setUrl("jdbc:mysql://b042458a1d5f49:065b1ac0@us-cdbr-east-03.cleardb.com/heroku_729599d8be8e937?reconnect=true");
 			dataSource.setUsername("b042458a1d5f49");
 			dataSource.setPassword("065b1ac0");
+//			dataSource.setUrl("jdbc:mysql://localhost:3306/askus_db");
+//			dataSource.setUsername("root");
+//			dataSource.setPassword("root");
 		} catch (Exception e) {
 			System.out.println("loi r");
 		}

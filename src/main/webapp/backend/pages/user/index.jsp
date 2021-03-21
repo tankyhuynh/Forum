@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,13 +9,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SB Admin 2 - Dashboard</title>
 <%@ include file="../../../backend/layout/style.jsp"%>
+<style >
+</style>
 </head>
 <body id="page-top">
 	<div id="wrapper">
 		<%@ include file="../../../backend/layout/partials/sidebar.jsp"%>
 		<div id="content-wrapper" class="d-flex flex-column">
 			<div id="content">
-				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 					<button id="sidebarToggleTop"
 						class="btn btn-link d-md-none rounded-circle mr-3">
@@ -43,44 +47,43 @@
 							class="d-sm-flex align-items-center justify-content-between mb-4">
 							<h1 class="h3 mb-0 text-gray-800">Trang chủ người dùng</h1>
 						</div>
-						<a href="#"
-							class="btn btn-success mb-3">Thêm người dùng</a>
-						<div class="table-responsive-md container">
+						<a href="<c:url value='/quan-tri/them-nguoi-dung'/>" class="btn btn-success mb-3">Thêm người dùng</a>
+						<div class="table-responsive container" >
 							<table class="table table-hover">
 								<thead>
-									<tr>
+									<tr style="text-align: center;">
 										<th>Mã Người Dùng</th>
 										<th>Họ Tên</th>
 										<th>Tài Khoản</th>
-										<th>Mật Khẩu</th>
 										<th>Email</th>
 										<th>Giới Tính</th>
 										<th>Vai Trò</th>
+										<th>Hành Động</th>
 									</tr>
 								</thead>
-								<%-- <tbody>
-									<c:forEach var="item" items="${model}">
+								<tbody>
+									<c:forEach var="user" items="${userList}">
 										<tr>
-											<td>${}</td>
-											<td>${}</td>
-											<td>${}</td>
-											<td>${}</td>
-											<td>${}</td>
-											<td>${}</td>
+											<td>${user.id}</td>
+											<td>${user.fullName}</td>
+											<td>${user.username}</td>
+											<td>${user.email}</td>
+											<td>${user.gender}</td>
+											<td>${user.roleId.roleName}</td>
 											<td class="d-flex">
-												<div style="padding-right: 20px;">
-													<a class="btn btn-warning"
-														href="id=${}">Chỉnh
+												<div style="padding-right: 10px">
+													<a style="width: 100px" class="btn btn-warning"
+														href="<c:url value='/quan-tri/sua-nguoi-dung/${user.id}'/>">Chỉnh
 														sửa</a>
 												</div>
 												<div>
-													<a class="btn btn-danger"
-														href="id=${}">Xóa</a>
+													<a style="width: 100px" class="btn btn-danger"
+														href="<c:url value='/quan-tri/xoa-nguoi-dung/${user.id}'/>">Xóa</a>
 												</div>
 											</td>
 										</tr>
 									</c:forEach>
-								</tbody> --%>
+								</tbody>
 							</table>
 						</div>
 					</div>

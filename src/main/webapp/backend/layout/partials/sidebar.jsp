@@ -17,7 +17,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<c:url value='/quan-tri'/>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -33,7 +33,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="<c:url value='/quan-tri/the-loai-bai-viet'/>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Thể loại bài viết</span>
                 </a>
@@ -41,33 +41,45 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="<c:url value='/quan-tri/the-loai-bao-cao'/>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Thể loại báo cáo</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="<c:url value='/quan-tri/vai-tro'/>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Vai trò</span>
                 </a>
             </li>
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="<c:url value='/quan-tri/trang-thai'/>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Trạng thái</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="<c:url value='/quan-tri/nguoi-dung'/>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Người dùng</span>
                 </a>
             </li>
  			<li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="<c:url value='/quan-tri/bao-cao'/>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Báo cáo</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<c:url value='/quan-tri/binh-luan'/>">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Bình luận</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<c:url value='/quan-tri/bai-viet'/>">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Bài viết</span>
                 </a>
             </li>
             
@@ -84,10 +96,6 @@
                 </a>
             	</li> -->
 
-          
-            
-
-    
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->

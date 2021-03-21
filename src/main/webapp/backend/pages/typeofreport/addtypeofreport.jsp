@@ -40,24 +40,24 @@
 					<div class="container">
 						<div
 							class="d-sm-flex align-items-center justify-content-between mb-4">
-							<h1 class="h3 mb-0 text-gray-800">Thêm Thể loại bài viết</h1>
+							<h1 class="h3 mb-0 text-gray-800">Thêm Thể loại báo cáo</h1>
 						</div>
-						<form action="#" method="post"
+						<form action="<c:url value='/quan-tri/them-the-loai-bao-cao'/>" method="post"
 							style="width: 100%; margin-left: auto; margin-right: auto;">
 							<div style="padding: 20px;">
 								<div class="mb-3">
-									<label for="txtMaBan" class="form-label">Mã Tóm Tắt</label> <input
-										type="text" class="form-control" id="txtMaBan" name="txtMaBan">
+									<label for="typeCode" class="form-label">Mã Tóm Tắt</label> <input
+										type="text" class="form-control" id="typeCode" name="typeCode">
 								</div>
 								<div class="mb-3">
-									<label for="txtSoLuongCho" class="form-label">Tên Thể Loại
-									</label> <input type="text" class="form-control" id="txtSoLuongCho"
-										name="txtSoLuongCho">
+									<label for="typeName" class="form-label">Tên Thể Loại Báo Cáo
+									</label> <input type="text" class="form-control" id="typeName"
+										name="typeName">
 								</div>															
 								<div>
 									<button class="btn btn-primary" style="width: 100%;"
-										type="submit" id="btnThemBan" name="btnThemBan">Thêm
-										Thể Loại</button>
+										type="submit" id="btnTheLoai">Thêm
+										Thể Loại Báo Cáo</button>
 								</div>
 							</div>
 						</form>
