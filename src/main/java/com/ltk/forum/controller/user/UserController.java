@@ -45,10 +45,8 @@ public class UserController {
 	
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView loginPage() {	
-
 		ModelAndView mav = new ModelAndView("frontend/pages/signin");
-		
-		mav.addObject("title", "Đăng nhập");
+		//mav.addObject("title", "Đăng nhập");
 		return mav;
 	}
 	

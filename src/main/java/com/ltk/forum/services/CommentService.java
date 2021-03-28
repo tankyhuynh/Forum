@@ -22,6 +22,10 @@ public class CommentService {
 		return commentRepo.findAll();
 	}
 	
+	public List<Comment> getAllByPostId(Post postId){
+		return commentRepo.findAllByPostId(postId);
+	}
+	
 	public List<Comment> getAllSortBy(String fieldName, String typeOfSort) {
 		typeOfSort = typeOfSort.toLowerCase();
 		

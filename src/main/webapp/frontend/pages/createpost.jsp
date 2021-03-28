@@ -17,11 +17,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.js"></script>
+<!-- <script src="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.js"></script>
 <link href="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.snow.css"
 	rel="stylesheet">
 <link href="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.bubble.css"
-	rel="stylesheet">
+	rel="stylesheet"> -->
 
 </head>
 
@@ -38,28 +38,29 @@
     padding-bottom: 90px;
 		">
 
+
+
 			<h5 style="color: red">Tạo bài viết của bạn</h5>
 			<hr>
-			<form:form action="<c:url value='/tao-bai-viet' />" method="POST" modelAttribute="post">
+			<form action="<c:url value='/bai-viet/tao-bai-viet'/>" method="post">
 				<div class="row mb-3">
 					<label for="txtTitle" class="col-sm-2 col-form-label">Tiêu
 						đề bài viết</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="txtTitle"
-							name="txtTitle">
+						<input type="text" class="form-control" id="title" name="title">
 					</div>
 				</div>
-
-
+				<input type="hidden" id="userId" name="userId" value="<%=SecurityUtils.getPrincipal().getId()%>">
 				<div class="row mb-3">
 					<label for="typeOfPost" class="col-sm-2 col-form-label">Thể
 						loại bài viết</label>
 					<div class="col-sm-10">
 						<select class="form-select" aria-label="Default select example"
-							name="typeOfPost">
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
+							name="typeOfPostId"
+										id="typeOfPostId">
+							<c:forEach var="typeOfPost" items="${typeOfPostList}">
+										<option value="${typeOfPost.id}">${typeOfPost.typeName}</option>
+										</c:forEach>
 						</select>
 					</div>
 				</div>
@@ -68,7 +69,7 @@
 					<label for="typeOfPost" class="col-sm-2 col-form-label">Nội
 						dung bài viết</label>
 						<div class="col-sm-10">
-						<textarea rows="7" class="form-control"></textarea>
+						<textarea rows="7" class="form-control" name="content" id="content"></textarea>
 						<!-- <div id="editor" class="showContent">
 						</div> -->
 							<input type="file" onchange="updateImg(this.files[0])" id="imgData"
@@ -77,11 +78,11 @@
 					</div>
 				</div>
 				
-			</form:form>
+			</form>
 		</div>
 	</section>
 <script>
-var quill;
+/* var quill;
 $(function() {
     / * Editor action bar options * /
     var toolbarOptions = [
@@ -150,7 +151,7 @@ $(function() {
     function submitData() {
         res = quill.container.firstChild.innerHTML; // Get the current contents of the rich text editor instance (with html tags)
         console.log(res); // Get the current contents of the rich text editor instance (with html tags)
-    };
+    }; */
 </script>
 	<%@ include file="../../frontend/layout/partials/footer.jsp"%>
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

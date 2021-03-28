@@ -410,7 +410,7 @@ public class AdminController {
 
 	@GetMapping("/sua-bai-viet/{id}")
 	public ModelAndView editPostPage(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("redirect:/quan-tri/bai-viet");
+		ModelAndView mav = new ModelAndView("/backend/pages/post/editpost");
 		mav.addObject("post", postService.getOneById(id));
 		mav.addObject("typeOfPostList", typeOfPostService.getAll());
 		return mav;

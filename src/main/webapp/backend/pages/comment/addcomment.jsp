@@ -45,7 +45,7 @@
 						<form action="<c:url value='/quan-tri/them-binh-luan'/>" method="post"
 							style="width: 100%; margin-left: auto; margin-right: auto;">
 							<div style="padding: 20px;">
-							<div class="mb-3">
+								<div class="mb-3">
 									<label for="postId" class="form-label">Mã Bài Viết</label> <input
 										type="text" class="form-control" id="postId" name="postId">
 								</div>

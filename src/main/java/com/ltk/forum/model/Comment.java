@@ -18,7 +18,10 @@ import javax.persistence.Table;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
@@ -35,6 +38,7 @@ public class Comment {
 	private String content;
 	
 	@CreatedDate
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	@Column(name = "time", nullable = false, columnDefinition = "TIMESTAMP")
 	private Timestamp time;
 	
@@ -64,10 +68,11 @@ public class Comment {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="child_of_comment_id")
+	@JsonBackReference
 	private Comment childOfCommentId;
 
 	@OneToMany(mappedBy="childOfCommentId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JsonIgnore
+	 @JsonManagedReference
 	private List<Comment> childOfCommentList;
 	
 

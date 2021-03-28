@@ -22,29 +22,40 @@
 </head>
 <body>
 	<ul id="app">
-		<li v-for="item in items" :key="item.title">{{ item.title }}
-		</li>
+		
 	</ul>
 
-	<script>
-	var vm = new Vue({
-		  el: '#app',
-		  data: {
-		    name: 'Vue.js'
-		  },
-		  // define methods under the `methods` object
-		  methods: {
-		    greet: function (event) {
-		      // `this` inside methods point to the Vue instance
-		      alert('Hello ' + this.name + '!')
-		      // `event` is the native DOM event
-		      alert(event.target.tagName)
-		    }
-		  }
-		})
-		// you can invoke methods in JavaScript too
-		vm.greet() // -> 'Hello Vue.js!'
+<script type="text/javascript">
+var vm = new Vue({
+    el: '#app',
+    data: {
+  	  postId: 124,
+  	  userId: 4,
+  	  childOfCommentId:'',
+  	  content:'ddfgtg'
+    	},
+    // define methods under the `methods` object
+    methods: {
+      submitData: function (event) {
+        axios
+        .post('http://localhost:8080/Forum/bai-viet/them-binh-luan',{ params:{postId: this.postId,
+	    	  userId: this.userId,
+	    	  childOfCommentId:this.childOfCommentId,
+	    	  content: this.content}
+      	  		
+        })
+        .then(response => (
+      		  alert("khac nhau ma2")
+      ))
+      }
+    }
+})
+
+
+
+
+	vm.submitData();
+</script>
 	
-	</script>
 </body>
 </html>
