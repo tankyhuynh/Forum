@@ -52,17 +52,17 @@ public class JPAConfig {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		
 		try {
-//			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 //			dataSource.setUrl("jdbc:mysql://b042458a1d5f49:065b1ac0@us-cdbr-east-03.cleardb.com/heroku_729599d8be8e937?reconnect=true");
 //			dataSource.setUsername("b042458a1d5f49");
 //			dataSource.setPassword("065b1ac0");
-//			dataSource.setUrl("jdbc:mysql://localhost:3306/askus_db");
-//			dataSource.setUsername("root");
-//			dataSource.setPassword("root");
-			dataSource.setDriverClassName("org.postgresql.Driver");
-			dataSource.setUrl("jdbc:postgresql://azure-posgresql.postgres.database.azure.com:5432/askus_db?user=tanky@azure-posgresql&password=Abc123CBa&sslmode=require");
-			dataSource.setUsername("tanky@azure-posgresql");
-			dataSource.setPassword("Abc123CBa");
+			dataSource.setUrl("jdbc:mysql://localhost:3306/askus_db");
+			dataSource.setUsername("root");
+			dataSource.setPassword("root");
+//			dataSource.setDriverClassName("org.postgresql.Driver");
+//			dataSource.setUrl("jdbc:postgresql://azure-posgresql.postgres.database.azure.com:5432/askus_db?user=tanky@azure-posgresql&password=Abc123CBa&sslmode=require");
+//			dataSource.setUsername("tanky@azure-posgresql");
+//			dataSource.setPassword("Abc123CBa");
 		} catch (Exception e) {
 			System.out.println("loi r");
 		}

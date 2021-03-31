@@ -55,6 +55,7 @@ public class Comment {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "status_id", nullable = false)
+	@JsonIgnore
 	private Status statusId;
 	
 
@@ -72,7 +73,7 @@ public class Comment {
 	private Comment childOfCommentId;
 
 	@OneToMany(mappedBy="childOfCommentId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	 @JsonManagedReference
+	@JsonManagedReference
 	private List<Comment> childOfCommentList;
 	
 

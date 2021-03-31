@@ -9,6 +9,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <%@ include file="../../frontend/layout/style.jsp"%>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<meta http-equiv="refresh" content="180">
+
 </head>
 <body>
 	<%@ include file="../../frontend/layout/partials/header.jsp"%>
@@ -30,46 +37,167 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-8">
-				<div><a href="<c:url value='/bai-viet/tao-bai-viet' />" class="btn btn-primary mb-3 ">Tạo bài viết</a></div>
+				<div class="col-md-8" id="app">
+					<div>
+						<a href="<c:url value='/bai-viet/tao-bai-viet' />"
+							class="btn btn-primary mb-3 ">Tạo bài viết</a>
+					</div>
 					<c:if test="${not empty postList}">
 						<c:forEach var="post" items="${postList}">
 							<c:if test="${empty post.historyOfPostId}">
-										<div class=" shadow-sm p-3 bg-white rounded mb-3">
-											<div>
-												<div class="row">
-													<div class="col-md-10">
-													<a href="<c:url value='/bai-viet/${ post.id }'/>">	
-														<span style="color: maroon;font-size: 20px">${post.title}</span>
-														</a>
-													</div>
-													
-													<div class="col-md-2" style="text-align: right;">
-														<span
-															style="font-size: 20px; font-weight: bold; margin-top: 0px;">...</span>
-													</div>
-												</div>
-												<span style="color: darkgray;font-size: 10px">${ post.time }</span>
-												<hr style="color: silver;">
-												
+								<div class=" shadow-sm p-3 bg-white rounded mb-3">
+									<div>
+										<div class="row">
+											<div class="col-md-10">
+												<a href="<c:url value='/bai-viet/${ post.id }'/>"> <span
+													style="color: maroon; font-size: 20px">${post.title}</span>
+												</a>
 											</div>
-											<div>
-												<p style="color: black; font-size: 16px">${ post.content }</p>
+
+											<div class="col-md-2" style="text-align: right;">
+												<span data-bs-toggle="modal" data-bs-target="#exampleModal"
+													data-bs-whatever="@getbootstrap"
+													style="font-size: 20px; font-weight: bold; margin-top: 0px;" onclick='setPostId(${post.id})'>...</span>
 											</div>
-											<div>
-												<p></p>
-											</div>
+										</div>
+										<span style="color: darkgray; font-size: 10px">${ post.time }</span>
+										<hr style="color: silver;">
+
 									</div>
-								
+									<div>
+										<p style="color: black; font-size: 16px">${ post.content }</p>
+									</div>
+									<div>
+										<p></p>
+									</div>
+								</div>
+
 							</c:if>
 						</c:forEach>
 					</c:if>
 				</div>
 				<div class="col-md-2"></div>
 			</div>
-
 		</div>
+
+
+		<!-- Report -->
+
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Báo cáo bài viết</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+									<input type="hidden" id="userId" name="userId" value="<%=SecurityUtils.getPrincipal().getId()%>">
+							</div>
+							<div class="mb-3">
+									<label for="typeOfReportId" class="form-label">
+										Chọn thể loại bạn muốn báo cáo
+									 </label> <select class="form-select form-control"
+										aria-label="Default select example" name="typeOfReportId"
+										id="typeOfReportId">
+										<c:forEach var="typeOfReport" items="${typeOfReportList}">
+											<option value="${typeOfReport.id}">${typeOfReport.typeName}</option>
+										</c:forEach>
+									</select>
+								</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Đóng</button>
+						<button type="button"  class="btn btn-primary" 
+						onclick='postReport(document.getElementById("userId").value,document.getElementById("typeOfReportId").value)'>Gửi báo cáo</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+
+
+		<!-- End Report -->
+
 	</section>
+	
+	
+	<script>
+	
+	var postId = "";
+	
+	function setPostId(postId){
+		this.postId = postId;
+	}
+	
+	function postReport(userId,typeOfReportId){
+		 $.post("http://localhost:8080/Forum/bai-viet/them-bao-cao",
+			    {
+			    	postId: this.postId,
+			    	  userId: userId,
+			    	  typeOfReportId:typeOfReportId
+			    },
+			    function(data,status){
+			    	alert("Báo cáo của bạn đã được gửi!");
+			     }); 
+	}
+	
+	
+	
+	/* var vm = new Vue({
+	      el: '#app',
+	      data: {
+	    	  commentList:[],
+	    	  postId: ${post.id},
+	      	},
+	      // define methods under the `methods` object
+	      methods: {
+	       
+	    	  greet: function (event) {
+	              
+	    		  axios.get('/Forum/bai-viet/api-binh-luan/' + this.postId)
+		    	    .then(response => {
+		    	      var list = response.data;
+		    	      this.commentList = list; 
+		    	    })
+		    	    .catch(e => {
+		    	      this.errors.push(e)
+		    	    })
+	        
+	        
+	      },
+	      	
+	      	postForm: function (postId,userId,childOfCommentId,content){
+	    		$.post("http://localhost:8080/Forum/bai-viet/them-binh-luan",
+	    			    {
+	    			    	postId: postId,
+	    			    	  userId: userId,
+	    			    	  childOfCommentId:childOfCommentId,
+	    			    	  content: document.getElementsByName(content)[0].value
+	    			    },
+	    			    function(data,status){
+	    			    	 var dataObject = JSON.stringify(data);
+	    			      	vm.commentList = dataObject;
+	    			     });
+	    	},
+	    	
+	    	displayReply: function (id) {
+	    		document.getElementById(id).style.display = "block";
+	    		}
+	      	
+	      	
+	}});
+	
+	vm.greet();
+	setInterval(vm.greet,500);  */
+	</script>
+	
 
 
 	<%@ include file="../../frontend/layout/partials/footer.jsp"%>

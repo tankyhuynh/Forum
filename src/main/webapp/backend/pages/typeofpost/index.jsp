@@ -69,7 +69,7 @@
 												</div>
 												<div>
 													<a style="width: 100px" class="btn btn-danger"
-														href="<c:url value='/quan-tri/sua-the-loai-bai-viet/${typeOfPost.id}'/>">Xóa</a>
+														href="<c:url value='/quan-tri/xoa-the-loai-bai-viet/${typeOfPost.id}'/>">Xóa</a>
 												</div>
 											</td>
 										</tr>

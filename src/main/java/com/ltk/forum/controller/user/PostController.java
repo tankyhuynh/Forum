@@ -26,12 +26,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.ltk.forum.model.Comment;
 import com.ltk.forum.model.Post;
+import com.ltk.forum.model.Report;
 import com.ltk.forum.model.TypeOfPost;
 import com.ltk.forum.model.User;
 import com.ltk.forum.services.CommentService;
 import com.ltk.forum.services.PostService;
+import com.ltk.forum.services.ReportService;
 import com.ltk.forum.services.StatusService;
 import com.ltk.forum.services.TypeOfPostService;
+import com.ltk.forum.services.TypeOfReportService;
 import com.ltk.forum.services.UserService;
 import com.ltk.forum.util.SecurityUtils;
 
@@ -47,6 +50,10 @@ public class PostController {
 	private UserService userService;
 	@Autowired
 	private StatusService statusService;
+	@Autowired
+	private TypeOfReportService typeOfReportService;
+	@Autowired
+	private ReportService reportService;
 
 	@GetMapping
 	public ModelAndView getAllByNullHistory() {
@@ -56,6 +63,7 @@ public class PostController {
 		mav.addObject("postList", posts);
 		mav.addObject("typeOfPostList", typeOfPost);
 		mav.addObject("title", "Bài viết");
+		mav.addObject("typeOfReportList",typeOfReportService.getAll());
 		return mav;
 	}
 
@@ -132,11 +140,25 @@ public class PostController {
 	}
 	
 	
+	@PostMapping("/them-bao-cao")
+	public ModelAndView saveReport(@RequestParam Long userId, Long postId, Long typeOfReportId) {
+		ModelAndView mav = new ModelAndView("redirect:/bai-viet");
+		Report report = new Report();
+		report.setPostId(postService.getOneById(postId));
+		report.setUserId(userService.getOneById(userId));
+		report.setTypeOfReportId(typeOfReportService.getOneById(typeOfReportId));
+		Date date = new Date();
+		report.setTime(new Timestamp(date.getTime()));
+		reportService.save(report);
+		return mav;
+	}
+	
+	
 	@GetMapping("/api-binh-luan/{id}")
 	@ResponseBody
 	public List<Comment> api(@PathVariable("id") Long id ) throws JsonProcessingException {
 		
-		return commentService.getAllByPostId(postService.getOneById(id));
+		return commentService.getAllByNullHistoryOfComment(postService.getOneById(id));
 	}
 	
 //	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
