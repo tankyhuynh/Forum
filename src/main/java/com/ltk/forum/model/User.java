@@ -22,7 +22,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Transactional(readOnly = true)
 public class User {
 	@Id
@@ -38,7 +38,7 @@ public class User {
 	@Column(name = "password", length = 200, nullable = false)
 	private String password;
 	
-	@Column(name = "gender", nullable = false)
+	@Column(name = "gender")
 	private Boolean gender;
 	
 	@Column(name = "email", length = 50, nullable = false)
