@@ -1,60 +1,33 @@
 <%@ page import="com.ltk.forum.util.SecurityUtils"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<!-- Topbar -->
+<nav
+	class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<!-- Sidebar Toggle (Topbar) -->
+	<button id="sidebarToggleTop"
+		class="btn btn-link d-md-none rounded-circle mr-3">
+		<i class="fa fa-bars"></i>
+	</button>
 
-<header id="header" class="fixed-top d-flex align-items-center"
-	style="padding-top: 5px; padding-bottom: 5px; background-color: white;">
-	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<div class="container-fluid">
-				<!-- <a href="index.html" class="navbar-brand"><img src="assets/shared/img/logo.png" alt="" class="img-fluid" style="width: 80px;height: 50px"></a> -->
-				<a class="navbar-brand" href="#"
-					style="text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.6); font-weight: 600; font-size: 30px; color: navy;"><i>ASKUS</i></a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+	<!-- Topbar Search -->
+	<form
+		class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+		<div class="input-group">
+			<input type="text" class="form-control bg-light border-0 small"
+				placeholder="Search for..." aria-label="Search"
+				aria-describedby="basic-addon2">
+			<div class="input-group-append">
+				<button class="btn btn-primary" type="button">
+					<i class="fas fa-search fa-sm"></i>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="<c:url value='/trang-chu' />">Trang
-								chủ</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="<c:url value='/bai-viet' />">Bài
-								viết</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="<c:url value='/gioi-thieu' /> ">Giới
-								thiệu</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="<c:url value='/lien-he' />">Liên hệ</a></li>
-					</ul>
-					<form class="d-flex" style="margin-right: 10px;">
-						<input class="form-control me-2" type="search"
-							placeholder="Tìm kiếm" aria-label="Search">
-						<button class="btn btn-outline-dark" type="submit">Tìm</button>
-					</form>
-
-					<security:authorize access="isAnonymous()">
-						<li class="nav-item"><a class="nav-link" href="<c:url value='/dang-nhap' /> ">Đăng Nhập</a></li>
-					</security:authorize> 
-
-					<security:authorize access="isAuthenticated()">
-						<a class="nav-link active"
-							style="padding-left: 0px; color: black;" aria-current="page">Chào,
-							<%=SecurityUtils.getPrincipal().getFullName()%>
-						</a>
-						<a class="nav-link active"
-							style="padding-left: 0px; color: black;" aria-current="page"
-							href="<c:url value='/thoat'/> ">Thoát</a>
-					</security:authorize> 
-
-				</div>
 			</div>
-		</nav>
-	</div>
-</header>
+		</div>
+	</form>
+	<div class="topbar-divider d-none d-sm-block"></div>
+
+<a class="nav-link active" style="padding-left: 0px; color: black;"
+	aria-current="page" href="<c:url value='/thoat'/> ">Tho�t</a>
+</nav>
+<!-- End of Topbar -->
+
