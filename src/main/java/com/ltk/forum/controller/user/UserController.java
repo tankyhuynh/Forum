@@ -11,10 +11,8 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ltk.forum.model.User;
@@ -59,7 +57,7 @@ public class UserController {
 	public ModelAndView registerUser(@ModelAttribute("userModel") User user) {	
 		ModelAndView mav = new ModelAndView("frontend/pages/signin");
 		user.setGender(true);
-		user.setRoleId(roleService.getOneById(1L));
+		user.setRoleId(roleService.getOneById(2L));
 		user.setPassword(encoder.encode(user.getPassword()));
 		userService.save(user);
 		mav.addObject("title", "Đăng ký");

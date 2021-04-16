@@ -23,4 +23,5 @@
   <script src="<c:url value='/assets/vendor/aos/aos.js'/>"></script>
   
   <!-- Template Main JS File -->
-  <script src="<c:url value='/assets/frontend/js/main.js'/>"></script>
+  <script src="<c:url value='/assets/frontend/js/main.js'"></script>
+  

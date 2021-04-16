@@ -41,7 +41,9 @@
 
 					<security:authorize access="isAnonymous()">
 						<a class="nav-link" href="<c:url value='/dang-nhap' /> ">Đăng Nhập</a>
-					</security:authorize> 
+					
+						<a class="nav-link" href="<c:url value='/dang-ky' /> ">Đăng Ký</a>
+					</security:authorize>  
 
 					<security:authorize access="isAuthenticated()">
 						<a class="nav-link active"
