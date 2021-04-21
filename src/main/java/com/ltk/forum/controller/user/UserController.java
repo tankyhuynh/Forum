@@ -55,13 +55,13 @@ public class UserController {
 	
 	@RequestMapping(value = "/dang-ky", method = RequestMethod.POST)
 	public ModelAndView registerUser(@ModelAttribute("userModel") User user) {	
-		ModelAndView mav = new ModelAndView("frontend/pages/signin");
+//		ModelAndView mav = new ModelAndView("frontend/pages/signin");
 		user.setGender(true);
 		user.setRoleId(roleService.getOneById(2L));
 		user.setPassword(encoder.encode(user.getPassword()));
 		userService.save(user);
-		mav.addObject("title", "Đăng ký");
-		return mav;
+//		mav.addObject("title", "Đăng ký");
+		return  new ModelAndView("redirect:/dang-nhap");
 	}
 	
 	
