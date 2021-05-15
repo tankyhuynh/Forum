@@ -21,7 +21,7 @@
 					<div class="container">
 						<div
 							class="d-sm-flex align-items-center justify-content-between mb-4">
-							<h1 class="h3 mb-0 text-gray-800">Thêm báo cáo</h1>
+							<h1 class="h3 mb-0 text-gray-800">Sửa báo cáo</h1>
 						</div>
 						<form action="<c:url value='/quan-tri/sua-bao-cao/${report.id}'/>" method="post"
 							style="width: 100%; margin-left: auto; margin-right: auto;">

@@ -344,7 +344,8 @@ public class AdminController {
 	@GetMapping("/sua-bao-cao/{id}")
 	public ModelAndView editReportPage(@PathVariable Long id) {
 		ModelAndView mav = new ModelAndView("/backend/pages/report/editreport");
-		mav.addObject("typeOfReport", typeOfReportService.getOneById(id));
+		mav.addObject("report",reportService.getOneById(id));
+		mav.addObject("typeOfReportList", typeOfReportService.getAll());
 		return mav;
 	}
 	
