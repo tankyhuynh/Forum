@@ -16,6 +16,7 @@
 <%@ include file="../../frontend/layout/style.jsp"%>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
 
 <!-- <script src="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.js"></script>
 <link href="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.snow.css"
@@ -81,6 +82,18 @@
 			</form>
 		</div>
 	</section>
+	
+
+  <script>
+  
+	CKEDITOR.replace('content', {
+		filebrowserUploadUrl : 'uploadFile',
+		height : 400
+	});
+
+  </script>
+	
+	
 <script>
 /* var quill;
 $(function() {
@@ -138,7 +151,7 @@ $(function() {
             success: function (res) {
                 /*console.log(res);*/
                 // callback after the pictures uploaded successfully
-                const range = quill.getSelection();
+                /* const range = quill.getSelection();
                 if (range) {
                     quill.insertEmbed(range.index, 'image', "" + res.data.src); // upload good pictures, rich text inserted into the range.index (current marker)
                 }
@@ -151,7 +164,7 @@ $(function() {
     function submitData() {
         res = quill.container.firstChild.innerHTML; // Get the current contents of the rich text editor instance (with html tags)
         console.log(res); // Get the current contents of the rich text editor instance (with html tags)
-    }; */
+    }; */ 
 </script>
 	<%@ include file="../../frontend/layout/partials/footer.jsp"%>
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

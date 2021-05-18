@@ -1,10 +1,14 @@
 package com.ltk.forum.controller.user;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -71,6 +75,19 @@ public class PostController {
 		ModelAndView mav = new ModelAndView("post");
 		mav.addObject("title", "Bài viết");
 		return mav;
+	}
+	@ResponseBody
+	@PostMapping(value = "/uploadFile")
+	public String submit(@RequestParam("upload") MultipartFile file, ModelMap modelMap, HttpSession session) throws IllegalStateException, IOException {
+	    modelMap.addAttribute("file", file);
+	    String rootDirectory = session.getServletContext().getRealPath("/");
+	    file.transferTo(new File(rootDirectory+"/uploads/"+file.getOriginalFilename()));
+	    HashMap<String,String> payload = new HashMap<>();
+	    payload.put("uploaded","1");
+	    payload.put("fileName",file.getOriginalFilename());
+	    payload.put("url", "/Forum/uploads/"+file.getOriginalFilename());
+	    String json = new ObjectMapper().writeValueAsString(payload);
+	    return json;
 	}
 	
 	@GetMapping("/tao-bai-viet")
