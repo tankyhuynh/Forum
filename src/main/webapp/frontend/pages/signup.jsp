@@ -10,31 +10,32 @@
 <link rel="stylesheet" href="/Forum/assets/shared/css/style.css">
 </head>
 <body>
-	<div class="main">
+	<div>
 		<!-- Sign up form -->
 		<section class="signup">
 			<div class="container">
-				<div class="signup-content">
+				<div class="signup-content" style="margin-top: 120px;padding: 30px;">
 					<div class="signup-form">
 						<h2 class="form-title">Đăng Ký</h2>
 						<form:form method="POST" class="register-form" id="register-form"
 							modelAttribute="userModel" onsubmit="return validation()">
 							<div class="form-group">
-								<label for="name"><i
-									class="zmdi zmdi-account material-icons-name"></i></label>
-								<form:input type="text" path="username"
-									placeholder="Tên tài khoản" />
-								<span id="error_username"></span>
+								<label for="email"><i class="zmdi zmdi-email"></i></label>
+								<form:input type="text" path="fullName" placeholder="Họ tên" />
+								<span id="error_fullName"></span>
 							</div>
 							<div class="form-group">
 								<label for="email"><i class="zmdi zmdi-email"></i></label>
 								<form:input type="text" path="email" placeholder="Email" />
 								<span id="error_email"></span>
 							</div>
+							
 							<div class="form-group">
-								<label for="email"><i class="zmdi zmdi-email"></i></label>
-								<form:input type="text" path="fullName" placeholder="Họ Tên..." />
-								<span id="error_fullName"></span>
+								<label for="name"><i
+									class="zmdi zmdi-account material-icons-name"></i></label>
+								<form:input type="text" path="username"
+									placeholder="Tên tài khoản" />
+								<span id="error_username"></span>
 							</div>
 							<div class="form-group">
 								<label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -47,22 +48,23 @@
 								<input type="password" name="re_pass" id="re_pass"
 									placeholder="Nhập lại mật khẩu" /> <span id="error_re_pass"></span>
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<input type="checkbox" id="agree-term" class="agree-term" /> <label
 									for="agree-term" class="label-agree-term"><span><span></span></span>
 									Đồng ý với <a href="#" class="term-service">Điều khoản dịch
 										vụ</a> của chúng tôi</label>
-							</div>
+							</div> -->
 							<div class="form-group form-button">
-								<button type="submit" id="signup" class="form-submit">Đăng
-									ký</button>
+								<input type="submit" value="Đăng Ký"
+									style="background-color: #3b83e6; margin-bottom: 10px; border-radius: 10px; color: white; height: 40px; font-size: 16px" />
 							</div>
 						</form:form>
 					</div>
 					<div class="signup-image">
 						<img src="/Forum/assets/shared/img/signin-image.jpg"
-							alt="sing up image"> <a href="#" class="signup-image-link">Tôi
-							đã là thành viên</a>
+							alt="sing up image">
+						<!-- <a href="#" class="signup-image-link">Tôi
+							đã là thành viên</a> -->
 					</div>
 				</div>
 			</div>

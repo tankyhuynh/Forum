@@ -3,6 +3,7 @@ package com.ltk.forum.controller.user;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.security.Principal;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
@@ -28,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.ltk.forum.dto.MyUser;
 import com.ltk.forum.model.Comment;
 import com.ltk.forum.model.Post;
 import com.ltk.forum.model.Report;
@@ -64,6 +66,18 @@ public class PostController {
 		List<Post> posts = postService.getAllSortBy("time", "desc");
 		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();	
 		ModelAndView mav = new ModelAndView("frontend/pages/post");
+		mav.addObject("postList", posts);
+		mav.addObject("typeOfPostList", typeOfPost);
+		mav.addObject("title", "Bài viết");
+		mav.addObject("typeOfReportList",typeOfReportService.getAll());
+		return mav;
+	}
+	
+	@GetMapping("/the-loai/{id}")
+	public ModelAndView getAllByTypeOfPost(@PathVariable("id") Long id) {
+		List<Post> posts = postService.getAllByTypeOfPostId(typeOfPostService.getOneById(id));
+		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();	
+		ModelAndView mav = new ModelAndView("/frontend/pages/post");
 		mav.addObject("postList", posts);
 		mav.addObject("typeOfPostList", typeOfPost);
 		mav.addObject("title", "Bài viết");
@@ -126,13 +140,12 @@ public class PostController {
 	
 	@PostMapping("/them-binh-luan")
 	@ResponseBody
-	public ModelAndView saveComment(@RequestParam Long userId, String content, Long childOfCommentId, Long postId) {
-		
-		System.out.println(userId + content + postId);
+	public ModelAndView saveComment( String content, Long childOfCommentId, Long postId) {
+		MyUser user = SecurityUtils.getPrincipal();
 		ModelAndView mav = new ModelAndView("redirect:/bai-viet/"+postId);
 		Comment comment = new Comment();
 		comment.setContent(content);
-		comment.setUserId(userService.getOneById(userId));
+		comment.setUserId(userService.getOneById(user.getId()));
 		comment.setPostId(postService.getOneById(postId));
 		comment.setStatusId(statusService.getOneByStatusCode("DT"));
 		Date date = new Date();
@@ -143,7 +156,7 @@ public class PostController {
 		commentService.save(comment);
 		Comment commentHis = new Comment();
 		commentHis.setContent(content);
-		commentHis.setUserId(userService.getOneById(userId));
+		commentHis.setUserId(userService.getOneById(user.getId()));
 		commentHis.setPostId(postService.getOneById(postId));
 		commentHis.setStatusId(statusService.getOneByStatusCode("DT"));
 		commentHis.setTime(new Timestamp(date.getTime()));
@@ -158,11 +171,13 @@ public class PostController {
 	
 	
 	@PostMapping("/them-bao-cao")
-	public ModelAndView saveReport(@RequestParam Long userId, Long postId, Long typeOfReportId) {
+	public ModelAndView saveReport(Long postId, Long typeOfReportId) {
+		MyUser user = SecurityUtils.getPrincipal();
+		System.out.println(user.toString());
 		ModelAndView mav = new ModelAndView("redirect:/bai-viet");
 		Report report = new Report();
 		report.setPostId(postService.getOneById(postId));
-		report.setUserId(userService.getOneById(userId));
+		report.setUserId(userService.getOneById(user.getId()));
 		report.setTypeOfReportId(typeOfReportService.getOneById(typeOfReportId));
 		Date date = new Date();
 		report.setTime(new Timestamp(date.getTime()));

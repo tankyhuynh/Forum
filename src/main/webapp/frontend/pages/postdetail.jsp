@@ -20,135 +20,144 @@
 	<!-- ======= Header ======= -->
 	<%@ include file="../../frontend/layout/partials/header.jsp"%>
 	<!-- End Header -->
-	<section>
-		<div id="test">
+	<section class="row" style="margin-right: 0px; margin-left: 0px;">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			 <div id="test">
+				<input type="hidden" class="form-control" id="postId" name="postId"
+					value="${post.id}"> 
+					<%--<input type="hidden"
+					class="form-control" id="userId" name="userId"
+					value="<%=SecurityUtils.getPrincipal().getId()%>">
+--%>
+			</div> 
+			<div class="container mt-4">
+				<div class="p-3  shadow-sm bg-white rounded">
+					<div style="">
+						<div>
+							<h6>${ post.userId.fullName }</h6>
 
-			<input type="hidden" class="form-control" id="postId" name="postId"
-				value="${post.id}"> <input type="hidden"
-				class="form-control" id="userId" name="userId"
-				value="<%=SecurityUtils.getPrincipal().getId()%>">
-
-		</div>
-		<div class="container mt-4" style="width: 80%">
-			<div class="p-3  shadow-sm bg-white rounded">
-				<div style="">
-					<div>
-						<h5>${ post.userId.fullName }</h5>
-
-					</div>
-					<div>
-						<div class="row">
-							<div class="col">
-								<h5 style="color: rgb(38, 56, 224);">${ post.title }</h5>
-							</div>
-							<span style="color: darkgray; font-size: 13px">${ post.time }</span>
 						</div>
-					</div>
-					<hr>
-					<div>
-						<p>${ post.content }</p>
-					</div>
-					<hr>
-					<div>${ post.commentList.size()}Câu trả lời</div>
-					<div id="app">
-						<div v-for="comment in commentList">
-							<div class="rounded-3"
-								v-if="comment.childOfCommentList.length == 0 "
-								style="margin-bottom: 10px; background: #f8f9fa; padding-left: 10px; padding-bottom: 30px; padding-top: 30px;">
-								<div>
-									<h6 style="color: red">{{ comment.userId.fullName }}</h6>
-									<span style="color: darkgray; font-size: 10px">{{
-										comment.time }}</span>
-									<div>{{ comment.content }}</div>
-
-									<span style="color: #de5c9d;font-size: 12px"
-										v-on:click="displayReply(comment.id)">Trả lời</span>
+						<div>
+							<div class="row">
+								<div class="col">
+									<h5 style="color: black; font-weight: bold">${ post.title }</h5>
 								</div>
-								<div :id="comment.id" style="display: none">
-
-									<form>
-										<textarea class="form-control" :name="comment.id"></textarea>
-									</form>
-									<button class="btn btn-primary mt-3" id="btnDangTraLoi"
-										style=" color: white;"
-										v-on:click="postForm(comment.postId.id,comment.id,comment.id)">Đăng
-										câu trả lời</button>
-								</div>
-
+								<span style="color: darkgray; font-size: 13px">${ post.time }</span>
 							</div>
-
-
-							<div v-else>
-								<div class="rounded-3 "
-									style="margin-bottom: 10px; background: #f8f9fa; padding-bottom: 30px; padding-top: 30px; padding-left: 10px">
+						</div>
+						<hr>
+						<div>
+							<p>${ post.content }</p>
+						</div>
+						<hr>
+						<div class="mb-2">
+							<%-- ${ post.commentList.size()} --%>
+							<span style="font-weight: bold">Câu trả lời</span>
+						</div>
+						<div id="app">
+							<div v-for="comment in commentList">
+								<div class="rounded-1"
+									v-if="comment.childOfCommentList.length == 0 "
+									style="margin-bottom: 10px; background: #f8f9fa; padding-left: 10px; padding-bottom: 30px; padding-top: 30px;">
 									<div>
-										<h6 style="color: red">{{ comment.userId.fullName }}</h6>
+										<h6 style="color: black">{{ comment.userId.fullName }}</h6>
 										<span style="color: darkgray; font-size: 10px">{{
 											comment.time }}</span>
 										<div>{{ comment.content }}</div>
-										<span style="color: #de5c9d;font-size: 12px"
+
+										<span style="color: #de5c9d; font-size: 12px"
 											v-on:click="displayReply(comment.id)">Trả lời</span>
 									</div>
-
 									<div :id="comment.id" style="display: none">
 
 										<form>
 											<textarea class="form-control" :name="comment.id"></textarea>
 										</form>
 										<button class="btn btn-primary mt-3" id="btnDangTraLoi"
-											style=" color: white;"
+											style="color: white;"
 											v-on:click="postForm(comment.postId.id,comment.id,comment.id)">Đăng
 											câu trả lời</button>
-
 									</div>
 
 								</div>
-								<div v-for="child in comment.childOfCommentList">
-									<div class="rounded-3 "
-										style="padding-left:10px;margin-bottom: 10px; background: #f8f9fa; margin-left: 50px; padding-bottom: 30px; padding-top: 30px;">
+
+
+								<div v-else>
+									<div class="rounded-1 "
+										style="margin-bottom: 10px; background: #f8f9fa; padding-bottom: 30px; padding-top: 30px; padding-left: 10px">
 										<div>
-											<h6 style="color: red">{{ child.userId.fullName }}</h6>
+											<h6 style="color: black">{{ comment.userId.fullName }}</h6>
 											<span style="color: darkgray; font-size: 10px">{{
-												child.time }}</span>
-											<div>{{ child.content }}</div>
-											<span style="color: #de5c9d;font-size: 12px"
-												onclick="displayReply(comment.id)">Trả lời</span>
+												comment.time }}</span>
+											<div>{{ comment.content }}</div>
+											<span style="color: #de5c9d; font-size: 12px"
+												v-on:click="displayReply(comment.id)">Trả lời</span>
+										</div>
+
+										<div :id="comment.id" style="display: none">
+
+											<form>
+												<textarea class="form-control" :name="comment.id"></textarea>
+											</form>
+											<button class="btn btn-primary mt-3" id="btnDangTraLoi"
+												style="color: white;"
+												v-on:click="postForm(comment.postId.id,comment.id,comment.id)">Đăng
+												câu trả lời</button>
+
+										</div>
+
+									</div>
+									<div v-for="child in comment.childOfCommentList">
+										<div class="rounded-1 "
+											style="padding-left: 10px; margin-bottom: 10px; background: #f8f9fa; margin-left: 50px; padding-bottom: 30px; padding-top: 30px;">
+											<div>
+												<h6 style="color: black">{{ child.userId.fullName }}</h6>
+												<span style="color: darkgray; font-size: 10px">{{
+													child.time }}</span>
+												<div>{{ child.content }}</div>
+												<span style="color: #de5c9d; font-size: 12px"
+													onclick="displayReply(comment.id)">Trả lời</span>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
 
-						<div class="mt-3">
-							<h6>Trả lời của bạn</h6>
-							<form>
-								<input type="hidden" class="form-control" id="childOfCommentId"
-									name="childOfCommentId" value="">
-								<textarea class="form-control" name="content" id="content"></textarea>
+							<div class="mt-3">
+								<h6>Trả lời của bạn</h6>
+								<form>
+									<input type="hidden" class="form-control" id="childOfCommentId"
+										name="childOfCommentId" value="">
+									<textarea class="form-control" name="content" id="content"></textarea>
 
-							</form>
-							<button class="btn btn-primary mt-3" id="btnDangTraLoi"
-								style="background-color: #fd7e14; color: white;"
-								onclick="postForm(document.getElementById('postId').value,document.getElementById('userId').value,document.getElementById('childOfCommentId').value,document.getElementById('content').value)">Đăng
-								câu trả lời</button>
+								</form>
+								<button class="btn btn-primary mt-3" id="btnDangTraLoi"
+									
+									onclick="postForm(document.getElementById('postId').value,document.getElementById('childOfCommentId').value,document.getElementById('content').value)">Đăng
+									câu trả lời</button>
+							</div>
+
 						</div>
 
 					</div>
-
 				</div>
 			</div>
 		</div>
+		<div class="col-md-2"></div>
+
 	</section>
 
 
 	<script>
 	
-	function postForm(postId,userId,childOfCommentId,content){
-		$.post("http://localhost:8080/Forum/bai-viet/them-binh-luan",
+	function postForm(postId,childOfCommentId,content){
+/* 	 	$.post("http://localhost:8080/Forum/bai-viet/them-binh-luan", */
+ 			 $.post("/Forum/bai-viet/them-binh-luan", 
 			    {
 			    	postId: postId,
-			    	  userId: userId,
+/* 			    	  userId: userId, */
 			    	  childOfCommentId:childOfCommentId,
 			    	  content: content,
 			    },
@@ -172,7 +181,7 @@
 	      // define methods under the `methods` object
 	      methods: {
 	       
-	    	  greet: function (event) {
+	    	  getBinhLuan: function (event) {
 	              
 	    		  axios.get('/Forum/bai-viet/api-binh-luan/' + this.postId)
 		    	    .then(response => {
@@ -186,11 +195,11 @@
 	        
 	      },
 	      	
-	      	postForm: function (postId,childOfCommentId,content){
-	    		$.post("http://localhost:8080/Forum/bai-viet/them-binh-luan",
+	      	 postForm: function (postId,childOfCommentId,content){
+	    		$.post("/Forum/bai-viet/them-binh-luan",
 	    			    {
 	    			    	postId: postId,
-	    			    	  userId: document.getElementById("userId").value,
+	    			    	  /* userId: document.getElementById("userId").value, */
 	    			    	  childOfCommentId:childOfCommentId,
 	    			    	  content: document.getElementsByName(content)[0].value
 	    			    },
@@ -199,7 +208,7 @@
 	    			      	vm.commentList = dataObject; */
 	    			     });
 	    	},
-	    	
+	  
 	    	displayReply: function (id) {
 	    		document.getElementById(id).style.display = "block";
 	    		}
@@ -207,7 +216,7 @@
 	      	
 	}});
 	
-	vm.greet();
+	vm.getBinhLuan();
 	
 	/* $(document).ready(function(){
 		  $("#btnDangTraLoi").click(function(){
@@ -225,7 +234,7 @@
 		  });
 		}); */ 
 	
-	    setInterval(vm.greet,500);  
+	    setInterval(vm.getBinhLuan,1000);  
 	</script>
 
 

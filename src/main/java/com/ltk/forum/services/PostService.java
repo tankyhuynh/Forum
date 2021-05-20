@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ltk.forum.model.Comment;
 import com.ltk.forum.model.Post;
 import com.ltk.forum.model.Status;
+import com.ltk.forum.model.TypeOfPost;
 import com.ltk.forum.model.User;
 import com.ltk.forum.repository.PostRepo;
 import com.ltk.forum.repository.StatusRepo;
@@ -50,6 +51,10 @@ public class PostService {
 	
 	public List<Post> getAllByTimeBetween(Timestamp startTime, Timestamp endTime) {
 		return postRepo.findAllByTimeBetween(startTime, endTime);
+	}
+	
+	public List<Post> getAllByTypeOfPostId(TypeOfPost typeOfPost) {
+		return postRepo.findAllByTypeOfPostId(typeOfPost);
 	}
 	
 	public Post save(Post post) {

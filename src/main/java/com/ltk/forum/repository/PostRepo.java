@@ -26,6 +26,7 @@ public interface PostRepo extends JpaRepository<Post, Long> {
 	List<Post> findAllByHistoryOfPostIdIsNull();
 	List<Post> findAllByTimeBetween(Timestamp startTime, Timestamp endTime);
 	List<Post> findAllByStatusId(Status statusId);
+	List<Post> findAllByTypeOfPostId(TypeOfPost typeOfPostId);
 	
 
 	
