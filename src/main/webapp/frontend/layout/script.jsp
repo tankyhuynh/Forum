@@ -25,3 +25,4 @@
   <!-- Template Main JS File -->
   <script src="<c:url value='/assets/frontend/js/main.js'/>"></script>
   
+  

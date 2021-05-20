@@ -4,10 +4,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.ltk.forum.model.Comment;
 import com.ltk.forum.model.Post;
 import com.ltk.forum.model.Status;
 import com.ltk.forum.model.TypeOfPost;
@@ -27,7 +25,7 @@ public interface PostRepo extends JpaRepository<Post, Long> {
 	List<Post> findAllByTimeBetween(Timestamp startTime, Timestamp endTime);
 	List<Post> findAllByStatusId(Status statusId);
 	List<Post> findAllByTypeOfPostId(TypeOfPost typeOfPostId);
-	
+	List<Post> findAllByTitleContaining(String content);
 
 	
 }

@@ -20,6 +20,11 @@ public class PostService {
 	@Autowired
 	private PostRepo postRepo;
 	
+	
+	public List<Post> getAllByContent(String content){
+		return postRepo.findAllByTitleContaining(content);
+	}
+	
 	public List<Post> getAll() {
 		return postRepo.findAll();
 	}

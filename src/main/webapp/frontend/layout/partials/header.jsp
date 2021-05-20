@@ -35,7 +35,10 @@
 					</ul>
 					<form class="d-flex" style="margin-right: 10px;">
 						<input class="form-control me-2" type="search"
-							placeholder="Tìm kiếm" aria-label="Search">
+							placeholder="Tìm kiếm" aria-label="Search" onkeyup="return liveSearch(this.value)">
+						<div style="position: absolute;padding: 10px ;display: none;margin-top: 37px;width: auto;min-width: 230px;" id="livesearch">
+							
+						</div>
 						<button class="btn btn-outline-dark" type="submit">Tìm</button>
 					</form>
 
@@ -59,4 +62,38 @@
 			</div>
 		</nav>
 	</div>
+<script>
+var p;
+var x;
+var result;
+	function liveSearch(content){
+		if (content.length==0) {
+		    
+		    document.getElementById("livesearch").style.border="0px";
+		    document.getElementById("livesearch").style.display="none";
+		    return;
+		  }
+		  var xmlhttp=new XMLHttpRequest();
+		  xmlhttp.onreadystatechange=function() {
+		    if (this.readyState==4 && this.status==200) {
+		      p = "";
+		      result = JSON.parse(this.responseText);
+		      for(var i = 0; i < result.length; i++){
+		    	  p = p + "<a style='color:black' href='/Forum/bai-viet/"+ result[i].id +"'>"+ result[i].title +"</a>" + "<br> <hr>";
+		      }
+		      if (p.length==0){
+			    	p = p + "<a>Không tìm thấy</a>" + "<br>";
+			   }
+		      document.getElementById("livesearch").innerHTML= p;
+		      document.getElementById("livesearch").style.position="absolute";
+		      document.getElementById("livesearch").style.display="block";
+		      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+		    }
+		     
+		    
+		  }
+		  xmlhttp.open("GET","<c:url value='/search/'/>"+content,true);
+		  xmlhttp.send();
+	}
+</script>
 </header>

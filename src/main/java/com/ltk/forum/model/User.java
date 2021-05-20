@@ -22,7 +22,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user_model")
+@Table(name = "user")
 @Transactional(readOnly = true)
 public class User {
 	@Id
