@@ -25,7 +25,6 @@
 							class="d-sm-flex align-items-center justify-content-between mb-4">
 							<h1 class="h3 mb-0 text-gray-800">Trang chủ báo cáo</h1>
 						</div>
-						<a href="<c:url value='/quan-tri/them-bao-cao'/>" class="btn btn-success mb-3">Thêm báo cáo</a>
 						<div class="table-responsive container" >
 							<table class="table table-hover">
 								<thead>
@@ -40,24 +39,20 @@
 								</thead>
 								<tbody>
 									<c:forEach var="report" items="${reportList}">
-										<tr>
+										<tr class='clickable-row' data-href="<c:url value='/bai-viet/${report.id}'/>">
 											<td>${report.id}</td>
 											<td>${report.postId.id}</td>
 											<td>${report.typeOfReportId.typeName}</td>
 											<td>${report.userId.id}</td>
 											<td>${report.time}</td>
 											<td class="d-flex">
-												<div style="padding-right: 10px">
-													<a style="width: 100px" class="btn btn-warning"
-														href="<c:url value='/quan-tri/sua-bao-cao/${report.id}'/>">Chỉnh
-														sửa</a>
-												</div>
 												<div>
 													<a style="width: 100px" class="btn btn-danger"
 														href="<c:url value='/quan-tri/xoa-bao-cao/${report.id}'/>">Xóa</a>
 												</div>
 											</td>
 										</tr>
+									
 									</c:forEach>
 								</tbody>
 							</table>
@@ -69,5 +64,14 @@
 	</div>
 	<%@ include file="../../../backend/layout/partials/footer.jsp"%>
 	<%@ include file="../../../backend/layout/script.jsp"%>
+	
+	<script>
+	jQuery(document).ready(function($) {
+	    $(".clickable-row").click(function() {
+	        window.location = $(this).data("href");
+	    });
+	});
+	</script>
+	
 </body>
 </html>

@@ -74,9 +74,9 @@
 										<hr style="color: silver;">
 
 									</div>
-									<div>
+<%-- 									<div>
 										<p style="color: black; font-size: 16px">${ post.content }</p>
-									</div>
+									</div> --%>
 									<div>
 										<p></p>
 									</div>

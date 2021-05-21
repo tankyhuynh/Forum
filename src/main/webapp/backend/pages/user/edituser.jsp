@@ -30,16 +30,7 @@
 									<label for="fullName" class="form-label">Họ Tên</label> <input
 										type="text" class="form-control" id="fullName" name="fullName" value="${user.fullName}">
 								</div>
-								<div class="mb-3">
-									<label for="username" class="form-label">Tài Khoản
-									</label> <input type="text" class="form-control" id="username"
-										name="username" value="${user.username}">
-								</div>
-																<div class="mb-3">
-									<label for="password" class="form-label">Mật Khẩu</label> <input
-										type="text" class="form-control" id="password" name="password"
-										value="${user.password}">
-								</div>
+								
 
 								<div class="mb-3">
 									<label for="email" class="form-label">Email</label> <input

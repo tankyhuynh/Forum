@@ -25,15 +25,13 @@
 							class="d-sm-flex align-items-center justify-content-between mb-4">
 							<h1 class="h3 mb-0 text-gray-800">Trang chủ bài viết</h1>
 						</div>
-						<a href="<c:url value='/quan-tri/them-bai-viet'/>" class="btn btn-success mb-3">Thêm bài viết</a>
 						<div class="table-responsive container" >
 							<table class="table table-hover">
 								<thead>
 									<tr style="text-align: center;">
 										<th>Mã Bài Viết</th>
 										<th>Mã Người Dùng</th>
-										<th>Tiêu Đề</th>
-										<th>Nội Dung</th>
+										<th>Tiêu Đề</th>									
 										<th>Trạng Thái</th>
 										<th>Thời Gian</th>
 										<th>Hành Động</th>
@@ -44,24 +42,18 @@
 										<tr>
 											<td>${post.id}</td>
 											<td>${post.userId.id}</td>
-											<td>${post.title}</td>
-											<td>${post.content}</td>
+											<td>${post.title}</td>											
 											<td>${post.statusId.statusName}</td>
 											<td>${post.time}</td>
-											<td class="d-flex">
-												<div style="padding-right: 10px">
-													<a style="width: 100px" class="btn btn-warning"
-														href="<c:url value='/quan-tri/sua-bai-viet/${post.id}'/>">Chỉnh
-														sửa</a>
-												</div>
+											<td class="d-flex">	
 												<div style="padding-right: 10px">
 													<a style="width: 100px" class="btn btn-danger"
 														href="<c:url value='/quan-tri/xoa-bai-viet/${post.id}'/>">Xóa</a>
 												</div>
-												<div>
+<%-- 												<div>
 													<a style="width: 100px" class="btn btn-success"
 														href="<c:url value='/quan-tri/lich-su-bai-viet/${post.id}'/>">Lịch Sử</a>
-												</div>
+												</div> --%>
 											</td>
 										</tr>
 									</c:forEach>

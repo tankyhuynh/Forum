@@ -25,7 +25,7 @@
 							class="d-sm-flex align-items-center justify-content-between mb-4">
 							<h1 class="h3 mb-0 text-gray-800">Trang chủ binh luan</h1>
 						</div>
-						<a href="<c:url value='/quan-tri/them-binh-luan'/>" class="btn btn-success mb-3">Thêm bình luận</a>
+					
 						<div class="table-responsive container" >
 							<table class="table table-hover">
 								<thead>
@@ -37,7 +37,7 @@
 										<th>Nội Dung</th>
 										<th>Trạng Thái</th>
 										<th>Thời Gian</th>
-										<th>Hành Động</th>
+						
 									</tr>
 								</thead>
 								<tbody>
@@ -50,21 +50,13 @@
 											<td>${comment.content}</td>
 											<td>${comment.statusId.statusName}</td>
 											<td>${comment.time}</td>
-											<td class="d-flex">
-												<div style="padding-right: 10px">
-													<a style="width: 100px" class="btn btn-warning"
-														href="<c:url value='/quan-tri/sua-binh-luan/${comment.id}'/>">Chỉnh
-														sửa</a>
-												</div>
-												<div style="padding-right: 10px">
-													<a style="width: 100px" class="btn btn-danger"
-														href="<c:url value='/quan-tri/xoa-binh-luan/${comment.id}'/>">Xóa</a>
-												</div>
+											<%-- <td class="d-flex">
+
 												<div>
 													<a style="width: 100px" class="btn btn-success"
 														href="<c:url value='/quan-tri/lich-su-binh-luan/${comment.id}'/>">Lịch Sử</a>
 												</div>
-											</td>
+											</td> --%>
 										</tr>
 									</c:forEach>
 								</tbody>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <!-- Topbar -->
 <nav
-	class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+	class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="padding-left: 970px;">
 
 	<!-- Sidebar Toggle (Topbar) -->
 	<button id="sidebarToggleTop"
@@ -11,7 +11,7 @@
 	</button>
 
 	<!-- Topbar Search -->
-	<form
+<!-- 	<form
 		class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 		<div class="input-group">
 			<input type="text" class="form-control bg-light border-0 small"
@@ -23,8 +23,8 @@
 				</button>
 			</div>
 		</div>
-	</form>
-	<div class="topbar-divider d-none d-sm-block"></div>
+	</form> -->
+	<div class="topbar-divider d-none d-sm-block" ></div>
 
 <a class="nav-link active" style="padding-left: 0px; color: black;"
 	aria-current="page" href="<c:url value='/thoat'/> ">Thoát</a>
