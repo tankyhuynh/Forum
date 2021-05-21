@@ -28,7 +28,9 @@ public interface PostRepo extends JpaRepository<Post, Long> {
 	List<Post> findAllByTimeBetween(Timestamp startTime, Timestamp endTime);
 	List<Post> findAllByStatusId(Status statusId);
 	List<Post> findAllByTypeOfPostId(TypeOfPost typeOfPostId);
-	List<Post> findAllByTitleContaining(String content);
+	
+
+	List<Post> findAllByTitleContainingAndHistoryOfPostIdIsNull(String content);
 	
 	@Query(value = "SELECT COUNT(a.id) as soLuong, b.fullName as fullName, b.id as userId FROM Post as a, User as b "
 			  + "WHERE a.userId = b.id "

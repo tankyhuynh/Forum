@@ -22,7 +22,7 @@ public class PostService {
 	
 	
 	public List<Post> getAllByContent(String content){
-		return postRepo.findAllByTitleContaining(content);
+		return postRepo.findAllByTitleContainingAndHistoryOfPostIdIsNull(content);
 	}
 	
 	public List<Post> getAll() {
