@@ -72,9 +72,9 @@
 										<hr style="color: silver;">
 
 									</div>
-									<div>
+									<%-- <div>
 										<p style="color: black; font-size: 16px">${ post.content }</p>
-									</div>
+									</div> --%>
 									<div>
 										<p></p>
 									</div>
@@ -90,12 +90,24 @@
 							<span style="font-weight: bold">Bảng xếp hạng</span>
 						</div>
 						<div>
-							<ul
-								style="list-style-type: none; padding-left: 0px; font-size: 14px;">
-								<c:forEach var="typeOfPost" items="${typeOfPostList}">
-									<li class="mb-2"><a href="#" style="color: black">${typeOfPost.typeName}</a></li>
-								</c:forEach>
-							</ul>
+							<table class="table">
+								<thead>
+								<!-- 	<tr>
+										<th scope="col">ID</th>
+										<th scope="col">Họ tên</th>
+										<th scope="col">Số lượng</th>
+									</tr> -->
+								</thead>
+								<tbody>
+									<c:forEach var="rank" items="${rankList}">
+										<tr>
+											<td>${rank.getFullName()}</td>
+											<td>${rank.getSoLuong()}</td>
+										</tr>
+									</c:forEach>
+
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -107,50 +119,49 @@
 
 
 
-			<div class="modal fade" id="exampleModal" tabindex="-1"
-				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Báo cáo bài
-								viết</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"
-								aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<form>
-								<%-- <div class="mb-3">
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Báo cáo bài
+							viết</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<%-- <div class="mb-3">
 									<input type="hidden" id="userId" name="userId"
 										value="<%=SecurityUtils.getPrincipal().getId()%>">
 								</div> --%>
-								<div class="mb-3">
-									<label for="typeOfReportId" class="form-label"> Chọn
-										thể loại bạn muốn báo cáo </label> <select
-										class="form-select form-control"
-										aria-label="Default select example" name="typeOfReportId"
-										id="typeOfReportId">
-										<c:forEach var="typeOfReport" items="${typeOfReportList}">
-											<option value="${typeOfReport.id}">${typeOfReport.typeName}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">Đóng</button>
-							<!-- <button type="button" class="btn btn-primary"
+							<div class="mb-3">
+								<label for="typeOfReportId" class="form-label"> Chọn thể
+									loại bạn muốn báo cáo </label> <select class="form-select form-control"
+									aria-label="Default select example" name="typeOfReportId"
+									id="typeOfReportId">
+									<c:forEach var="typeOfReport" items="${typeOfReportList}">
+										<option value="${typeOfReport.id}">${typeOfReport.typeName}</option>
+									</c:forEach>
+								</select>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Đóng</button>
+						<!-- <button type="button" class="btn btn-primary"
 								onclick='postReport(document.getElementById("userId").value,document.getElementById("typeOfReportId").value)'>Gửi
 								báo cáo</button> -->
-								<button type="button" class="btn btn-primary"
-								onclick='postReport(document.getElementById("typeOfReportId").value)'>Gửi
-								báo cáo</button>
-						</div>
+						<button type="button" class="btn btn-primary"
+							onclick='postReport(document.getElementById("typeOfReportId").value)'>Gửi
+							báo cáo</button>
 					</div>
 				</div>
-			</div> 
+			</div>
+		</div>
 
-	
+
 
 		<!-- End Report -->
 

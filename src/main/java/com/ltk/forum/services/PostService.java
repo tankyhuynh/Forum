@@ -62,6 +62,7 @@ public class PostService {
 		return postRepo.findAllByTypeOfPostId(typeOfPost);
 	}
 	
+	
 	public Post save(Post post) {
 		return postRepo.save(post);
 	}

@@ -12,6 +12,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -35,6 +37,7 @@ import com.ltk.forum.model.Post;
 import com.ltk.forum.model.Report;
 import com.ltk.forum.model.TypeOfPost;
 import com.ltk.forum.model.User;
+import com.ltk.forum.repository.PostRepo;
 import com.ltk.forum.services.CommentService;
 import com.ltk.forum.services.PostService;
 import com.ltk.forum.services.ReportService;
@@ -60,12 +63,16 @@ public class PostController {
 	private TypeOfReportService typeOfReportService;
 	@Autowired
 	private ReportService reportService;
+	@Autowired
+	private PostRepo postRepo;
 
 	@GetMapping
 	public ModelAndView getAllByNullHistory() {
 		List<Post> posts = postService.getAllSortBy("time", "desc");
 		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();	
 		ModelAndView mav = new ModelAndView("frontend/pages/post");
+		Pageable pageable = PageRequest.of(0, 10);
+		mav.addObject("rankList",postRepo.rank(pageable));
 		mav.addObject("postList", posts);
 		mav.addObject("typeOfPostList", typeOfPost);
 		mav.addObject("title", "Bài viết");
