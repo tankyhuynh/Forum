@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ltk.forum.dto.ICountPost;
 import com.ltk.forum.model.Post;
+import com.ltk.forum.repository.PostRepo;
 import com.ltk.forum.services.PostService;
 
 @Controller
