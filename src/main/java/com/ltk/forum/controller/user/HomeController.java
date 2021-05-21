@@ -1,6 +1,5 @@
 package com.ltk.forum.controller.user;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +40,7 @@ public class HomeController {
 		List<Post> result1 = postService.getAllByContent(content);
 		return result1;
 	}
+	
+	
 	
 }

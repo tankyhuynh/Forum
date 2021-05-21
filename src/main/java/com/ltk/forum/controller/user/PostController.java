@@ -1,10 +1,9 @@
 package com.ltk.forum.controller.user;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.security.Principal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -13,14 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,13 +24,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.ltk.forum.dto.MyUser;
 import com.ltk.forum.model.Comment;
 import com.ltk.forum.model.Post;
 import com.ltk.forum.model.Report;
 import com.ltk.forum.model.TypeOfPost;
-import com.ltk.forum.model.User;
 import com.ltk.forum.services.CommentService;
 import com.ltk.forum.services.PostService;
 import com.ltk.forum.services.ReportService;
@@ -62,8 +56,13 @@ public class PostController {
 	private ReportService reportService;
 
 	@GetMapping
-	public ModelAndView getAllByNullHistory() {
-		List<Post> posts = postService.getAllSortBy("time", "desc");
+	public ModelAndView getAllByNullHistory(@RequestParam(value = "title",required = false) String title) {
+		List<Post> posts = new ArrayList<Post>();
+		if (title != null && title.length() > 0) {
+			posts = postService.getAllByContent(title);
+		}else {
+			posts = postService.getAllSortBy("time", "desc");
+		}
 		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();	
 		ModelAndView mav = new ModelAndView("frontend/pages/post");
 		mav.addObject("postList", posts);

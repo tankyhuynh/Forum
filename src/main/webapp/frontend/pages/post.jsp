@@ -41,10 +41,12 @@
 					</div>
 				</div>
 				<div class="col-md-8" id="app">
+				<security:authorize access="isAuthenticated()">
 					<div>
 						<a href="<c:url value='/bai-viet/tao-bai-viet' />"
 							class="btn btn-primary mb-3 ">Tạo bài viết</a>
 					</div>
+				</security:authorize>  
 					<c:if test="${not empty postList}">
 						<c:forEach var="post" items="${postList}">
 							<c:if test="${empty post.historyOfPostId}">
