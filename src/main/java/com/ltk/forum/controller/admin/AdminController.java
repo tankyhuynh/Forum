@@ -95,13 +95,13 @@ public class AdminController {
 	}
 
 	@PostMapping("/sua-nguoi-dung/{id}")
-	public ModelAndView editUser(@RequestParam String fullName, String username, String password, Boolean gender,
+	public ModelAndView editUser(@RequestParam String fullName, Boolean gender,
 			String email, Long roleId, @PathVariable Long id) {
 		ModelAndView mav = new ModelAndView("redirect:/quan-tri/nguoi-dung");
-		User user = new User();
+		User user = userService.getOneById(id);
 		user.setFullName(fullName);
-		user.setUsername(username);
-		user.setPassword(password);
+//		user.setUsername(username);
+//		user.setPassword(password);
 		user.setGender(gender);
 		user.setEmail(email);
 		user.setRoleId(roleService.getOneById(roleId));
