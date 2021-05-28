@@ -46,9 +46,13 @@
 														href="<c:url value='/quan-tri/sua-the-loai-bai-viet/${typeOfPost.id}'/>">Chỉnh
 														sửa</a>
 												</div>
+												
 												<div>
-													<a style="width: 100px" class="btn btn-danger"
-														href="<c:url value='/quan-tri/xoa-the-loai-bai-viet/${typeOfPost.id}'/>">Xóa</a>
+												<button data-bs-toggle="modal"
+													data-bs-target="#exampleModal"
+													data-bs-whatever="@getbootstrap"
+													style="width: 100px" class="btn btn-danger"
+													onclick='setTypeOfPostId(${typeOfPost.id})'>Xóa</button>
 												</div>
 											</td>
 										</tr>
@@ -61,6 +65,41 @@
 			</div>
 		</div>
 	</div>
+	
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Cảnh Báo!!!</h5>
+				</div>
+				<div class="modal-body">
+					<h5>Bạn chắc chắn muốn xoá thể loại bài viết này?</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Đóng</button>
+					<button type="button" class="btn btn-primary"
+						onclick='deleteTypeOfPost()'>Xác nhận xoá</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	var typeOfPostId = "";
+	
+	function setTypeOfPostId(typeOfPostId){
+		this.typeOfPostId = typeOfPostId;
+	}
+	
+		function deleteTypeOfPost() {
+			$.get("/Forum/quan-tri/xoa-the-loai-bai-viet/" + typeOfPostId, {
+			}, function(data, status) {
+				alert("Xoá thành công!");
+				location.reload(); 
+			});
+		}
+	</script>
 	<%@ include file="../../../backend/layout/partials/footer.jsp"%>
 	<%@ include file="../../../backend/layout/script.jsp"%>
 </body>

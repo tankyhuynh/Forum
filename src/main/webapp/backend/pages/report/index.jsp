@@ -39,20 +39,27 @@
 								</thead>
 								<tbody>
 									<c:forEach var="report" items="${reportList}">
-										<tr class='clickable-row' data-href="<c:url value='/bai-viet/${report.id}'/>">
-											<td>${report.id}</td>
-											<td>${report.postId.id}</td>
-											<td>${report.typeOfReportId.typeName}</td>
-											<td>${report.userId.id}</td>
-											<td>${report.time}</td>
+										<tr>
+											<td class='clickable-row' data-href="<c:url value='/bai-viet/${report.postId.id}'/>">${report.id}</td>
+											<td class='clickable-row' data-href="<c:url value='/bai-viet/${report.postId.id}'/>">${report.postId.id}</td>
+											<td class='clickable-row' data-href="<c:url value='/bai-viet/${report.postId.id}'/>">${report.typeOfReportId.typeName}</td>
+											<td class='clickable-row' data-href="<c:url value='/bai-viet/${report.postId.id}'/>">${report.userId.id}</td>
+											<td class='clickable-row' data-href="<c:url value='/bai-viet/${report.postId.id}'/>">${report.time}</td>
 											<td class="d-flex">
-												<div>
+<%--  												<div>
 													<a style="width: 100px" class="btn btn-danger"
 														href="<c:url value='/quan-tri/xoa-bao-cao/${report.id}'/>">Xóa</a>
+												</div>  --%>
+												
+												<div>
+												<button data-bs-toggle="modal"
+													data-bs-target="#exampleModal"
+													data-bs-whatever="@getbootstrap"
+													style="width: 100px" class="btn btn-danger"
+													onclick='setReportId(${report.id})'>Xóa</button>
 												</div>
 											</td>
 										</tr>
-									
 									</c:forEach>
 								</tbody>
 							</table>
@@ -62,6 +69,42 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Cảnh Báo!!!</h5>
+				</div>
+				<div class="modal-body">
+					<h5>Bạn chắc chắn muốn xoá báo cáo này?</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Đóng</button>
+					<button type="button" class="btn btn-primary"
+						onclick='deleteReport()'>Xác nhận xoá</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	var reportId = "";
+	
+	function setReportId(reportId){
+		this.reportId = reportId;
+	}
+	
+		function deleteReport() {
+			$.get("/Forum/quan-tri/xoa-bao-cao/" + reportId, {
+			}, function(data, status) {
+				alert("Xoá thành công!");
+				location.reload(); 
+			});
+		}
+	</script>
+	
 	<%@ include file="../../../backend/layout/partials/footer.jsp"%>
 	<%@ include file="../../../backend/layout/script.jsp"%>
 	

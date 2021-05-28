@@ -216,7 +216,6 @@ public class PostController {
 	@GetMapping("/{id}")
 	public ModelAndView getOneById(@PathVariable("id") Long id) {
 		Post post = postService.getOneById(id);
-		System.out.println(post.getContent());
 		ModelAndView mav = new ModelAndView("/frontend/pages/postdetail");
 		mav.addObject("post", post);
 		
