@@ -127,7 +127,7 @@
 
 							<div class="mt-3">
 								<h6>Trả lời của bạn</h6>
-								<form>
+								<form >
 									<input type="hidden" class="form-control" id="childOfCommentId"
 										name="childOfCommentId" value="">
 									<textarea class="form-control" name="content" id="content"></textarea>
@@ -152,9 +152,19 @@
 
 	<script>
 	
+/* 	function validate(){
+		var content = document.getElementById("content");
+		if (content.value == null || content.value.length == 0){
+    		return false;
+    	}
+	}; */
+	
 	function postForm(postId,childOfCommentId,content){
-/* 	 	$.post("http://localhost:8080/Forum/bai-viet/them-binh-luan", */
- 			 $.post("/Forum/bai-viet/them-binh-luan", 
+		if (content == null || content.length == 0){
+    		return false;
+    	}else{
+    		/* 	 	$.post("http://localhost:8080/Forum/bai-viet/them-binh-luan", */
+			 $.post("/Forum/bai-viet/them-binh-luan", 
 			    {
 			    	postId: postId,
 /* 			    	  userId: userId, */
@@ -165,6 +175,9 @@
 			    	/* var dataObject = JSON.stringify(data);
 			      	vm.commentList = dataObject; */
 			     });
+			 document.getElementById("content").value = "";
+    	}
+
 	}
 	
 	

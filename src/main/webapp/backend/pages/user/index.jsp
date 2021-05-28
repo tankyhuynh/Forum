@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SB Admin 2 - Dashboard</title>
 <%@ include file="../../../backend/layout/style.jsp"%>
-<style >
+<style>
 </style>
 </head>
 <body id="page-top">
@@ -17,16 +17,17 @@
 		<%@ include file="../../../backend/layout/partials/sidebar.jsp"%>
 		<div id="content-wrapper" class="d-flex flex-column">
 			<div id="content">
-				 <!-- Top bar -->
-                <%@ include file="../../../backend/layout/partials/header.jsp" %>
+				<!-- Top bar -->
+				<%@ include file="../../../backend/layout/partials/header.jsp"%>
 				<div class="container-fluid">
 					<div class="container">
 						<div
 							class="d-sm-flex align-items-center justify-content-between mb-4">
 							<h1 class="h3 mb-0 text-gray-800">Trang chủ người dùng</h1>
 						</div>
-						<a href="<c:url value='/quan-tri/them-nguoi-dung'/>" class="btn btn-success mb-3">Thêm người dùng</a>
-						<div class="table-responsive container" >
+						<a href="<c:url value='/quan-tri/them-nguoi-dung'/>"
+							class="btn btn-success mb-3">Thêm người dùng</a>
+						<div class="table-responsive container">
 							<table class="table table-hover">
 								<thead>
 									<tr style="text-align: center;">
@@ -54,9 +55,13 @@
 														href="<c:url value='/quan-tri/sua-nguoi-dung/${user.id}'/>">Chỉnh
 														sửa</a>
 												</div>
+
 												<div>
-													<a style="width: 100px" class="btn btn-danger"
-														href="<c:url value='/quan-tri/xoa-nguoi-dung/${user.id}'/>">Xóa</a>
+												<button data-bs-toggle="modal"
+													data-bs-target="#exampleModal"
+													data-bs-whatever="@getbootstrap"
+													style="width: 100px" class="btn btn-danger"
+													onclick='setUserId(${user.id})'>Xóa</button>
 												</div>
 											</td>
 										</tr>
@@ -69,6 +74,42 @@
 			</div>
 		</div>
 	</div>
+
+
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Cảnh Báo!!!</h5>
+				</div>
+				<div class="modal-body">
+					<h5>Bạn chắc chắn muốn xoá người dùng này?</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Đóng</button>
+					<button type="button" class="btn btn-primary"
+						onclick='deleteUser()'>Xác nhận xoá</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	var userId = "";
+	
+	function setUserId(userId){
+		this.userId = userId;
+	}
+	
+		function deleteUser() {
+			$.get("/Forum/quan-tri/xoa-nguoi-dung/" + userId, {
+			}, function(data, status) {
+				alert("Xoá thành công!");
+				location.reload(); 
+			});
+		}
+	</script>
 	<%@ include file="../../../backend/layout/partials/footer.jsp"%>
 	<%@ include file="../../../backend/layout/script.jsp"%>
 </body>

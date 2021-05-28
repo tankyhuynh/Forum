@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,6 +51,7 @@ public class AdminController {
 	@Autowired
 	CommentService commentService;
 
+	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	@GetMapping
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("backend/index");
@@ -78,7 +80,7 @@ public class AdminController {
 		User user = new User();
 		user.setFullName(fullName);
 		user.setUsername(username);
-		user.setPassword(password);
+		user.setPassword(encoder.encode(password));
 		user.setGender(gender);
 		user.setEmail(email);
 		user.setRoleId(roleService.getOneById(roleId));

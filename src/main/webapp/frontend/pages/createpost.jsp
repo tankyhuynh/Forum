@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
-  
+
 
 <head>
 <meta charset="UTF-8">
@@ -15,8 +15,9 @@
 
 <%@ include file="../../frontend/layout/style.jsp"%>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
 
 <!-- <script src="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.js"></script>
 <link href="https://cdn.bootcss.com/quill/2.0.0-dev.3/quill.snow.css"
@@ -35,15 +36,15 @@
 <body>
 	<%@ include file="../../frontend/layout/partials/header.jsp"%>
 	<section>
-		<div class="container mt-4" style="width: 90%; 
-    padding-bottom: 90px;
-		">
+		<div class="container mt-4" style="width: 90%; padding-bottom: 90px;">
 
 
 
 			<h5 style="color: red">Tạo bài viết của bạn</h5>
 			<hr>
-			<form action="<c:url value='/bai-viet/tao-bai-viet'/>" method="post">
+			<form name="createpost"
+				action="<c:url value='/bai-viet/tao-bai-viet'/>" method="post"
+				onsubmit="return validate()">
 				<div class="row mb-3">
 					<label for="txtTitle" class="col-sm-2 col-form-label">Tiêu
 						đề bài viết</label>
@@ -51,17 +52,17 @@
 						<input type="text" class="form-control" id="title" name="title">
 					</div>
 				</div>
-				<input type="hidden" id="userId" name="userId" value="<%=SecurityUtils.getPrincipal().getId()%>">
+				<input type="hidden" id="userId" name="userId"
+					value="<%=SecurityUtils.getPrincipal().getId()%>">
 				<div class="row mb-3">
 					<label for="typeOfPost" class="col-sm-2 col-form-label">Thể
 						loại bài viết</label>
 					<div class="col-sm-10">
 						<select class="form-select" aria-label="Default select example"
-							name="typeOfPostId"
-										id="typeOfPostId">
+							name="typeOfPostId" id="typeOfPostId">
 							<c:forEach var="typeOfPost" items="${typeOfPostList}">
-										<option value="${typeOfPost.id}">${typeOfPost.typeName}</option>
-										</c:forEach>
+								<option value="${typeOfPost.id}">${typeOfPost.typeName}</option>
+							</c:forEach>
 						</select>
 					</div>
 				</div>
@@ -69,32 +70,49 @@
 				<div class="row mb-3">
 					<label for="typeOfPost" class="col-sm-2 col-form-label">Nội
 						dung bài viết</label>
-						<div class="col-sm-10">
-						<textarea rows="7" class="form-control" name="content" id="content"></textarea>
+					<div class="col-sm-10">
+						<textarea rows="7" class="form-control" name="content"
+							id="content"></textarea>
 						<!-- <div id="editor" class="showContent">
 						</div> -->
-							<input type="file" onchange="updateImg(this.files[0])" id="imgData"
+						<input id="ckeditor" type="file"
+							onchange="updateImg(this.files[0])" id="imgData"
 							style="display: none;">
-						<button type="submit" class="btn btn-primary mt-3">Tạo bài viết</button>
+						<button type="submit" class="btn btn-primary mt-3">Tạo
+							bài viết</button>
 					</div>
 				</div>
-				
+
 			</form>
 		</div>
 	</section>
-	
 
-  <script>
+
+	<script>
   
 	CKEDITOR.replace('content', {
 		filebrowserUploadUrl : 'uploadFile',
 		height : 400
 	});
-
+	
+	 function validate(){
+	    	var title = document.getElementById("title");
+	    	var content = CKEDITOR.instances['content'].getData();
+	    	
+	    	if (title.value == null || title.value.length == 0){
+	    		alert("Chưa nhập tiêu đề");
+	    		return false;
+	    	}
+	    	
+	    	if (content == null || content.length == 0){
+	    		alert("Chưa nhập nội dung");
+	    		return false;
+	    	}
+	 };
   </script>
-	
-	
-<script>
+
+
+	<script>
 /* var quill;
 $(function() {
     / * Editor action bar options * /
@@ -165,6 +183,8 @@ $(function() {
         res = quill.container.firstChild.innerHTML; // Get the current contents of the rich text editor instance (with html tags)
         console.log(res); // Get the current contents of the rich text editor instance (with html tags)
     }; */ 
+    
+    
 </script>
 	<%@ include file="../../frontend/layout/partials/footer.jsp"%>
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
