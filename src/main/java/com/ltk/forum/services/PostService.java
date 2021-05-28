@@ -45,6 +45,10 @@ public class PostService {
 		return postRepo.findOneById(id);
 	}
 	
+	public int getNumberOfPost() {
+		return postRepo.countByHistoryOfPostIdIsNull();
+	}
+	
 	//*
 	public Post getOneByUserId(User userId) {
 		return postRepo.findOneByUserId(userId);

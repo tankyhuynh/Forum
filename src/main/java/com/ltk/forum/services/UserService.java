@@ -20,6 +20,10 @@ public class UserService {
 		return userRepo.findAll();
 	}
 	
+	public long getNumberOfUser() {
+		return userRepo.count();
+	}
+	
 	public List<User> getAllSortBy(String fieldName, String typeOfSort) {
 		typeOfSort = typeOfSort.toLowerCase();
 		

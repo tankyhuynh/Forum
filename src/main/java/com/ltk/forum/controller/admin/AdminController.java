@@ -102,8 +102,6 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView("redirect:/quan-tri/nguoi-dung");
 		User user = userService.getOneById(id);
 		user.setFullName(fullName);
-//		user.setUsername(username);
-//		user.setPassword(password);
 		user.setGender(gender);
 		user.setEmail(email);
 		user.setRoleId(roleService.getOneById(roleId));
@@ -322,47 +320,6 @@ public class AdminController {
 		mav.addObject("reportList", reportService.getAll());
 		return mav;
 	}
-
-	@GetMapping("/them-bao-cao")
-	public ModelAndView addReportPage() {
-		ModelAndView mav = new ModelAndView("/backend/pages/report/addreport");
-		mav.addObject("typeOfReportList", typeOfReportService.getAll());
-		return mav;
-	}
-
-	@PostMapping("/them-bao-cao")
-	public ModelAndView saveReport(@RequestParam Long userId, Long postId, Long typeOfReportId) {
-		ModelAndView mav = new ModelAndView("redirect:/quan-tri/bao-cao");
-		Report report = new Report();
-		report.setPostId(postService.getOneById(postId));
-		report.setUserId(userService.getOneById(userId));
-		report.setTypeOfReportId(typeOfReportService.getOneById(typeOfReportId));
-		Date date = new Date();
-		report.setTime(new Timestamp(date.getTime()));
-		reportService.save(report);
-		return mav;
-	}
-	
-	@GetMapping("/sua-bao-cao/{id}")
-	public ModelAndView editReportPage(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("/backend/pages/report/editreport");
-		mav.addObject("report",reportService.getOneById(id));
-		mav.addObject("typeOfReportList", typeOfReportService.getAll());
-		return mav;
-	}
-	
-	@PostMapping("/sua-bao-cao/{id}")
-	public ModelAndView editReport(@RequestParam Long userId, Long postId, Long typeOfReportId,@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("redirect:/quan-tri/bao-cao");
-		Report report = new Report();
-		report.setPostId(postService.getOneById(postId));
-		report.setUserId(userService.getOneById(userId));
-		report.setTypeOfReportId(typeOfReportService.getOneById(typeOfReportId));
-		Date date = new Date();
-		report.setTime(new Timestamp(date.getTime()));
-		reportService.update(id,report);
-		return mav;
-	}
 	
 	@GetMapping("/xoa-bao-cao/{id}")
 	public ModelAndView deleteReport(@PathVariable Long id) {
@@ -380,68 +337,68 @@ public class AdminController {
 		return mav;
 	}
 
-	@GetMapping("/them-bai-viet")
-	public ModelAndView addPostPage() {
-		ModelAndView mav = new ModelAndView("/backend/pages/post/addpost");
-		mav.addObject("typeOfPostList", typeOfPostService.getAll());
-		return mav;
-	}
-
-	@PostMapping("/them-bai-viet")
-	public ModelAndView savePost(@RequestParam Long userId, String content, Long typeOfPostId, String title) {
-		ModelAndView mav = new ModelAndView("redirect:/quan-tri/bai-viet");
-		Post post = new Post();
-		post.setContent(content);
-		post.setTitle(title);
-		post.setUserId(userService.getOneById(userId));
-		Date date = new Date();
-		post.setTime(new Timestamp(date.getTime()));
-		post.setStatusId(statusService.getOneByStatusCode("DT"));
-		post.setTypeOfPostId(typeOfPostService.getOneById(typeOfPostId));
-		postService.save(post);
-		Post postHis = new Post();
-		postHis.setContent(content);
-		postHis.setTitle(title);
-		postHis.setUserId(userService.getOneById(userId));
-		postHis.setTime(new Timestamp(date.getTime()));
-		postHis.setStatusId(statusService.getOneByStatusCode("DT"));
-		postHis.setTypeOfPostId(typeOfPostService.getOneById(typeOfPostId));
-		postHis.setHistoryOfPostId(post);
-		postService.save(postHis);
-		return mav;
-	}
-
-	@GetMapping("/sua-bai-viet/{id}")
-	public ModelAndView editPostPage(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("/backend/pages/post/editpost");
-		mav.addObject("post", postService.getOneById(id));
-		mav.addObject("typeOfPostList", typeOfPostService.getAll());
-		return mav;
-	}
-	
-	@PostMapping("/sua-bai-viet/{id}")
-	public ModelAndView editPost(@RequestParam Long userId, String content, Long typeOfPostId, String title,@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("redirect:/quan-tri/bai-viet");
-		Post post = new Post();
-		post.setContent(content);
-		post.setTitle(title);
-		post.setUserId(userService.getOneById(userId));
-		Date date = new Date();
-		post.setTime(new Timestamp(date.getTime()));
-		post.setStatusId(statusService.getOneByStatusCode("DS"));
-		post.setTypeOfPostId(typeOfPostService.getOneById(typeOfPostId));
-		postService.update(id,post);
-		Post postHis = new Post();
-		postHis.setContent(content);
-		postHis.setTitle(title);
-		postHis.setUserId(userService.getOneById(userId));
-		postHis.setTime(new Timestamp(date.getTime()));
-		postHis.setStatusId(statusService.getOneByStatusCode("DS"));
-		postHis.setTypeOfPostId(typeOfPostService.getOneById(typeOfPostId));
-		postHis.setHistoryOfPostId(post);
-		postService.save(postHis);
-		return mav;
-	}
+//	@GetMapping("/them-bai-viet")
+//	public ModelAndView addPostPage() {
+//		ModelAndView mav = new ModelAndView("/backend/pages/post/addpost");
+//		mav.addObject("typeOfPostList", typeOfPostService.getAll());
+//		return mav;
+//	}
+//
+//	@PostMapping("/them-bai-viet")
+//	public ModelAndView savePost(@RequestParam Long userId, String content, Long typeOfPostId, String title) {
+//		ModelAndView mav = new ModelAndView("redirect:/quan-tri/bai-viet");
+//		Post post = new Post();
+//		post.setContent(content);
+//		post.setTitle(title);
+//		post.setUserId(userService.getOneById(userId));
+//		Date date = new Date();
+//		post.setTime(new Timestamp(date.getTime()));
+//		post.setStatusId(statusService.getOneByStatusCode("DT"));
+//		post.setTypeOfPostId(typeOfPostService.getOneById(typeOfPostId));
+//		postService.save(post);
+//		Post postHis = new Post();
+//		postHis.setContent(content);
+//		postHis.setTitle(title);
+//		postHis.setUserId(userService.getOneById(userId));
+//		postHis.setTime(new Timestamp(date.getTime()));
+//		postHis.setStatusId(statusService.getOneByStatusCode("DT"));
+//		postHis.setTypeOfPostId(typeOfPostService.getOneById(typeOfPostId));
+//		postHis.setHistoryOfPostId(post);
+//		postService.save(postHis);
+//		return mav;
+//	}
+//
+//	@GetMapping("/sua-bai-viet/{id}")
+//	public ModelAndView editPostPage(@PathVariable Long id) {
+//		ModelAndView mav = new ModelAndView("/backend/pages/post/editpost");
+//		mav.addObject("post", postService.getOneById(id));
+//		mav.addObject("typeOfPostList", typeOfPostService.getAll());
+//		return mav;
+//	}
+//	
+//	@PostMapping("/sua-bai-viet/{id}")
+//	public ModelAndView editPost(@RequestParam Long userId, String content, Long typeOfPostId, String title,@PathVariable Long id) {
+//		ModelAndView mav = new ModelAndView("redirect:/quan-tri/bai-viet");
+//		Post post = new Post();
+//		post.setContent(content);
+//		post.setTitle(title);
+//		post.setUserId(userService.getOneById(userId));
+//		Date date = new Date();
+//		post.setTime(new Timestamp(date.getTime()));
+//		post.setStatusId(statusService.getOneByStatusCode("DS"));
+//		post.setTypeOfPostId(typeOfPostService.getOneById(typeOfPostId));
+//		postService.update(id,post);
+//		Post postHis = new Post();
+//		postHis.setContent(content);
+//		postHis.setTitle(title);
+//		postHis.setUserId(userService.getOneById(userId));
+//		postHis.setTime(new Timestamp(date.getTime()));
+//		postHis.setStatusId(statusService.getOneByStatusCode("DS"));
+//		postHis.setTypeOfPostId(typeOfPostService.getOneById(typeOfPostId));
+//		postHis.setHistoryOfPostId(post);
+//		postService.save(postHis);
+//		return mav;
+//	}
 	
 	@GetMapping("/xoa-bai-viet/{id}")
 	public ModelAndView deletePost(@PathVariable Long id) {
@@ -459,79 +416,79 @@ public class AdminController {
 		return mav;
 	}
 
-	@GetMapping("/them-binh-luan")
-	public ModelAndView addCommentPage() {
-		ModelAndView mav = new ModelAndView("/backend/pages/comment/addcomment");
-		return mav;
-	}
-
-	@PostMapping("/them-binh-luan")
-	public ModelAndView saveComment(@RequestParam Long userId, String content, Long childOfCommentId, Long postId) {
-		ModelAndView mav = new ModelAndView("redirect:/quan-tri/binh-luan");
-		Comment comment = new Comment();
-		comment.setContent(content);
-		comment.setUserId(userService.getOneById(userId));
-		comment.setPostId(postService.getOneById(postId));
-		comment.setStatusId(statusService.getOneByStatusCode("DT"));
-		Date date = new Date();
-		comment.setTime(new Timestamp(date.getTime()));
-		if (childOfCommentId != null) {
-			comment.setChildOfCommentId(commentService.getOneById(childOfCommentId));
-		}
-		commentService.save(comment);
-		Comment commentHis = new Comment();
-		commentHis.setContent(content);
-		commentHis.setUserId(userService.getOneById(userId));
-		commentHis.setPostId(postService.getOneById(postId));
-		commentHis.setStatusId(statusService.getOneByStatusCode("DT"));
-		commentHis.setTime(new Timestamp(date.getTime()));
-		if (childOfCommentId != null) {
-			comment.setChildOfCommentId(commentService.getOneById(childOfCommentId));
-		}
-		commentHis.setHistoryOfCommentId(comment);
-		commentService.save(commentHis);
-		return mav;
-	}
-	
-	@GetMapping("/sua-binh-luan/{id}")
-	public ModelAndView editCommentPage(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("/backend/pages/comment/editcomment");
-		mav.addObject("comment", commentService.getOneById(id));
-		return mav;
-	}
-	
-	@PostMapping("/sua-binh-luan/{id}")
-	public ModelAndView saveComment(@RequestParam Long userId, String content, Long childOfCommentId, Long postId,@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("redirect:/quan-tri/binh-luan");
-		Comment comment = new Comment();
-		comment.setContent(content);
-		comment.setUserId(userService.getOneById(userId));
-		comment.setPostId(postService.getOneById(postId));
-		comment.setStatusId(statusService.getOneByStatusCode("DS"));
-		Date date = new Date();
-		comment.setTime(new Timestamp(date.getTime()));
-		if (childOfCommentId != null) {
-			comment.setChildOfCommentId(commentService.getOneById(childOfCommentId));
-		}
-		commentService.update(id,comment);
-		Comment commentHis = new Comment();
-		commentHis.setContent(content);
-		commentHis.setUserId(userService.getOneById(userId));
-		commentHis.setPostId(postService.getOneById(postId));
-		commentHis.setStatusId(statusService.getOneByStatusCode("DS"));
-		commentHis.setTime(new Timestamp(date.getTime()));
-		if (childOfCommentId != null) {
-			comment.setChildOfCommentId(commentService.getOneById(childOfCommentId));
-		}
-		commentHis.setHistoryOfCommentId(comment);
-		commentService.save(commentHis);
-		return mav;
-	}
-	
-	@GetMapping("/xoa-binh-luan/{id}")
-	public ModelAndView deleteComment(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("redirect:/quan-tri/binh-luan");
-		commentService.delete(id);
-		return mav;
-	}
+//	@GetMapping("/them-binh-luan")
+//	public ModelAndView addCommentPage() {
+//		ModelAndView mav = new ModelAndView("/backend/pages/comment/addcomment");
+//		return mav;
+//	}
+//
+//	@PostMapping("/them-binh-luan")
+//	public ModelAndView saveComment(@RequestParam Long userId, String content, Long childOfCommentId, Long postId) {
+//		ModelAndView mav = new ModelAndView("redirect:/quan-tri/binh-luan");
+//		Comment comment = new Comment();
+//		comment.setContent(content);
+//		comment.setUserId(userService.getOneById(userId));
+//		comment.setPostId(postService.getOneById(postId));
+//		comment.setStatusId(statusService.getOneByStatusCode("DT"));
+//		Date date = new Date();
+//		comment.setTime(new Timestamp(date.getTime()));
+//		if (childOfCommentId != null) {
+//			comment.setChildOfCommentId(commentService.getOneById(childOfCommentId));
+//		}
+//		commentService.save(comment);
+//		Comment commentHis = new Comment();
+//		commentHis.setContent(content);
+//		commentHis.setUserId(userService.getOneById(userId));
+//		commentHis.setPostId(postService.getOneById(postId));
+//		commentHis.setStatusId(statusService.getOneByStatusCode("DT"));
+//		commentHis.setTime(new Timestamp(date.getTime()));
+//		if (childOfCommentId != null) {
+//			comment.setChildOfCommentId(commentService.getOneById(childOfCommentId));
+//		}
+//		commentHis.setHistoryOfCommentId(comment);
+//		commentService.save(commentHis);
+//		return mav;
+//	}
+//	
+//	@GetMapping("/sua-binh-luan/{id}")
+//	public ModelAndView editCommentPage(@PathVariable Long id) {
+//		ModelAndView mav = new ModelAndView("/backend/pages/comment/editcomment");
+//		mav.addObject("comment", commentService.getOneById(id));
+//		return mav;
+//	}
+//	
+//	@PostMapping("/sua-binh-luan/{id}")
+//	public ModelAndView saveComment(@RequestParam Long userId, String content, Long childOfCommentId, Long postId,@PathVariable Long id) {
+//		ModelAndView mav = new ModelAndView("redirect:/quan-tri/binh-luan");
+//		Comment comment = new Comment();
+//		comment.setContent(content);
+//		comment.setUserId(userService.getOneById(userId));
+//		comment.setPostId(postService.getOneById(postId));
+//		comment.setStatusId(statusService.getOneByStatusCode("DS"));
+//		Date date = new Date();
+//		comment.setTime(new Timestamp(date.getTime()));
+//		if (childOfCommentId != null) {
+//			comment.setChildOfCommentId(commentService.getOneById(childOfCommentId));
+//		}
+//		commentService.update(id,comment);
+//		Comment commentHis = new Comment();
+//		commentHis.setContent(content);
+//		commentHis.setUserId(userService.getOneById(userId));
+//		commentHis.setPostId(postService.getOneById(postId));
+//		commentHis.setStatusId(statusService.getOneByStatusCode("DS"));
+//		commentHis.setTime(new Timestamp(date.getTime()));
+//		if (childOfCommentId != null) {
+//			comment.setChildOfCommentId(commentService.getOneById(childOfCommentId));
+//		}
+//		commentHis.setHistoryOfCommentId(comment);
+//		commentService.save(commentHis);
+//		return mav;
+//	}
+//	
+//	@GetMapping("/xoa-binh-luan/{id}")
+//	public ModelAndView deleteComment(@PathVariable Long id) {
+//		ModelAndView mav = new ModelAndView("redirect:/quan-tri/binh-luan");
+//		commentService.delete(id);
+//		return mav;
+//	}
 }

@@ -52,6 +52,10 @@ public class ReportService {
 		return reportRepo.findAllByTimeBetween(startTime, endTime);
 	}
 	
+	public Long getNumberOfReport() {
+		return reportRepo.count();
+	}
+	
 	public Report save(Report report) {
 		return reportRepo.save(report);
 	}

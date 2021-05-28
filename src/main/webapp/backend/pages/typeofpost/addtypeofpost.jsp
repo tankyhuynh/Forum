@@ -21,7 +21,7 @@
 					<div class="container">
 						<div
 							class="d-sm-flex align-items-center justify-content-between mb-4">
-							<h1 class="h3 mb-0 text-gray-800">Thêm Thể loại bài viết</h1>
+							<h1 class="h3 mb-0 text-gray-800">Thêm thể loại bài viết</h1>
 						</div>
 						<form action="<c:url value='/quan-tri/them-the-loai-bai-viet'/>" method="post"
 							style="width: 100%; margin-left: auto; margin-right: auto;">

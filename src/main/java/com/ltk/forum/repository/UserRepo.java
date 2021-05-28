@@ -19,6 +19,7 @@ public interface UserRepo extends JpaRepository<User, Long> {
 	List<User> findAllByGender(String gender);
 	List<User> findAllByRoleId(Role roleId);
 
+	long count();
 	
 	
 }

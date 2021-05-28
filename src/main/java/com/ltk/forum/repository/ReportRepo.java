@@ -22,4 +22,6 @@ public interface ReportRepo extends JpaRepository<Report, Long> {
 	List<Report> findAllByTypeOfReportId(TypeOfReport typeOfReportId);
 	List<Report> findAllByTimeBetween(Timestamp startTime, Timestamp endTime);
 	
+	long count();
+	
 }

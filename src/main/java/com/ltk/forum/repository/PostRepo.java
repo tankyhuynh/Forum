@@ -38,6 +38,8 @@ public interface PostRepo extends JpaRepository<Post, Long> {
 			  + "GROUP BY (b.id) "
 			  + "ORDER BY COUNT(a.id) DESC")
 	List<ICountPost> rank(Pageable pageable);
+	
+	int countByHistoryOfPostIdIsNull();
 
 	
 }
