@@ -36,7 +36,7 @@
 					<form class="d-flex" style="margin-right: 10px;" method="get" action="<c:url value='/bai-viet'/>">
 						<input class="form-control me-2" type="search"
 							placeholder="Tìm kiếm" name="title" aria-label="Search" onkeyup="return liveSearch(this.value)">
-						<div style="position: absolute;padding: 10px ;display: none;margin-top: 37px;width: auto;min-width: 230px;" id="livesearch">
+						<div style="position: absolute;padding: 10px ;background-color:white;display: none;margin-top: 38px;width: auto;min-width: 230px;" id="livesearch">
 							
 						</div>
 						<button class="btn btn-outline-dark" type="submit">Tìm</button>
