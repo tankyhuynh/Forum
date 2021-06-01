@@ -20,5 +20,5 @@ public interface CommentRepo extends JpaRepository<Comment, Long> {
 	List<Comment> findAllByPostId(Post postId);
 	List<Comment> findAllByHistoryOfCommentIdIsNullAndChildOfCommentIdIsNullAndPostId(Post postId);
 
-	
+	int countByHistoryOfCommentIdIsNull();
 }

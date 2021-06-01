@@ -1,4 +1,5 @@
 <%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,10 +35,11 @@
                        <!--  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
-
+					
+					<form:form method="GET" modelAttribute="total">
                     <!-- Content Row -->
                     <div class="row">
-
+						
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
@@ -46,7 +48,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Tổng số bài viết</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$Bien o day</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${total.totalPost}</div>
                                         </div>
                                         <!-- <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -64,7 +66,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Tổng số báo cáo</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$Bien o day</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${total.totalReport}</div>
                                         </div>
                                         <!-- <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -84,7 +86,7 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">$ Bien o day</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${total.totalUser}</div>
                                                 </div>
                                                 <!-- <div class="col">
                                                     <div class="progress progress-sm mr-2">
@@ -111,7 +113,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Tổng bình luận</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$Bien o day</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${total.totalComment}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -120,8 +122,9 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
-
+					</form:form>
                     <!-- Content Row -->
 
                     <div class="row">

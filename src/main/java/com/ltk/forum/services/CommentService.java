@@ -37,6 +37,10 @@ public class CommentService {
 		
 	}
 	
+	public int getNumberOfComment() {
+		return commentRepo.countByHistoryOfCommentIdIsNull();
+	}
+	
 	public Comment getOneById(Long id) {
 		return commentRepo.findOneById(id);
 	}

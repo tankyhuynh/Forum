@@ -20,7 +20,7 @@
 					<div class="container">
 						<div
 							class="d-sm-flex align-items-center justify-content-between mb-4">
-							<h1 class="h3 mb-0 text-gray-800">Trang chủ Thể loại bài viết</h1>
+							<h1 class="h3 mb-0 text-gray-800">Trang chủ thể loại bài viết</h1>
 						</div>
 						<a href="<c:url value='/quan-tri/them-the-loai-bai-viet'/>"
 							class="btn btn-success mb-3">Thêm thể loại</a>

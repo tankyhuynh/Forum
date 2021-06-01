@@ -11,17 +11,21 @@
 <title>Document</title>
 <link rel="stylesheet"
 	href="<c:url value='/assets/shared/css/style.css' />">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- report error -->
 	<c:if test="${param.incorrectAccount != null}">
-		<div class="alert alert-danger alert-dismissible fade show"
+		<div style="text-align: center;" class="alert alert-danger alert-dismissible fade show"
 			role="alert">
-			<strong>Tài khoảng hoặc mật khẩu không đúng</strong>
+			<strong>Tài khoản hoặc mật khẩu không đúng</strong>
 			<button type="button" class="close" data-dismiss="alert"
 				aria-label="Close">
 				<span aria-hidden="true">&times;</span>
