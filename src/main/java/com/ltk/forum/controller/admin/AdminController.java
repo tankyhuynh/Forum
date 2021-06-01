@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ltk.forum.dto.BaseDTO;
 import com.ltk.forum.model.Comment;
 import com.ltk.forum.model.Post;
 import com.ltk.forum.model.Report;
@@ -50,11 +51,14 @@ public class AdminController {
 	private PostService postService;
 	@Autowired
 	CommentService commentService;
+	
 
 	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	@GetMapping
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("backend/index");
+		BaseDTO dto = new BaseDTO();
+		
 		return mav;
 	}
 
