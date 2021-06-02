@@ -87,6 +87,8 @@ public class PostController {
 		List<Post> posts = postService.getAllByTypeOfPostId(typeOfPostService.getOneById(id));
 		List<TypeOfPost> typeOfPost = typeOfPostService.getAll();	
 		ModelAndView mav = new ModelAndView("/frontend/pages/post");
+		Pageable pageable = PageRequest.of(0, 10);
+		mav.addObject("rankList",postRepo.rank(pageable));
 		mav.addObject("postList", posts);
 		mav.addObject("typeOfPostList", typeOfPost);
 		mav.addObject("title", "Bài viết");
