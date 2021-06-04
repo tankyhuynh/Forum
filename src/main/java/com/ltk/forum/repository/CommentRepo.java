@@ -18,7 +18,8 @@ public interface CommentRepo extends JpaRepository<Comment, Long> {
 	
 	List<Comment> findAllByTimeBetween(Timestamp startTime, Timestamp endTime);
 	List<Comment> findAllByPostId(Post postId);
-	List<Comment> findAllByHistoryOfCommentIdIsNullAndChildOfCommentIdIsNullAndPostId(Post postId);
+	//List<Comment> findAllByHistoryOfCommentIdIsNullAndChildOfCommentIdIsNullAndPostId(Post postId);
+	List<Comment> findAllByHistoryOfCommentIdIsNull();
 
 	int countByHistoryOfCommentIdIsNull();
 }

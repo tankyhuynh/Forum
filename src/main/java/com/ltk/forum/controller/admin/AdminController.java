@@ -420,7 +420,7 @@ public class AdminController {
 	@GetMapping("/binh-luan")
 	public ModelAndView commentHomePage() {
 		ModelAndView mav = new ModelAndView("/backend/pages/comment/index");
-		mav.addObject("commentList", commentService.getAll());
+		mav.addObject("commentList", commentService.getAllByNullHistoryOfComment());
 		return mav;
 	}
 
