@@ -71,12 +71,12 @@ form span{
 									<div>
 										<div class="form-check form-check-inline">
 											<input class="form-check-input" type="radio"
-												name="gender" id="gender1" value="0" checked>
+												name="gender" id="gender1" value="1" checked>
 											<label class="form-check-label" for="gender1">Nam</label>
 										</div>
 										<div class="form-check form-check-inline">
 											<input class="form-check-input" type="radio"
-												name="gender" id="gender2" value="1">
+												name="gender" id="gender2" value="0">
 											<label class="form-check-label" for="gender2">Nữ</label>
 										</div>
 									</div>
