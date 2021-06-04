@@ -30,9 +30,9 @@ public class CommentService {
 		return commentRepo.findAllByHistoryOfCommentIdIsNull();
 	}
 	
-//	public List<Comment> getAllByNullHistoryOfComment(Post postId){
-//		return commentRepo.findAllByHistoryOfCommentIdIsNullAndChildOfCommentIdIsNullAndPostId(postId);
-//	}
+	public List<Comment> getAllByNullHistoryOfComment(Post postId){
+		return commentRepo.findAllByHistoryOfCommentIdIsNullAndChildOfCommentIdIsNullAndPostId(postId);
+	}
 	
 	public List<Comment> getAllSortBy(String fieldName, String typeOfSort) {
 		typeOfSort = typeOfSort.toLowerCase();
